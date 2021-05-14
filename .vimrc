@@ -15,6 +15,7 @@ set directory=~/tmp,.
 set history=1000
 set hlsearch
 set ignorecase
+set incsearch
 set mouse=a
 set nocompatible
 set noequalalways
