@@ -6,7 +6,6 @@
 syntax on
 filetype plugin indent on
 
-set autoread
 set backspace=indent,eol,start
 set belloff=all
 set clipboard=unnamed
