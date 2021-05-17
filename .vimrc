@@ -77,7 +77,7 @@ let mapleader = " "
 "Normal, Visual, Select, Operator-pending Modes
 
    "- to edit directory of current file
-   map - :e %:p:h<CR>
+   map - :edit %:p:h<CR>
 
    "Leader / to case-sensitive, very magic search (i.e. regex search)
    map <leader>/ /\C\v
