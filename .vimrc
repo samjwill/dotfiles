@@ -77,7 +77,7 @@ let mapleader = " "
    "- to edit directory of current file
    map <silent> - :e %:p:h<CR>
 
-   "Leader / to case-sensitive, very magic search (i.e. regex search)
+   "Leader-/ to case-sensitive, very magic search (i.e. regex search)
    map <leader>/ /\C\v
 
    "TODO: May want to map *, #, g*, gD, etc. to be case sensitive.
