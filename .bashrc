@@ -12,7 +12,6 @@ stty -ixon -ixoff #Enable Ctrl+s to forward search.
 shopt -s histappend
 
 alias ls='ls -F --color=auto --show-control-chars'
-alias tree='cmd //c tree //a //f'
 alias grep='grep --color=auto'
 
 CYAN='\[\033[1;36m\]'
@@ -21,4 +20,3 @@ YELLOW='\[\033[1;33m\]'
 NC='\[\033[0m\]'
 export PS1=${GREEN}\\u@\\h\ ${YELLOW}\\w${CYAN}\`__git_ps1\`\ ${NC}\\$\ 
 export TERM=xterm-256color
-
