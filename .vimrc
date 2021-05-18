@@ -162,9 +162,36 @@ function s:handle_cmdline_changed()
    endif
 endfunction
 
+let g:enter_was_pressed = 0
+
+function s:handle_cmdline_leave()
+   if (!g:enter_was_pressed)
+      set nohlsearch
+      return
+   endif
+
+   let cmdwin_char = expand('<afile>')
+   let is_search = (cmdwin_char == "/" || cmdwin_char == "?")
+   if is_search
+      set hlsearch
+   else
+      set nohlsearch
+   endif
+   let g:enter_was_pressed = 0
+endfunction
+
+function s:handle_enter_pressed()
+   let g:enter_was_pressed = 1
+   call feedkeys("\<CR>", "n")
+   return ""
+endfunction
+
 autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
+autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
+
+cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
 
 noremap <silent> n :set hlsearch<CR>n
 noremap <silent> N :set hlsearch<CR>N
