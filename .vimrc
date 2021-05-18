@@ -199,14 +199,14 @@ autocmd InsertEnter * set nohlsearch
 "TODO: See if there's a way to map shift-enter as well.
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
 
-noremap <silent> n :set hlsearch<CR>n
-noremap <silent> N :set hlsearch<CR>N
-noremap <silent> * :set hlsearch<CR>*
-noremap <silent> # :set hlsearch<CR>#
-noremap <silent> g* :set hlsearch<CR>g*
-noremap <silent> g# :set hlsearch<CR>g#
-noremap <silent> gd :set hlsearch<CR>gd
-noremap <silent> gD :set hlsearch<CR>gD
+noremap <silent> n n:set hlsearch<CR>
+noremap <silent> N N:set hlsearch<CR>
+noremap <silent> * *:set hlsearch<CR>
+noremap <silent> # #:set hlsearch<CR>
+noremap <silent> g* g*:set hlsearch<CR>
+noremap <silent> g# g#:set hlsearch<CR>
+noremap <silent> gd gd:set hlsearch<CR>
+noremap <silent> gD gD:set hlsearch<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   TODOs                                      "
