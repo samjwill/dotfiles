@@ -13,6 +13,7 @@ set confirm
 set directory=~/tmp,.
 set history=1000
 set ignorecase
+set incsearch
 set mouse=a
 set nocompatible
 set noequalalways
@@ -140,7 +141,6 @@ set statusline+=%0*     "clear color
 "Turn off search highlighting once done searching
 
 set nohlsearch
-set incsearch
 
 function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
