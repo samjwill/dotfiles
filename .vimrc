@@ -153,25 +153,29 @@ function s:handle_cursor_moved()
 endfunction
 
 function s:handle_cmdline_changed()
-   let hlsearch_enabled = &hlsearch
-   if hlsearch_enabled
-      return
-   endif
-
    let cmd_type = getcmdtype()
    let is_search = (cmd_type == "/" || cmd_type == "?")
    if is_search
       set hlsearch
+   else
+      set nohlsearch
+   endif
+endfunction
+
+function s:handle_cmdline_leave()
+   let cmdwin_char = expand('<afile>')
+   let is_search = (cmdwin_char == "/" || cmdwin_char == "?")
+   if is_search
+      set hlsearch
+   else
+      set nohlsearch
    endif
 endfunction
 
 autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
+autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
-
-"Disable hlsearch when abandoning command mode
-cnoremap <silent> <C-c> <C-c>:set nohlsearch<CR>
-"cnoremap <silent> <Esc> <Esc>:set nohlsearch<CR> "<-- THIS DOESNT WORK FOR SOME REASON
 
 noremap <silent> n :set hlsearch<CR>n
 noremap <silent> N :set hlsearch<CR>N
@@ -190,3 +194,4 @@ noremap <silent> gD :set hlsearch<CR>gD
 "Find way to set persistent "very no magic" mode (":set nomagic ignorecase" is close)
 
 "Find way to set multiple highlights of different colors
+
