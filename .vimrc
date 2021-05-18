@@ -19,7 +19,6 @@ set noequalalways
 set nomagic
 set noshowmatch
 set nowrap
-set number
 set scrolloff=0
 set showcmd
 set t_Co=256
@@ -45,6 +44,9 @@ set wildmode=longest:full,full
 set autochdir
 let g:netrw_keepdir=0
 
+set number
+let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "sets 'number' for netrw
+
 set splitright
 let g:netrw_altv=1
 
@@ -56,7 +58,6 @@ let g:netrw_alto=1
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "sets 'number' for netrw
 let g:netrw_liststyle=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
