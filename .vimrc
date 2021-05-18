@@ -6,15 +6,14 @@
 syntax on
 filetype plugin indent on
 
+set autoread
 set backspace=indent,eol,start
 set belloff=all
 set clipboard=unnamed
 set confirm
 set directory=~/tmp,.
 set history=1000
-set hlsearch
 set ignorecase
-set incsearch
 set mouse=a
 set nocompatible
 set noequalalways
@@ -76,7 +75,7 @@ let mapleader = " "
 "Normal, Visual, Select, Operator-pending Modes
 
    "- to edit directory of current file
-   map - :edit %:p:h<CR>
+   map - :e %:p:h<CR>
 
    "Leader / to case-sensitive, very magic search (i.e. regex search)
    map <leader>/ /\C\v
@@ -132,7 +131,55 @@ set statusline+=\       "space
 set statusline+=%0*     "clear color
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Highlighting                                  "
+"                                                                              "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Enable auto-hlsearch
+
+function s:disable_hlsearch_if_necessary()
+   let hlsearch_enabled = &hlsearch
+   if !hlsearch_enabled
+      return
+   endif
+
+   let last_search = @/
+   "Limit search to current line, starting with character under cursor
+   let pos_of_next_match = searchpos(last_search, "cnz", line(".")) 
+   let cursor_pos = [line("."), col(".")]
+
+   if cursor_pos != pos_of_next_match
+      set nohlsearch
+   endif
+endfunction
+
+function s:enable_hlsearch_if_necessary()
+   let hlsearch_enabled = &hlsearch
+   if hlsearch_enabled
+      return
+   endif
+
+   let cmd_type = getcmdtype()
+   let is_search = (cmd_type == "/" || cmd_type == "?")
+   if is_search
+      set hlsearch
+   endif
+endfunction
+
+autocmd CursorMoved * call <SID>disable_hlsearch_if_necessary()
+autocmd CmdlineLeave * call <SID>disable_hlsearch_if_necessary()
+autocmd CmdlineChanged * call <SID>enable_hlsearch_if_necessary()
+autocmd InsertEnter * set nohlsearch
+
+noremap <silent> n :set hlsearch<CR>n
+noremap <silent> N :set hlsearch<CR>N
+noremap <silent> * :set hlsearch<CR>*
+noremap <silent> # :set hlsearch<CR>#
+noremap <silent> g* :set hlsearch<CR>g*
+noremap <silent> g# :set hlsearch<CR>g#
+noremap <silent> gd :set hlsearch<CR>gd
+noremap <silent> gD :set hlsearch<CR>gD
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   TODOs                                      "
@@ -142,5 +189,3 @@ set statusline+=%0*     "clear color
 "Find way to set persistent "very no magic" mode (":set nomagic ignorecase" is close)
 
 "Find way to set multiple highlights of different colors
-
-"Find way to disable highlight search as soon as cursor is moved after done searching
