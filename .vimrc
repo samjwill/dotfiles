@@ -89,6 +89,7 @@ let mapleader = " "
 
 colorscheme slate
 
+"Prevents undesired statusline color inversion
 highlight StatusLine term=Reverse cterm=Reverse
 highlight StatusLineTerm term=Reverse cterm=Reverse
 highlight StatusLineTermNC term=Reverse cterm=Reverse
