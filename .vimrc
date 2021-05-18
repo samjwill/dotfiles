@@ -80,7 +80,7 @@ let mapleader = " "
    "Leader-/ to case-sensitive, very magic search (i.e. regex search)
    map <leader>/ /\C\v
 
-   "TODO: May want to map *, #, g*, gD, etc. to be case sensitive.
+   "TODO: May want to map leader + *, #, g*, gD, etc. to be case sensitive.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           StatusLine and Colors                              "
