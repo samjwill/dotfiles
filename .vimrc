@@ -44,14 +44,14 @@ set wildmode=longest:full,full
 set autochdir
 let g:netrw_keepdir=0
 
-set number
-let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "sets 'number' for netrw
-
 set splitright
 let g:netrw_altv=1
 
 set splitbelow
 let g:netrw_alto=1
+
+set number
+let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               Netrw Settings                                 "
@@ -75,10 +75,12 @@ let mapleader = " "
 "Normal, Visual, Select, Operator-pending Modes
 
    "- to edit directory of current file
-   map - :e %:p:h<CR>
+   map <silent> - :e %:p:h<CR>
 
    "Leader / to case-sensitive, very magic search (i.e. regex search)
    map <leader>/ /\C\v
+
+   "TODO: May want to map *, #, g*, gD, etc. to be case sensitive.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           StatusLine and Colors                              "
@@ -136,6 +138,8 @@ set statusline+=%0*     "clear color
 "                             Auto-(no)hlsearch                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set hlsearch
+set incsearch
 
 function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
@@ -163,6 +167,7 @@ function s:handle_cmdline_changed()
    endif
 endfunction
 
+"TODO: Figure out if there's a way to avoid tracking state like this.
 let g:enter_was_pressed = 0
 
 function s:handle_cmdline_leave()
@@ -192,6 +197,7 @@ autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
 autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
 
+"TODO: See if there's a way to map shift-enter as well.
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
 
 noremap <silent> n :set hlsearch<CR>n
