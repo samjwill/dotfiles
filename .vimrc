@@ -141,6 +141,7 @@ set statusline+=%0*     "clear color
 "Turn off search highlighting once done searching
 
 set nohlsearch
+let g:enter_was_pressed = 0 "TODO: Figure out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
@@ -167,9 +168,6 @@ function s:handle_cmdline_changed()
       set nohlsearch
    endif
 endfunction
-
-"TODO: Figure out if there's a way to avoid tracking state like this.
-let g:enter_was_pressed = 0
 
 function s:handle_cmdline_leave()
    if (!g:enter_was_pressed)
