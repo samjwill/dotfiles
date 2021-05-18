@@ -138,6 +138,7 @@ set statusline+=%0*     "clear color
 "                                Highlighting                                  "
 "                             Auto-(no)hlsearch                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Turn off search highlighting once done searching
 
 set nohlsearch
 set incsearch
