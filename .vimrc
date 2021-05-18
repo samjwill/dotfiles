@@ -132,10 +132,9 @@ set statusline+=%0*     "clear color
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Highlighting                                  "
-"                                                                              "
+"                             Auto-(no)hlsearch                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Auto-(no)hlsearch
 
 function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
