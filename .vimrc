@@ -6,7 +6,6 @@
 syntax on
 filetype plugin indent on
 
-set autoread
 set backspace=indent,eol,start
 set belloff=all
 set clipboard=unnamed
@@ -152,7 +151,6 @@ function s:handle_cursor_moved()
    if cursor_pos != pos_of_next_match
       set nohlsearch
    endif
-   echo "CURSOR POS IS: "cursor_pos
 endfunction
 
 function s:handle_cmdline_changed()
@@ -174,6 +172,7 @@ autocmd InsertEnter * set nohlsearch
 
 "Disable hlsearch when abandoning command mode
 cnoremap <silent> <C-c> <C-c>:set nohlsearch<CR>
+"cnoremap <silent> <Esc> <Esc>:set nohlsearch<CR> "<-- THIS DOESNT WORK FOR SOME REASON
 
 noremap <silent> n :set hlsearch<CR>n
 noremap <silent> N :set hlsearch<CR>N
