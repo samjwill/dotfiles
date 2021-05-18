@@ -139,7 +139,7 @@ set statusline+=%0*     "clear color
 "                             Auto-(no)hlsearch                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set hlsearch
+set nohlsearch
 set incsearch
 
 function s:handle_cursor_moved()
