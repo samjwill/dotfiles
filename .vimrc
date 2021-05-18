@@ -136,9 +136,9 @@ set statusline+=%0*     "clear color
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Enable auto-hlsearch
+"Auto-(no)hlsearch
 
-function s:disable_hlsearch_if_necessary()
+function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
    if !hlsearch_enabled
       return
@@ -152,9 +152,10 @@ function s:disable_hlsearch_if_necessary()
    if cursor_pos != pos_of_next_match
       set nohlsearch
    endif
+   echo "CURSOR POS IS: "cursor_pos
 endfunction
 
-function s:enable_hlsearch_if_necessary()
+function s:handle_cmdline_changed()
    let hlsearch_enabled = &hlsearch
    if hlsearch_enabled
       return
@@ -167,10 +168,12 @@ function s:enable_hlsearch_if_necessary()
    endif
 endfunction
 
-autocmd CursorMoved * call <SID>disable_hlsearch_if_necessary()
-autocmd CmdlineLeave * call <SID>disable_hlsearch_if_necessary()
-autocmd CmdlineChanged * call <SID>enable_hlsearch_if_necessary()
+autocmd CursorMoved * call <SID>handle_cursor_moved()
+autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
 autocmd InsertEnter * set nohlsearch
+
+"Disable hlsearch when abandoning command mode
+cnoremap <silent> <C-c> <C-c>:set nohlsearch<CR>
 
 noremap <silent> n :set hlsearch<CR>n
 noremap <silent> N :set hlsearch<CR>N
