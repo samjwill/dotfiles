@@ -194,7 +194,7 @@ autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
 autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
-"TODO: Attach autocmd to evaluate whether hlsearch should be enabled after user search history window (/+<C-f>)
+"TODO: Attach autocmd to evaluate whether hlsearch should be enabled upon leaving search history window (/+<C-f>)
 
 "TODO: See if there's a way to map shift-enter as well.
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
