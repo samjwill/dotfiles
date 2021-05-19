@@ -144,8 +144,7 @@ set nohlsearch
 let g:enter_was_pressed = 0 "TODO: Figure out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
-   let hlsearch_enabled = &hlsearch
-   if !hlsearch_enabled
+   if &hlsearch == 0
       return
    endif
 
