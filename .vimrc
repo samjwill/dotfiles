@@ -149,8 +149,8 @@ function s:handle_cursor_moved()
    endif
 
    let last_search = @/
-   "Limit search to current line, starting with character under cursor
    let cursor_pos = [line("."), col(".")]
+   "Limit search to current line, starting with character under cursor
    let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0]) 
 
    if cursor_pos != pos_of_next_match
