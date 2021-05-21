@@ -12,7 +12,6 @@ set clipboard=unnamed
 set confirm
 set directory=~/tmp,.
 set history=1000
-set ignorecase
 set incsearch
 set mouse=a
 set nocompatible
