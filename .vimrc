@@ -206,3 +206,4 @@ noremap <silent> gD gD:set hlsearch<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Find way to set multiple highlights of different colors
+

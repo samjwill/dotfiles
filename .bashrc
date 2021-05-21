@@ -24,8 +24,8 @@ shopt -s histappend
 #Resize after commands executed
 shopt -s checkwinsize
 
-CYAN='\[\033[01;36m\]'
 GREEN='\[\033[1;32m\]'
+CYAN='\[\033[01;36m\]'
 YELLOW='\[\033[1;93m\]'
 NC='\[\033[0m\]'
 
