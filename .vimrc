@@ -205,6 +205,4 @@ noremap <silent> gD gD:set hlsearch<CR>
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Find way to set persistent "very no magic" mode (":set nomagic ignorecase" is close)
-
 "Find way to set multiple highlights of different colors
