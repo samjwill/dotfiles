@@ -3,6 +3,9 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Needs to be before 'set fileformats' or it will overwrite it.
+set nocompatible
+
 syntax on
 filetype plugin indent on
 
@@ -11,10 +14,10 @@ set belloff=all
 set clipboard=unnamed
 set confirm
 set directory=~/tmp,.
+set fileformats=unix,dos,mac
 set history=1000
 set incsearch
 set mouse=a
-set nocompatible
 set noequalalways
 set nomagic
 set nowrap
