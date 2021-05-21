@@ -29,9 +29,7 @@ CYAN='\[\033[01;36m\]'
 YELLOW='\[\033[1;93m\]'
 NC='\[\033[0m\]'
 
-git --version 2>&1 >/dev/null
-GIT_IS_AVAILABLE=$?
-if [ $GIT_IS_AVAILABLE ]; then
+if [ "$(type -t __git_ps1)" = 'function' ]; then
    export PS1=${GREEN}\\u@\\h\ ${CYAN}\\w${YELLOW}\`__git_ps1\`\ ${NC}\\$\ 
 else
    export PS1=${GREEN}\\u@\\h\ ${CYAN}\\w${YELLOW}\ ${NC}\\$\ 
