@@ -64,9 +64,7 @@ let g:netrw_liststyle=1
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader = " "
-
-""Insert Mode
+"Insert Mode
 
    "shift-tab to inverse tab
    inoremap <S-Tab> <C-d>
@@ -75,11 +73,6 @@ let mapleader = " "
 
    "- to edit directory of current file
    map <silent> - :e %:p:h<CR>
-
-   "Leader-/ to case-sensitive, very magic search (i.e. regex search)
-   map <leader>/ /\C\v
-
-   "TODO: May want to map <leader>- *, #, g*, g#, gd, gD, etc. to be case sensitive.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           StatusLine and Colors                              "
@@ -150,7 +143,7 @@ function s:handle_cursor_moved()
    let last_search = @/
    let cursor_pos = [line("."), col(".")]
    "Limit search to current line, starting with character under cursor
-   let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0]) 
+   let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0])
 
    if cursor_pos != pos_of_next_match
       set nohlsearch
