@@ -173,6 +173,7 @@ function s:handle_cmdline_leave()
    else
       set nohlsearch
    endif
+
    let g:enter_was_pressed = 0
 endfunction
 
