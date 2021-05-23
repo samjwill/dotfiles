@@ -4,6 +4,7 @@ case $- in
       *) return;;
 esac
 
+bind 'set bell-style none'
 bind 'set show-all-if-ambiguous on'
 bind 'set show-all-if-unmodified on'
 bind 'set menu-complete-display-prefix on'
