@@ -163,7 +163,7 @@ endfunction
 
 "TODO: Is there a clean way to set the variable without needing a function with feedkeys?
 "Maybe look into :h E199?
-function s:handle_enter_pressed()
+function s:handle_enter_pressed_in_cmdline()
    let g:enter_was_pressed = 1
    call feedkeys("\<CR>", "n")
    return ""
@@ -178,7 +178,7 @@ autocmd CmdwinLeave [\/\?] nunmap <CR>
 autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd InsertEnter * set nohlsearch
 
-cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
+cnoremap <silent><expr> <CR> <SID>handle_enter_pressed_in_cmdline()
 
 noremap <silent> n n:set hlsearch<CR>
 noremap <silent> N N:set hlsearch<CR>
