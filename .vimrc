@@ -135,11 +135,11 @@ set statusline+=%0*     "clear color
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Turn off search highlighting once done searching
 
-set nohlsearch
+set hlsearch
 let g:enter_was_pressed = 0 "TODO: Find out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
-   if &hlsearch == 0 "See :h expr-option
+   if v:hlsearch == 0 "See :h expr-option
       return
    endif
 
@@ -148,16 +148,15 @@ function s:handle_cursor_moved()
    "Limit search to current line, starting with character under cursor
    let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0])
    if cursor_pos != pos_of_next_match
-      set nohlsearch
+      call feedkeys(":noautocmd silent nohlsearch\<CR>", "n")
    endif
 endfunction
 
 function s:handle_cmdline_leave()
    if (!g:enter_was_pressed)
-      set nohlsearch
+      call feedkeys(":noautocmd silent nohlsearch\<CR>", "n")
    else
       let g:enter_was_pressed = 0
-      set hlsearch
    endif
 endfunction
 
@@ -167,22 +166,23 @@ function s:handle_enter_pressed_in_cmdline()
 endfunction
 
 "See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
-autocmd CmdlineChanged [\/\?] set hlsearch
+"autocmd CmdlineChanged [\/\?] set hlsearch
 autocmd CmdlineLeave [\/\?] call <SID>handle_cmdline_leave()
 autocmd CmdwinEnter [\/\?] nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
 autocmd CmdwinLeave [\/\?] nunmap <CR>
 
 autocmd CursorMoved * call <SID>handle_cursor_moved()
-autocmd InsertEnter * set nohlsearch
+"See :h i_CTRL-\_CTRL-O
+autocmd InsertEnter * call feedkeys("\<C-\>\<C-o>:noautocmd silent nohlsearch\<CR>", "n")
 
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed_in_cmdline()
 
-noremap <silent> n n:set hlsearch<CR>
-noremap <silent> N N:set hlsearch<CR>
-noremap <silent> * *:set hlsearch<CR>
-noremap <silent> # #:set hlsearch<CR>
-noremap <silent> g* g*:set hlsearch<CR>
-noremap <silent> g# g#:set hlsearch<CR>
-noremap <silent> gd gd:set hlsearch<CR>
-noremap <silent> gD gD:set hlsearch<CR>
+"noremap <silent> n n:set hlsearch<CR>
+"noremap <silent> N N:set hlsearch<CR>
+"noremap <silent> * *:set hlsearch<CR>
+"noremap <silent> # #:set hlsearch<CR>
+"noremap <silent> g* g*:set hlsearch<CR>
+"noremap <silent> g# g#:set hlsearch<CR>
+"noremap <silent> gd gd:set hlsearch<CR>
+"noremap <silent> gD gD:set hlsearch<CR>
 
