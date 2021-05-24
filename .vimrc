@@ -189,12 +189,15 @@ function s:handle_enter_pressed()
 endfunction
 
 autocmd CursorMoved * call <SID>handle_cursor_moved()
-autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
-autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd CmdwinEnter / nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
-autocmd CmdwinLeave / nunmap <CR>
 autocmd CmdwinEnter ? nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
+autocmd CmdwinLeave / nunmap <CR>
 autocmd CmdwinLeave ? nunmap <CR>
+autocmd CmdlineChanged / call <SID>handle_cmdline_changed()
+autocmd CmdlineChanged ? call <SID>handle_cmdline_changed()
+autocmd CmdlineLeave / call <SID>handle_cmdline_leave()
+autocmd CmdlineLeave ? call <SID>handle_cmdline_leave()
+
 autocmd InsertEnter * set nohlsearch
 
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
