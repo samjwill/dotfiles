@@ -208,10 +208,3 @@ noremap <silent> g# g#:set hlsearch<CR>
 noremap <silent> gd gd:set hlsearch<CR>
 noremap <silent> gD gD:set hlsearch<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   TODOs                                      "
-"                                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"Find way to set multiple highlights of different colors
-
