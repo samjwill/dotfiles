@@ -136,7 +136,7 @@ set statusline+=%0*     "clear color
 "Turn off search highlighting once done searching
 
 set nohlsearch
-let g:enter_was_pressed = 0
+let g:enter_was_pressed = 0 "TODO: Find out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
    let hlsearch_enabled = &hlsearch
@@ -181,6 +181,7 @@ function s:handle_cmdline_leave()
    let g:enter_was_pressed = 0
 endfunction
 
+"TODO: Is there a clean way to set the variable without needing a function with feedkeys?
 function s:handle_enter_pressed()
    let g:enter_was_pressed = 1
    call feedkeys("\<CR>", "n")
