@@ -161,12 +161,9 @@ function s:handle_cmdline_leave()
    endif
 endfunction
 
-"TODO: Is there a clean way to set the variable without needing a function with feedkeys?
-"Maybe look into :h E199?
 function s:handle_enter_pressed_in_cmdline()
    let g:enter_was_pressed = 1
-   call feedkeys("\<CR>", "n")
-   return ""
+   return "\<CR>"
 endfunction
 
 "See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
