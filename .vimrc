@@ -136,6 +136,7 @@ set statusline+=%0*     "clear color
 "Turn off search highlighting once done searching
 
 set nohlsearch
+let g:enter_was_pressed = 0 "TODO: Find out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
    if &hlsearch == 0
@@ -162,7 +163,12 @@ function s:handle_cmdline_changed()
    endif
 endfunction
 
-function s:handle_cmd_leave()
+function s:handle_cmdline_leave()
+   if (!g:enter_was_pressed)
+      set nohlsearch
+      return
+   endif
+
    let cmdwin_char = expand('<afile>')
    let is_search = (cmdwin_char == "/" || cmdwin_char == "?")
    if is_search
@@ -170,17 +176,29 @@ function s:handle_cmd_leave()
    else
       set nohlsearch
    endif
+
+   let g:enter_was_pressed = 0
+endfunction
+
+function s:handle_enter_pressed()
+   let g:enter_was_pressed = 1
+   call feedkeys("\<CR>", "n")
+   return ""
 endfunction
 
 autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
-autocmd CmdlineLeave * call <SID>handle_cmd_leave()
-"TODO: Handle leaving command line without pressing enter.
-
-autocmd CmdwinEnter : nnoremap <silent> <CR> :call <SID>handle_cmd_leave()<CR><CR>
-autocmd CmdwinLeave : nunmap <CR>
-
+autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
+
+cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
+
+function! <SID>handle_enter_pressed_in_cmd_win() abort
+   let g:enter_was_pressed = 1
+endfunction
+
+autocmd CmdwinEnter / nnoremap <CR> :<C-U>call <SID>handle_enter_pressed_in_cmd_win()<CR><CR>
+autocmd CmdwinLeave / nunmap <CR>
 
 noremap <silent> n n:set hlsearch<CR>
 noremap <silent> N N:set hlsearch<CR>
