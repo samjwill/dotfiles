@@ -154,51 +154,31 @@ function s:handle_cursor_moved()
    endif
 endfunction
 
-function s:handle_cmdline_changed()
-   let cmd_type = getcmdtype()
-   let is_search = (cmd_type == "/" || cmd_type == "?")
-   if is_search
-      set hlsearch
-   else
-      set nohlsearch
-   endif
-endfunction
-
 function s:handle_cmdline_leave()
    if (!g:enter_was_pressed)
       set nohlsearch
       return
    endif
 
-   let cmdwin_char = expand('<afile>') "See :h CmdlineLeave
-   let is_search = (cmdwin_char == "/" || cmdwin_char == "?")
-   if is_search
-      set hlsearch
-   else
-      set nohlsearch
-   endif
-
+   set hlsearch
    let g:enter_was_pressed = 0
 endfunction
 
 "TODO: Is there a clean way to set the variable without needing a function with feedkeys?
+"Maybe look into :h E199
 function s:handle_enter_pressed()
    let g:enter_was_pressed = 1
    call feedkeys("\<CR>", "n")
    return ""
 endfunction
 
-autocmd CursorMoved * call <SID>handle_cursor_moved()
-"See :h cmdwin-char v
-autocmd CmdwinEnter / nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
-autocmd CmdwinEnter ? nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
-autocmd CmdwinLeave / nunmap <CR>
-autocmd CmdwinLeave ? nunmap <CR>
-autocmd CmdlineChanged / call <SID>handle_cmdline_changed()
-autocmd CmdlineChanged ? call <SID>handle_cmdline_changed()
-autocmd CmdlineLeave / call <SID>handle_cmdline_leave()
-autocmd CmdlineLeave ? call <SID>handle_cmdline_leave()
+"See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
+autocmd CmdwinEnter [/\?] nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
+autocmd CmdwinLeave [/\?] nunmap <CR>
+autocmd CmdlineChanged [/\?] set hlsearch
+autocmd CmdlineLeave [/\?] call <SID>handle_cmdline_leave()
 
+autocmd CursorMoved * call <SID>handle_cursor_moved()
 autocmd InsertEnter * set nohlsearch
 
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
