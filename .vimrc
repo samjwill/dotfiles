@@ -139,8 +139,7 @@ set nohlsearch
 let g:enter_was_pressed = 0 "TODO: Find out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
-   let hlsearch_enabled = &hlsearch
-   if !hlsearch_enabled
+   if &hlsearch == 0 "See :h expr-option
       return
    endif
 
@@ -148,7 +147,6 @@ function s:handle_cursor_moved()
    let cursor_pos = [line("."), col(".")]
    "Limit search to current line, starting with character under cursor
    let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0])
-
    if cursor_pos != pos_of_next_match
       set nohlsearch
    endif
@@ -157,15 +155,14 @@ endfunction
 function s:handle_cmdline_leave()
    if (!g:enter_was_pressed)
       set nohlsearch
-      return
+   else
+      let g:enter_was_pressed = 0
+      set hlsearch
    endif
-
-   set hlsearch
-   let g:enter_was_pressed = 0
 endfunction
 
 "TODO: Is there a clean way to set the variable without needing a function with feedkeys?
-"Maybe look into :h E199
+"Maybe look into :h E199?
 function s:handle_enter_pressed()
    let g:enter_was_pressed = 1
    call feedkeys("\<CR>", "n")
