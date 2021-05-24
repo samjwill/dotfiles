@@ -189,6 +189,7 @@ function s:handle_enter_pressed()
 endfunction
 
 autocmd CursorMoved * call <SID>handle_cursor_moved()
+"See :h cmdwin-char v
 autocmd CmdwinEnter / nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
 autocmd CmdwinEnter ? nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
 autocmd CmdwinLeave / nunmap <CR>
