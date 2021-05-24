@@ -191,14 +191,10 @@ autocmd CmdlineChanged * call <SID>handle_cmdline_changed()
 autocmd CmdlineLeave * call <SID>handle_cmdline_leave()
 autocmd InsertEnter * set nohlsearch
 
-cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
-
-function! <SID>handle_enter_pressed_in_cmd_win() abort
-   let g:enter_was_pressed = 1
-endfunction
-
-autocmd CmdwinEnter / nnoremap <CR> :<C-U>call <SID>handle_enter_pressed_in_cmd_win()<CR><CR>
+autocmd CmdwinEnter / nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
 autocmd CmdwinLeave / nunmap <CR>
+
+cnoremap <silent><expr> <CR> <SID>handle_enter_pressed()
 
 noremap <silent> n n:set hlsearch<CR>
 noremap <silent> N N:set hlsearch<CR>
