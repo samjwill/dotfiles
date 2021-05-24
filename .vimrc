@@ -139,7 +139,8 @@ set nohlsearch
 let g:enter_was_pressed = 0 "TODO: Find out if there's a way to avoid tracking state like this.
 
 function s:handle_cursor_moved()
-   if &hlsearch == 0
+   let hlsearch_enabled = &hlsearch
+   if !hlsearch_enabled
       return
    endif
 
@@ -169,7 +170,7 @@ function s:handle_cmdline_leave()
       return
    endif
 
-   let cmdwin_char = expand('<afile>')
+   let cmdwin_char = expand('<afile>') "See :h CmdlineLeave
    let is_search = (cmdwin_char == "/" || cmdwin_char == "?")
    if is_search
       set hlsearch
@@ -180,6 +181,7 @@ function s:handle_cmdline_leave()
    let g:enter_was_pressed = 0
 endfunction
 
+"TODO: Is there a clean way to set the variable without needing a function with feedkeys?
 function s:handle_enter_pressed()
    let g:enter_was_pressed = 1
    call feedkeys("\<CR>", "n")
