@@ -4,7 +4,7 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Needs to be before 'set fileformats' or it will overwrite it.
+"Needs to be before 'set fileformats' or this will overwrite it.
 set nocompatible
 
 syntax on
