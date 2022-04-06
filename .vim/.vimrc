@@ -1,3 +1,5 @@
+"TODO: Bind Ctrl (s-)tab to cycle tabs
+"TODO: Bind enter to insert newline in normal mode
 "TODO: Make vim respect the XDG standard: https://tlvince.com/vim-respect-xdg
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Vim Settings                                  "
