@@ -1,7 +1,7 @@
 "TODO: Bind Ctrl (s-)tab to cycle tabs
-"TODO: Bind enter to insert newline in normal mode
 "TODO: Make vim respect the XDG standard: https://tlvince.com/vim-respect-xdg
 "TODO: Make client server alias not put vim terminal into normal mode when opening new tab.
+"TODO: Get FZF plugin (check out blines)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Vim Settings                                  "
 "                                                                              "
@@ -49,6 +49,7 @@ set tabstop=3
 set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Settings applied to both Vim and Netrw                     "
@@ -99,6 +100,15 @@ let mapleader = " "
 
    "Open terminal in current window
    noremap <Leader>t :ter ++curwin<CR>
+
+   "See :h modifyOtherKeys
+   let &t_TI = "\<Esc>[>4;2m"
+   let &t_TE = "\<Esc>[>4;m"
+
+   nnoremap <silent> <C-Tab> <C-w>:tabn
+   nnoremap <silent> <C-S-Tab> <C-w>:tabp
+   tnoremap <silent> <C-Tab> <C-w>:tabn
+   tnoremap <silent> <C-S-Tab> <C-w>:tabp
 
 "Insert Mode
 
