@@ -101,15 +101,6 @@ let mapleader = " "
    "Open terminal in current window
    noremap <Leader>t :ter ++curwin<CR>
 
-   "See :h modifyOtherKeys
-   let &t_TI = "\<Esc>[>4;2m"
-   let &t_TE = "\<Esc>[>4;m"
-
-   nnoremap <silent> <C-Tab> <C-w>:tabn
-   nnoremap <silent> <C-S-Tab> <C-w>:tabp
-   tnoremap <silent> <C-Tab> <C-w>:tabn
-   tnoremap <silent> <C-S-Tab> <C-w>:tabp
-
 "Insert Mode
 
    "shift-tab to inverse tab
