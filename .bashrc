@@ -49,6 +49,7 @@ NC='\[\033[00m\]'
 #PS1
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}\\$\ 
 
+#Tell Vim where to find its resource file
 export VIMINIT="source ~/.vim/vimrc"
 
 #TODO: Is this even necessary?
