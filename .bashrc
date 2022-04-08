@@ -49,6 +49,8 @@ NC='\[\033[00m\]'
 #PS1
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}\\$\ 
 
+export VIMINIT="source ~/.vim/vimrc"
+
 #TODO: Is this even necessary?
 if [ "$TERM" == "xterm" ]; then
    export TERM=xterm-256color
