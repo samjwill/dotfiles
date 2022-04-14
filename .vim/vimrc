@@ -105,8 +105,10 @@ let mapleader = " "
    let &t_TI = "\<Esc>[>4;2m"
    let &t_TE = "\<Esc>[>4;m"
 
-   nnoremap <silent> <C-Tab> <C-w>:tabn
-   nnoremap <silent> <C-S-Tab> <C-w>:tabp
+   "Some terminals intercept these keystrokes, so if these mappings don't work,
+   "check the terminal settings.
+   nnoremap <silent> <C-Tab> :tabn
+   nnoremap <silent> <C-S-Tab> :tabp
    tnoremap <silent> <C-Tab> <C-w>:tabn
    tnoremap <silent> <C-S-Tab> <C-w>:tabp
 
