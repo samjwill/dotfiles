@@ -115,8 +115,10 @@ let mapleader = " "
    "check the terminal settings.
    nnoremap <silent> <C-Tab> :tabn<CR>
    nnoremap <silent> <C-S-Tab> :tabp<CR>
+   nnoremap <silent> <C-S-t> :tabnew<CR>
    tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
+   tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           StatusLine and Colors                              "
