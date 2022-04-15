@@ -18,13 +18,13 @@ set clipboard=unnamedplus "On Windows it's `set clipboard=unnamed`
 set confirm
 set directory=~/.vim/swap//,.
 set fileformats=unix,dos,mac
-set hidden
 set history=1000
 set incsearch
 set list
 set listchars=precedes:<,extends:>,tab:\ \ ,trail:_
 set mouse=a
 set noequalalways
+set nohidden
 set nowrap
 set scrolloff=0
 set showcmd
