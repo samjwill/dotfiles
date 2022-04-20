@@ -213,7 +213,17 @@ set guioptions-=T "Hide toolbar
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"FZF fuzzy finder default plugin location on Ubuntu
-if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
-   source /usr/share/doc/fzf/examples/fzf.vim
+"Auto-install vim-plug when launching vim if it's not already installed
+"From https://github.com/junegunn/vim-plug/wiki/tips
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+call plug#begin()
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+call plug#end()
+
