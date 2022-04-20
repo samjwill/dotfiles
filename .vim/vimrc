@@ -1,4 +1,3 @@
-"TODO: Bind Ctrl (s-)tab to cycle tabs
 "TODO: Make vim respect the XDG standard: https://tlvince.com/vim-respect-xdg
 "TODO: Make client server alias not put vim terminal into normal mode when opening new tab.
 "TODO: Get FZF plugin (check out blines)
@@ -19,13 +18,13 @@ set clipboard=unnamedplus "On Windows it's `set clipboard=unnamed`
 set confirm
 set directory=~/.vim/swap//,.
 set fileformats=unix,dos,mac
-set hidden
 set history=1000
 set incsearch
 set list
 set listchars=precedes:<,extends:>,tab:\ \ ,trail:_
 set mouse=a
 set noequalalways
+set nohidden
 set nowrap
 set scrolloff=0
 set showcmd
@@ -41,9 +40,9 @@ set autoindent
 set breakindent
 set copyindent
 set expandtab
-set shiftwidth=3
-set softtabstop=3
-set tabstop=3
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 "Wildmenu
 set wildignorecase
@@ -105,6 +104,17 @@ let mapleader = " "
 
    "shift-tab to inverse tab
    inoremap <S-Tab> <C-d>
+
+"Other
+
+   "Some terminals intercept these keystrokes, so if these mappings don't work,
+   "check the terminal settings.
+   nnoremap <silent> <C-Tab> :tabn<CR>
+   nnoremap <silent> <C-S-Tab> :tabp<CR>
+   nnoremap <silent> <C-S-t> :tabnew<CR>
+   tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
+   tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
+   tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           StatusLine and Colors                              "
