@@ -215,7 +215,6 @@ set guioptions-=T "Hide toolbar
 
 "Auto-install vim-plug when launching vim if it's not already installed
 "From https://github.com/junegunn/vim-plug/wiki/tips
-
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
