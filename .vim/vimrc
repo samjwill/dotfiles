@@ -223,7 +223,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 call plug#end()
 
