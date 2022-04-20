@@ -64,6 +64,7 @@ alias fgrep='fgrep --color=auto'
 
 #TODO: Check if vim is even a valid command before attempting this.
 
+#TODO: If you compile vim with autoservername, may not even need this.
 #Somewhat complex vim client-server alias.
 #Allows for easy opening of files from within vim terminal emulator.
 #First, check if clientserver feature is enabled.
