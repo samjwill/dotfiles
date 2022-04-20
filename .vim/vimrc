@@ -11,6 +11,7 @@ set nocompatible
 
 syntax on
 filetype plugin indent on
+colorscheme slate
 
 set backspace=indent,eol,start
 set belloff=all
@@ -115,11 +116,9 @@ let mapleader = " "
    tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           StatusLine and Colors                              "
+"                                 StatusLine                                   "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-colorscheme slate
 
 set laststatus=2        "set statusline visibility to 'always'
 
@@ -202,6 +201,7 @@ noremap <silent> gD gD:set hlsearch<CR>
 "                               Gvim Settings                                  "
 "                   (only aplies if using Gvim obviously)                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"TODO: Should we move this to .gvimrc?
 
 set guifont=Hack\ 14 "TODO: Can list more fonts here in case Hack isn't available.
 set guioptions-=m "Hide menu bar
