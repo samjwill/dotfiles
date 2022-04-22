@@ -213,6 +213,9 @@ set guioptions-=T "Hide toolbar
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Built-in gdb debugging tool
+packadd termdebug
+
 "Auto-install vim-plug when launching vim if it's not already installed
 "From https://github.com/junegunn/vim-plug/wiki/tips
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -224,5 +227,6 @@ endif
 call plug#begin()
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
