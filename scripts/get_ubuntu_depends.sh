@@ -1,1 +1,1 @@
-sudo apt-get install -y git fzf vim-gtk
+sudo apt-get install -y curl git fzf ripgrep vim-gtk
