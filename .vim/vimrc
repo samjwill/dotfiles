@@ -17,8 +17,8 @@ set backspace=indent,eol,start
 set belloff=all
 set clipboard=unnamedplus "On Windows it's `set clipboard=unnamed`
 set confirm
-"TODO: Just create the swap directory here.
-set directory=~/.vim/swap//,.
+call mkdir($HOME . "/.vim/swap", "p", 0700)
+set directory=~/.vim/swap/,.
 set fileformats=unix,dos,mac
 set history=1000
 set incsearch
