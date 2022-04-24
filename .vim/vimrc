@@ -51,7 +51,6 @@ set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Settings applied to both Vim and Netrw                     "
 "                                                                              "

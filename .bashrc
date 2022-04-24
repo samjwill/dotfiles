@@ -130,3 +130,4 @@ fi
 if [ -r "$FZF_ROOT/shell/completion.bash" ]; then
    source $FZF_ROOT/shell/completion.bash
 fi
+
