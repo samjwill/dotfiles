@@ -114,17 +114,20 @@ if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
    }
 fi
 
+
+
 # We install FZF as a plugin for Vim, and it pulls the binaries down to this
 # directory. Let's just use these binaries for the shell as well to avoid
 # versioning weirdness associated with also installing FZF through the package
 # manager
-if [ -d "$HOME/.vim/plugged/fzf/bin/" ] ; then
+export FZF_ROOT="$HOME/.vim/plugged/fzf"
+if [ -d "$FZF_ROOT/bin" ] ; then
       PATH="$PATH:$HOME/.vim/plugged/fzf/bin"
 fi
 #Add keybindings and completion from FZF from their default location in Ubuntu
-if [ -r "$HOME/.vim/plugged/fzf/shell/key-bindings.bash" ]; then
-   source $HOME/.vim/plugged/fzf/shell/key-bindings.bash
+if [ -r "$FZF_ROOT/shell/key-bindings.bash" ]; then
+   source $FZF_ROOT/shell/key-bindings.bash
 fi
-if [ -r "$HOME/.vim/plugged/fzf/shell/completion.bash" ]; then
-   source $HOME/.vim/plugged/fzf/shell/completion.bash
+if [ -r "$FZF_ROOT/shell/completion.bash" ]; then
+   source $FZF_ROOT/shell/completion.bash
 fi
