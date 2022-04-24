@@ -225,7 +225,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
 call plug#end()
