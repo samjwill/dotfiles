@@ -70,7 +70,7 @@ let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:netrw_banner=0
-let g:netrw_liststyle=3
+let g:netrw_liststyle=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   Keybinds                                   "
