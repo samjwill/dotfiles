@@ -1,2 +1,2 @@
 apt-get install -y curl git ripgrep vim-gtk
-vim -s +PlugInstall +qall
+vim -E -s +PlugInstall +qall
