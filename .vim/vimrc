@@ -113,6 +113,7 @@ let mapleader = " "
    tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
    tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
+" TODO bind in visual mode too
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
