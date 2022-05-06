@@ -150,3 +150,6 @@ clear() (
 
 bind -x '"\C-L": clear' #Need to rebind this because `set -o vi` breaks the original binding and also because this preserves text that is currently on the screen when clearing.
 bind '"\C-m": "\C-l\C-j"' #Clear before entering new commands
+function cd {
+    builtin cd "$@" && ls -F
+}
