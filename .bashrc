@@ -45,6 +45,7 @@ GREEN='\[\033[01;32m\]'
 LIGHTBLUE='\[\033[01;34m\]'
 NC='\[\033[00m\]'
 
+#TODO: Warn if return code of last command was non-zero
 #PS1
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}\\$\ 
 
