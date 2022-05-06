@@ -5,7 +5,6 @@ case $- in
 esac
 
 set -o vi
-bind '"\C-L": clear-screen' #Need to rebind this because `set -o vi` breaks the original binding.
 
 bind 'set bell-style none'
 bind 'set show-all-if-ambiguous on'
@@ -131,3 +130,23 @@ if [ -r "$FZF_ROOT/shell/completion.bash" ]; then
    source $FZF_ROOT/shell/completion.bash
 fi
 
+
+###################################################################################################################################
+#TODO: Not sure if I love this or not. Maybe needs a bit of tweaking
+clear() (
+   if [ "$#" -ne 0 ]; then
+      command clear "$@"
+      exit
+   fi
+   h="$(tput lines 2>/dev/null)"
+   if [ "$?" -eq 0 ]; then
+      until [ "$h" -le 1 ]; do
+         printf '\n'
+         h=$((h-1))
+      done
+   fi
+   command clear -x
+)
+
+bind -x '"\C-L": clear' #Need to rebind this because `set -o vi` breaks the original binding and also because this preserves text that is currently on the screen when clearing.
+bind '"\C-m": "\C-l\C-j"' #Clear before entering new commands
