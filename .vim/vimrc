@@ -115,6 +115,24 @@ let mapleader = " "
    tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
 " TODO bind in visual mode too
 
+function! s:handle_curdir_command(commands)
+   "See h: filename-modifiers
+   let directory_of_buffer = expand("%:p")
+   if directory_of_buffer == ""
+      let directory_of_buffer = getcwd()
+   endif
+   if (!isdirectory(directory_of_buffer))
+      let directory_of_buffewr = expand("%:p:h")
+   endif
+
+   let original_directory = getcwd()
+   execute "cd" directory_of_buffer
+   execute a:my_args
+   execute "cd" original_directory
+endfunction
+
+command -nargs=+ Curdir call <SID>handle_curdir_command(<q-args>)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
 "                                                                              "
