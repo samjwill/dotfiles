@@ -127,7 +127,7 @@ function! s:handle_curdir_command(commands)
 
    let original_directory = getcwd()
    execute "cd" directory_of_buffer
-   execute a:my_args
+   execute a:commands
    execute "cd" original_directory
 endfunction
 
