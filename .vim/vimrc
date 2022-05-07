@@ -122,7 +122,7 @@ function! s:handle_curdir_command(commands)
       let directory_of_buffer = getcwd()
    endif
    if (!isdirectory(directory_of_buffer))
-      let directory_of_buffewr = expand("%:p:h")
+      let directory_of_buffer = expand("%:p:h")
    endif
 
    let original_directory = getcwd()
