@@ -198,17 +198,6 @@ noremap <silent> gd gd:set hlsearch<CR>
 noremap <silent> gD gD:set hlsearch<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               Gvim Settings                                  "
-"                   (only aplies if using Gvim obviously)                      "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"TODO: Should we move this to .gvimrc?
-
-set guifont=Hack\ 14 "TODO: Can list more fonts here in case Hack isn't available.
-set guioptions-=m "Hide menu bar
-set guioptions-=r "Hide scrollbar
-set guioptions-=T "Hide toolbar
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                     "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
