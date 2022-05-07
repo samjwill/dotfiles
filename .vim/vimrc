@@ -91,9 +91,9 @@ let mapleader = " "
    noremap <Leader>/ /
    noremap <Leader>? /
 
-   "Search currently open file and open quickfix list
-   noremap <Leader>f :vimgrep /\c/ % \| copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-   noremap <Leader>F :vimgrep // % \| copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+   noremap <Leader>b :BLines<CR>
+   noremap <Leader>f :Files<CR>
+   noremap <Leader>r :Rg<CR>
 
    "Open terminal in current window
    noremap <Leader>t :ter ++curwin<CR>
