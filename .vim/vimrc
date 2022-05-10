@@ -16,7 +16,7 @@ set backspace=indent,eol,start
 set belloff=all
 set clipboard=unnamedplus "On Windows it's `set clipboard=unnamed`
 set confirm
-call mkdir($HOME . "/.vim/swap", "p", 0700) "TODO: Maybe use an environment variable for this?
+call mkdir(fnamemodify($MYVIMRC, ":p:h") . "/swap", "p", 0700)
 set directory=~/.vim/swap/,.
 set fileformats=unix,dos,mac
 set history=1000
