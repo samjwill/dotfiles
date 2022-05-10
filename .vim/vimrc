@@ -20,6 +20,7 @@ call mkdir($HOME . "/.vim/swap", "p", 0700) "TODO: Maybe use an environment vari
 set directory=~/.vim/swap/,.
 set fileformats=unix,dos,mac
 set history=1000
+set hlsearch
 set incsearch
 set list
 set listchars=precedes:<,extends:>,tab:\ \ ,trail:_
@@ -143,61 +144,6 @@ set statusline+=%v      "column number
 set statusline+=\       "space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Highlighting                                  "
-"                             Auto-(no)hlsearch                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Turn off search highlighting once done searching
-
-let g:enter_was_pressed = 0
-
-function! s:handle_cursor_moved()
-   if &hlsearch == 0 "See :h expr-option
-      return
-   endif
-
-   let last_search = @/
-   let cursor_pos = [line("."), col(".")]
-   "Limit search to current line, starting with character under cursor
-   let pos_of_next_match = searchpos(last_search, "cnz", cursor_pos[0])
-   if cursor_pos != pos_of_next_match
-      set nohlsearch
-   endif
-endfunction
-
-function! s:handle_cmdline_leave()
-   if (!g:enter_was_pressed)
-      set nohlsearch
-   else
-      let g:enter_was_pressed = 0
-      set hlsearch
-   endif
-endfunction
-
-function! s:handle_enter_pressed_in_cmdline()
-   let g:enter_was_pressed = 1
-   return "\<CR>"
-endfunction
-
-"See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
-autocmd! CmdlineChanged [\/\?] set hlsearch
-autocmd! CmdlineLeave [\/\?] call <SID>handle_cmdline_leave()
-autocmd! CmdwinEnter [\/\?] nnoremap <CR> :let g:enter_was_pressed = 1<CR><CR>
-autocmd! CmdwinLeave [\/\?] nunmap <CR>
-autocmd! CursorMoved * call <SID>handle_cursor_moved()
-autocmd! InsertEnter * set nohlsearch
-
-cnoremap <silent><expr> <CR> <SID>handle_enter_pressed_in_cmdline()
-
-noremap <silent> n n:set hlsearch<CR>
-noremap <silent> N N:set hlsearch<CR>
-noremap <silent> * *:set hlsearch<CR>
-noremap <silent> # #:set hlsearch<CR>
-noremap <silent> g* g*:set hlsearch<CR>
-noremap <silent> g# g#:set hlsearch<CR>
-noremap <silent> gd gd:set hlsearch<CR>
-noremap <silent> gD gD:set hlsearch<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                     "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -217,6 +163,7 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
+    Plug 'romainl/vim-cool'
     Plug 'SamuelWilliams256/vim-bufdir'
 call plug#end()
 
