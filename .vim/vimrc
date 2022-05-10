@@ -116,10 +116,6 @@ let mapleader = " "
    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
    vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
-   nnoremap <silent> <C-S-t> :tabnew<CR>
-   tnoremap <silent> <C-S-t> <C-w>:tabnew<CR>
-   vnoremap <silent> <C-S-t> <Esc>:tabnew<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
 "                                                                              "
