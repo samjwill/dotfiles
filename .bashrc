@@ -4,6 +4,9 @@ case $- in
       *) return;;
 esac
 
+# TODO: Make this more portable? vvv
+source /usr/share/bash-completion/bash-completion
+
 set -o vi
 
 bind 'set bell-style none'
