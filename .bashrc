@@ -5,7 +5,7 @@ case $- in
 esac
 
 # TODO: Make this more portable? vvv
-source /etc/bash-completion
+source /etc/bash_completion
 
 set -o vi
 
