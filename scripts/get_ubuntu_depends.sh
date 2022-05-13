@@ -1,4 +1,4 @@
 #!/bin/bash
 
-apt-get install -y bash-completion curl git ripgrep universal-ctags neovim
+apt-get install -y bash-completion curl git neovim ripgrep universal-ctags
 nvim +'PlugInstall --sync' +qall > /dev/null
