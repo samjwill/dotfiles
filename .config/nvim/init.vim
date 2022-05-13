@@ -79,13 +79,14 @@ let mapleader = " "
     inoremap <S-Tab> <C-d>
 
 "Tab switching
-"TODO: Add insert-mode mapping as well vvv
     "Some terminals intercept these keystrokes, so if these mappings don't work,
     "check the terminal settings.
+    inoremap <silent> <C-Tab> <Esc>:tabn<CR>
     nnoremap <silent> <C-Tab> :tabn<CR>
     tnoremap <silent> <C-Tab> <C-\><C-N>:tabn<CR>
     vnoremap <silent> <C-Tab> <Esc>:tabn<CR>
 
+    inoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
     nnoremap <silent> <C-S-Tab> :tabp<CR>
     tnoremap <silent> <C-S-Tab> <C-\><C-N>:tabp<CR>
     vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
