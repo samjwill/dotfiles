@@ -6,8 +6,9 @@
 colorscheme slate
 
 set confirm
-"TODO: Probably should be using the same data directory the plugins are installed to
-call mkdir(fnamemodify($MYVIMRC, ":p:h") . "/swap", "p", 0700)
+"TODO: Confirm that this is the correct directory to be putting swap files in
+let data_dir = stdpath('data') . '/swap'
+call mkdir(data_dir . "/swap", "p", 0700)
 set directory=~/.vim/swap/,.
 set fileformats=unix,dos,mac
 set mouse=a
