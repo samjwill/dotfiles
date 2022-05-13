@@ -97,6 +97,11 @@ let mapleader = " "
     "Automatically enter insert mode when opening a terminal
     autocmd TermOpen * startinsert
 
+    "Automatically close terminal buffer when done. This is a work-around I
+    "found here:
+    "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+    :autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
+
     "TODO: Figure out how to switch panes when in terminal insert mode without
     "setting terminal into terminal-normal mode. Vim uses <C-w>+hjkl.
 
