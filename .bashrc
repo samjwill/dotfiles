@@ -64,6 +64,8 @@ alias ls='ls -F --color=auto --show-control-chars'
 alias grep='grep --color=auto' #Highlights match in output
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias vim='nvim'
+
 
 # We install FZF as a plugin for Neovim, and it pulls the binaries down to this
 # directory. Let's just use these binaries for the shell as well to avoid
