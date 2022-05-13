@@ -65,65 +65,11 @@ alias grep='grep --color=auto' #Highlights match in output
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#TODO: Check if vim is even a valid command before attempting this.
-
-#TODO: If you compile vim with autoservername, may not even need this.
-#Somewhat complex vim client-server alias.
-#Allows for easy opening of files from within vim terminal emulator.
-#First, check if clientserver feature is enabled.
-if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
-
-   #Alias to allow for executing "\vim" if we don't want to run the function.
-   alias vim='vimFunc'
-
-   vimFunc () {
-      #Don't want to break existing functionality with non-filepath args so do this...
-      #Iterate over arguments in arg list ($@)
-      for ARGUMENT in "$@"
-      do
-         #If any of the arguments start with - or +, it's not a filepath.
-         if [ "${ARGUMENT:0:1}" == "-" ] || [ "${ARGUMENT:0:1}" == "+" ]; then
-            #TODO: Maybe come up with something clever here?
-            YELLOW='\033[0;33m'
-            NC='\033[0m'
-            echo -e "${YELLOW}Warning: Non-filepath arguments found. Not executing \"vim\" alias defined in .bashrc...${NC}"
-            \vim $@
-            return
-         fi
-      done
-
-      #If no vim instance with a server with the default server name is already running
-      if [ $(ps x | grep "\-\-servername VIM" | wc -l) = 0 ]; then
-         #Make a vim instance with the default server name
-         \vim --servername VIM $@
-         return
-      fi
-
-      #Otherwise, if there were no arguments passed
-      if [ -z "$1" ]; then
-         #Open a new buffer in the vim server instance
-         \vim --remote-send "<C-\><C-N>:tabedit<CR>"
-         return
-      fi
-
-      #TODO: If there are multiple filepaths, may want to emulate a more standard way of doing this (with vanilla, you use :next/:prev). See :h arge
-      for ARGUMENT in "$@"
-      do
-         #Convert it to a full filepath
-         ARGUMENT=$(realpath $ARGUMENT)
-         #Open the requested file in new tab
-         \vim --remote-send "<C-\><C-N>:tabedit $ARGUMENT<CR>"
-      done
-   }
-fi
-
-
-#TODO: Update this for Neovim
-# We install FZF as a plugin for Vim, and it pulls the binaries down to this
+# We install FZF as a plugin for Neovim, and it pulls the binaries down to this
 # directory. Let's just use these binaries for the shell as well to avoid
 # versioning weirdness associated with also installing FZF through the package
 # manager
-export FZF_ROOT="$HOME/.vim/plugged/fzf"
+export FZF_ROOT="$HOME/.local/share/nvim/plugged/fzf"
 if [ -d "$FZF_ROOT/bin" ] ; then
       PATH="$PATH:$FZF_ROOT/bin"
 fi
@@ -135,9 +81,6 @@ if [ -r "$FZF_ROOT/shell/completion.bash" ]; then
    source $FZF_ROOT/shell/completion.bash
 fi
 
-
-###################################################################################################################################
-#TODO: Not sure if I love this or not. Maybe needs a bit of tweaking
 clear() (
    if [ "$#" -ne 0 ]; then
       command clear "$@"
