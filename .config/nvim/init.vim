@@ -88,6 +88,10 @@ let mapleader = " "
    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
    vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
+"Autocommands
+   "Turn off line numbers in terminal emulator
+   autocmd TermOpen * setlocal nonumber
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
 "                                                                              "
