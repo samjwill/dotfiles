@@ -6,6 +6,7 @@
 colorscheme slate
 
 set confirm
+"TODO: Probably should be using the same data directory the plugins are installed to
 call mkdir(fnamemodify($MYVIMRC, ":p:h") . "/swap", "p", 0700)
 set directory=~/.vim/swap/,.
 set fileformats=unix,dos,mac
@@ -53,44 +54,51 @@ let mapleader = " "
 
 "Normal, Visual, Select, Operator-pending Modes
 
-   "- to edit directory of current file
-   noremap <silent> - :e %:p:h<CR>
+    "- to edit directory of current file
+    noremap <silent> - :e %:p:h<CR>
 
-   "Don't want to :set ignorecase because * and # should be case-sensitive
-   "Case-insensitive search
-   noremap / /\c
-   noremap ? ?\c
-   "Case-sensitive search
-   noremap <Leader>/ /
-   noremap <Leader>? /
+    "Don't want to :set ignorecase because * and # should be case-sensitive
+    "Case-insensitive search
+    noremap / /\c
+    noremap ? ?\c
+    "Case-sensitive search
+    noremap <Leader>/ /
+    noremap <Leader>? /
 
-   noremap <Leader>b :BLines<CR>
-   noremap <Leader>f :Files<CR>
-   noremap <Leader>r :Rg<CR>
+    noremap <Leader>b :BLines<CR>
+    noremap <Leader>f :Files<CR>
+    noremap <Leader>r :Rg<CR>
 
-   "Open terminal in current window
-   noremap <Leader>t :ter<CR>
+    "Open terminal in current window
+    noremap <Leader>t :ter<CR>
 
 "Insert Mode
 
-   "shift-tab to inverse tab
-   inoremap <S-Tab> <C-d>
+    "shift-tab to inverse tab
+    inoremap <S-Tab> <C-d>
 
 "Tab switching
 "TODO: Add insert-mode mapping as well vvv
-   "Some terminals intercept these keystrokes, so if these mappings don't work,
-   "check the terminal settings.
-   nnoremap <silent> <C-Tab> :tabn<CR>
-   tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
-   vnoremap <silent> <C-Tab> <Esc>:tabn<CR>
+    "Some terminals intercept these keystrokes, so if these mappings don't work,
+    "check the terminal settings.
+    nnoremap <silent> <C-Tab> :tabn<CR>
+    tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
+    vnoremap <silent> <C-Tab> <Esc>:tabn<CR>
 
-   nnoremap <silent> <C-S-Tab> :tabp<CR>
-   tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
-   vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
+    nnoremap <silent> <C-S-Tab> :tabp<CR>
+    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
+    vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
 "Autocommands
-   "Turn off line numbers in terminal emulator
-   autocmd TermOpen * setlocal nonumber
+
+    "Turn off line numbers in terminal emulator
+    autocmd TermOpen * setlocal nonumber
+
+    "Automatically enter insert mode when opening a terminal
+    autocmd TermOpen * startinsert
+
+    "TODO: Figure out how to switch panes when in terminal insert mode without
+    "setting terminal into terminal-normal mode. Vim uses <C-w>+hjkl.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
@@ -129,15 +137,15 @@ packadd termdebug
 "From https://github.com/junegunn/vim-plug/wiki/tips
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
-    Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'romainl/vim-cool'
-    Plug 'SamuelWilliams256/vim-bufdir'
+     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
+     Plug 'junegunn/fzf.vim'
+     Plug 'tpope/vim-fugitive'
+     Plug 'romainl/vim-cool'
+     Plug 'SamuelWilliams256/vim-bufdir'
 call plug#end()
 
