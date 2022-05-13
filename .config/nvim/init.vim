@@ -83,11 +83,11 @@ let mapleader = " "
     "Some terminals intercept these keystrokes, so if these mappings don't work,
     "check the terminal settings.
     nnoremap <silent> <C-Tab> :tabn<CR>
-    tnoremap <silent> <C-Tab> <C-w>:tabn<CR>
+    tnoremap <silent> <C-Tab> <C-\><C-N>:tabn<CR>
     vnoremap <silent> <C-Tab> <Esc>:tabn<CR>
 
     nnoremap <silent> <C-S-Tab> :tabp<CR>
-    tnoremap <silent> <C-S-Tab> <C-w>:tabp<CR>
+    tnoremap <silent> <C-S-Tab> <C-\><C-N>:tabp<CR>
     vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
 "Autocommands
