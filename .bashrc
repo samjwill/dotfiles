@@ -118,6 +118,7 @@ if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
 fi
 
 
+#TODO: Update this for Neovim
 # We install FZF as a plugin for Vim, and it pulls the binaries down to this
 # directory. Let's just use these binaries for the shell as well to avoid
 # versioning weirdness associated with also installing FZF through the package
