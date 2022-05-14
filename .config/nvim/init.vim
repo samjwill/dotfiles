@@ -97,7 +97,7 @@ let mapleader = " "
         autocmd TermOpen * setlocal nonumber
 
         "Automatically enter insert mode when opening a terminal
-        autocmd TermOpen * startinsert
+        "autocmd TermOpen * startinsert
 
         "Automatically close terminal buffer when done. This is a work-around I
         "found here:
@@ -107,8 +107,10 @@ let mapleader = " "
         "TODO: This is kind of hacky. It allows you to travel away from a termial
         "pane with Ctrl-w, but it doesn't preserve terminal state when
         "returning to the terminal pane.
-        tnoremap <C-w> <C-\><C-n><C-w>
-        autocmd BufWinEnter,WinEnter term://* startinsert
+        "tnoremap <C-w> <C-\><C-n><C-w>
+        "autocmd BufWinEnter,WinEnter term://* startinsert
+
+        tnoremap <Esc> <C-\><C-n>
     augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
