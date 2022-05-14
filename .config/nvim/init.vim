@@ -93,20 +93,23 @@ let mapleader = " "
 
 "Autocommands
     augroup INIT_CMDS | autocmd!
-    "Turn off line numbers in terminal emulator
-    autocmd TermOpen * setlocal nonumber
+        "Turn off line numbers in terminal emulator
+        autocmd TermOpen * setlocal nonumber
 
-    "Automatically enter insert mode when opening a terminal
-    autocmd TermOpen * startinsert
+        "Automatically enter insert mode when opening a terminal
+        autocmd TermOpen * startinsert
 
-    "Automatically close terminal buffer when done. This is a work-around I
-    "found here:
-    "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
-    autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
+        "Automatically close terminal buffer when done. This is a work-around I
+        "found here:
+        "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+        autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
+
+        "TODO: This is kind of hacky. It allows you to travel away from a termial
+        "pane with Ctrl-w, but it doesn't preserve terminal state when
+        "returning to the terminal pane.
+        tnoremap <C-w> <C-\><C-n><C-w>
+        autocmd BufWinEnter,WinEnter term://* startinsert
     augroup end
-    "TODO: Figure out how to switch panes when in terminal insert mode without
-    "setting terminal into terminal-normal mode. Vim uses <C-w>+hjkl.
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
 "                                                                              "
