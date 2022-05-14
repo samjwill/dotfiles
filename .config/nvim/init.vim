@@ -47,7 +47,7 @@ let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are
 let g:netrw_banner=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Keybinds                                   "
+"                         Keybinds and Autocommands                            "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TODO: Sort these mappings more logically.
@@ -96,21 +96,23 @@ let mapleader = " "
         "Turn off line numbers in terminal emulator
         autocmd TermOpen * setlocal nonumber
 
-        "Automatically enter insert mode when opening a terminal
-        "autocmd TermOpen * startinsert
-
         "Automatically close terminal buffer when done. This is a work-around I
         "found here:
         "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
         autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
+
+        "Esc to enter normal mode, but double escape to send the esc key.
+        tnoremap <Esc> <C-\><C-n>
+        tnoremap <Esc><Esc> <Esc>
+
+        "Automatically enter insert mode when opening a terminal
+        "autocmd TermOpen * startinsert
 
         "TODO: This is kind of hacky. It allows you to travel away from a termial
         "pane with Ctrl-w, but it doesn't preserve terminal state when
         "returning to the terminal pane.
         "tnoremap <C-w> <C-\><C-n><C-w>
         "autocmd BufWinEnter,WinEnter term://* startinsert
-
-        tnoremap <Esc> <C-\><C-n>
     augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
