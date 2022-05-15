@@ -64,7 +64,6 @@ alias ls='ls -F --color=auto --show-control-chars'
 alias grep='grep --color=auto' #Highlights match in output
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias vim='nvim'
 
 
 # We install FZF as a plugin for Neovim, and it pulls the binaries down to this
@@ -103,3 +102,59 @@ bind '"\C-m": "\C-l\C-j"' #Clear before entering new commands
 function cd {
     builtin cd "$@" && ls -F
 }
+
+
+
+
+
+#TODO: There might be a better way to do this within init.nvim
+#Somewhat complex vim client-server alias.
+#Allows for easy opening of files from within vim terminal emulator.
+#First, check if clientserver feature is enabled.
+if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
+
+   #Alias to allow for executing "\vim" if we don't want to run the function.
+   alias vim='vimFunc'
+   alias nvim='vimFunc'
+
+   vimFunc () {
+      #Don't want to break existing functionality with non-filepath args so do this...
+      #Iterate over arguments in arg list ($@)
+      for ARGUMENT in "$@"
+      do
+         #If any of the arguments start with - or +, it's not a filepath.
+         if [ "${ARGUMENT:0:1}" == "-" ] || [ "${ARGUMENT:0:1}" == "+" ]; then
+            #TODO: Maybe come up with something clever here?
+            YELLOW='\033[0;33m'
+            NC='\033[0m'
+            echo -e "${YELLOW}Warning: Non-filepath arguments found. Not executing \"vim\" alias defined in .bashrc...${NC}"
+            \nvim $@
+            return
+         fi
+      done
+
+      #If no vim instance with a server with the default server name is already running
+      if [ $(ps x | grep "\-\-listen /tmp/nvim.pipe" | wc -l) = 0 ]; then
+         #Make a vim instance with the default server name
+         \nvim --listen /tmp/nvim.pipe $@
+         return
+      fi
+
+      #Otherwise, if there were no arguments passed
+      if [ -z "$1" ]; then
+         #Open a new buffer in the vim server instance
+		 \nvim --server /tmp/nvim.pipe --remote-send "<C-\><C-N>:tabedit<CR>"
+         return
+      fi
+
+      #TODO: If there are multiple filepaths, may want to emulate a more standard way of doing this (with vanilla, you use :next/:prev). See :h arge
+      for ARGUMENT in "$@"
+      do
+         #Convert it to a full filepath
+         ARGUMENT=$(realpath $ARGUMENT)
+         #Open the requested file in new tab
+		 \nvim --server /tmp/nvim.pipe --remote-send "<C-\><C-N>:tabedit $ARGUMENT<CR>"
+      done
+   }
+fi
+
