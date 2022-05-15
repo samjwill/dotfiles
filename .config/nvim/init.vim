@@ -171,6 +171,7 @@ call plug#begin()
      Plug 'junegunn/fzf.vim'
      Plug 'tpope/vim-fugitive'
      Plug 'romainl/vim-cool'
+     Plug 'psliwka/vim-smoothie'
      Plug 'SamuelWilliams256/vim-bufdir'
 call plug#end()
 
