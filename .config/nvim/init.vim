@@ -140,6 +140,16 @@ set statusline+=C:      "C:
 set statusline+=%v      "column number
 set statusline+=\       "space
 
+"Non-currrent statuslines should be darker
+highlight StatusLineNC ctermfg=8
+
+augroup INIT_STATUS | autocmd!
+    "Toggle Green when in insert mode
+    autocmd InsertEnter * highlight statusLine ctermfg=47
+    autocmd InsertLeave * highlight statusLine ctermfg=NONE
+    autocmd TermEnter * highlight statusLine ctermfg=47
+    autocmd TermLeave * highlight statusLine ctermfg=NONE
+augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                     "
 "                                                                              "
