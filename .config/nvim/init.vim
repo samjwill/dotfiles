@@ -166,6 +166,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"TODO: Look into telescope plugin and native LSP
 call plug#begin()
      Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
      Plug 'junegunn/fzf.vim'
