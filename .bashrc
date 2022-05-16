@@ -110,14 +110,12 @@ function cd {
 #TODO: There might be a better way to do this within init.nvim
 #Somewhat complex vim client-server alias.
 #Allows for easy opening of files from within vim terminal emulator.
-#First, check if clientserver feature is enabled.
-if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
 
-   #Alias to allow for executing "\vim" if we don't want to run the function.
-   alias vim='vimFunc'
-   alias nvim='vimFunc'
+#Alias to allow for executing "\vim" if we don't want to run the function.
+alias vim='vimFunc'
+alias nvim='vimFunc'
 
-   vimFunc () {
+vimFunc () {
       #Don't want to break existing functionality with non-filepath args so do this...
       #Iterate over arguments in arg list ($@)
       for ARGUMENT in "$@"
@@ -156,5 +154,4 @@ if [ $(vim --version | grep +clientserver | wc -l) = 1 ]; then
 		 \nvim --server /tmp/nvim.pipe --remote-send "<C-\><C-N>:tabedit $ARGUMENT<CR>"
       done
    }
-fi
 
