@@ -76,6 +76,7 @@ let mapleader = " "
     inoremap <S-Tab> <C-d>
 
 "Tab switching
+"TODO: Should I just use "noremap" here vvv?
     "Some terminals intercept these keystrokes, so if these mappings don't work,
     "check the terminal settings.
     inoremap <silent> <C-Tab> <Esc>:tabn<CR>
