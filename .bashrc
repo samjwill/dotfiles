@@ -108,6 +108,7 @@ function cd {
 
 
 #TODO: There might be a better way to do this within init.nvim
+#TODO: it would be nice if instead of creating a new tab, it closed the current terminal emulator instance and replaced it with the file in vim
 #Somewhat complex vim client-server alias.
 #Allows for easy opening of files from within vim terminal emulator.
 
