@@ -100,15 +100,6 @@ let mapleader = " "
         "found here:
         "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
         autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
-
-        "Automatically enter insert mode when opening a terminal
-        "autocmd TermOpen * startinsert
-
-        "TODO: This is kind of hacky. It allows you to travel away from a termial
-        "pane with Ctrl-w, but it doesn't preserve terminal state when
-        "returning to the terminal pane.
-        "tnoremap <C-w> <C-\><C-n><C-w>
-        "autocmd BufWinEnter,WinEnter term://* startinsert
     augroup end
 
     "Esc to enter normal mode, but double escape to send the esc key.
