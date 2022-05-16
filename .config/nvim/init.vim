@@ -36,15 +36,11 @@ let g:swap_dir = stdpath('data') . "/swap"
 call mkdir(g:swap_dir, "p", 0700)
 let &directory=g:swap_dir . ',.'
 
-"Number for both netrw and Neovim
+"Settings for both netrw and neovim
 set number
 let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are default
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               Netrw Settings                                 "
-"                                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"Netrw Settings
 let g:netrw_banner=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,16 +128,17 @@ set statusline+=C:      "C:
 set statusline+=%v      "column number
 set statusline+=\       "space
 
-"Non-currrent statuslines should be darker
+"Non-currrent StatusLines should be darker
 highlight StatusLineNC ctermfg=8
 
 augroup INIT_STATUS | autocmd!
     "Toggle Green when in insert mode
-    autocmd InsertEnter * highlight statusLine ctermfg=47
-    autocmd InsertLeave * highlight statusLine ctermfg=NONE
-    autocmd TermEnter * highlight statusLine ctermfg=47
-    autocmd TermLeave * highlight statusLine ctermfg=NONE
+    autocmd InsertEnter * highlight StatusLine ctermfg=47
+    autocmd InsertLeave * highlight StatusLine ctermfg=NONE
+    autocmd TermEnter * highlight StatusLine ctermfg=47
+    autocmd TermLeave * highlight StatusLine ctermfg=NONE
 augroup end
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                     "
 "                                                                              "
