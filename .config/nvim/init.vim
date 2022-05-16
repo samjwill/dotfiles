@@ -6,11 +6,6 @@
 colorscheme slate
 
 set confirm
-"TODO: Confirm that this is the correct directory to be putting swap files in
-let data_dir = stdpath('data')
-call mkdir(data_dir . "/swap", "p", 0700)
-"TODO: Resolve path vvv with (data_dir . "/swap") instead of hard-coding.
-set directory=~/.local/share/nvim/swap/,.
 set fileformats=unix,dos,mac
 set mouse=a
 set noequalalways
@@ -35,6 +30,11 @@ set tabstop=4
 "Wildmenu
 set wildignorecase
 set wildmode=longest:full,full
+
+"Swap directory
+let g:swap_dir = stdpath('data') . "/swap"
+call mkdir(g:swap_dir, "p", 0700)
+let &directory=g:swap_dir . ',.'
 
 "Number for both netrw and Neovim
 set number
