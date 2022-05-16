@@ -71,7 +71,7 @@ let mapleader = " "
     noremap <Leader>r :Rg<CR>
 
     "Open terminal in current window
-    noremap <Leader>t :Bufdir ter<CR>
+    noremap <Leader>t :Bufdir ter<CR>i
 
 "Insert Mode
 
