@@ -9,6 +9,7 @@ set confirm
 "TODO: Confirm that this is the correct directory to be putting swap files in
 let data_dir = stdpath('data')
 call mkdir(data_dir . "/swap", "p", 0700)
+"TODO: Resolve path vvv with (data_dir . "/swap") instead of hard-coding.
 set directory=~/.local/share/nvim/swap/,.
 set fileformats=unix,dos,mac
 set mouse=a
