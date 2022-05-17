@@ -3,8 +3,6 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme slate
-
 set confirm
 set fileformats=unix,dos,mac
 set mouse=a
@@ -163,6 +161,8 @@ call plug#begin()
      Plug 'tpope/vim-fugitive'
      Plug 'romainl/vim-cool'
      Plug 'psliwka/vim-smoothie'
+     Plug 'morhetz/gruvbox'
      Plug 'SamuelWilliams256/vim-bufdir'
 call plug#end()
 
+colorscheme gruvbox
