@@ -157,7 +157,7 @@ call plug#end()
 colorscheme gruvbox
 
 augroup INIT_STATUS | autocmd!
-    "Toggle Green when in insert mode
+    "Toggle new color when in insert mode
     autocmd InsertEnter * highlight StatusLine ctermfg=66
     autocmd InsertLeave * highlight StatusLine ctermfg=239
     autocmd TermEnter * highlight StatusLine ctermfg=66
