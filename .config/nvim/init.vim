@@ -127,17 +127,6 @@ set statusline+=C:      "C:
 set statusline+=%v      "column number
 set statusline+=\       "space
 
-"Non-currrent StatusLines should be darker
-highlight StatusLineNC ctermfg=8
-
-augroup INIT_STATUS | autocmd!
-    "Toggle Green when in insert mode
-    autocmd InsertEnter * highlight StatusLine ctermfg=47
-    autocmd InsertLeave * highlight StatusLine ctermfg=NONE
-    autocmd TermEnter * highlight StatusLine ctermfg=47
-    autocmd TermLeave * highlight StatusLine ctermfg=NONE
-augroup end
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                                     "
 "                                                                              "
@@ -166,3 +155,11 @@ call plug#begin()
 call plug#end()
 
 colorscheme gruvbox
+
+augroup INIT_STATUS | autocmd!
+    "Toggle Green when in insert mode
+    autocmd InsertEnter * highlight StatusLine ctermfg=66
+    autocmd InsertLeave * highlight StatusLine ctermfg=239
+    autocmd TermEnter * highlight StatusLine ctermfg=66
+    autocmd TermLeave * highlight StatusLine ctermfg=239
+augroup end
