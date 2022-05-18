@@ -157,6 +157,7 @@ call plug#end()
 
 colorscheme gruvbox
 
+"TODO: see if you can use named colors instead of hard-coding hex codes
 augroup INIT_STATUS | autocmd!
     "Toggle new color when in insert mode
     autocmd InsertEnter * highlight StatusLine ctermfg=108 ctermbg=237 guifg='#8ec07c' guibg='#3c3836'
