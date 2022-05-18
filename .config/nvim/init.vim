@@ -159,8 +159,8 @@ colorscheme gruvbox
 
 augroup INIT_STATUS | autocmd!
     "Toggle new color when in insert mode
-    autocmd InsertEnter * highlight StatusLine ctermfg=66
-    autocmd InsertLeave * highlight StatusLine ctermfg=239
-    autocmd TermEnter * highlight StatusLine ctermfg=66
-    autocmd TermLeave * highlight StatusLine ctermfg=239
+    autocmd InsertEnter * highlight StatusLine ctermfg=108 ctermbg=237 guifg='#8ec07c' guibg='#3c3836'
+    autocmd InsertLeave * highlight StatusLine ctermfg=239 ctermbg=223 guifg='#504945' guibg='#ebdbb2'
+    autocmd TermEnter * highlight StatusLine ctermfg=108 ctermbg=237 guifg='#8ec07c' guibg='#3c3836'
+    autocmd TermLeave * highlight StatusLine ctermfg=239 ctermbg=223 guifg='#504945' guibg='#ebdbb2'
 augroup end
