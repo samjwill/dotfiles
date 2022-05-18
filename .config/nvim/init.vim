@@ -11,6 +11,7 @@ set nohidden
 set nowrap
 set splitright
 set splitbelow
+set termguicolors
 
 "Formatting Marks
 set list
