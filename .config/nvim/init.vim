@@ -157,7 +157,7 @@ call plug#end()
 
 colorscheme gruvbox
 "Gruvbox breaks this at the time of writing for Termdebug
-hi debugPC term=reverse ctermbg=blue guibg=blue
+hi debugPC term=reverse ctermbg=66 guibg='#458588'
 
 "TODO: see if you can use named colors instead of hard-coding hex codes
 augroup INIT_STATUS | autocmd!
