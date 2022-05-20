@@ -101,7 +101,7 @@ let mapleader = " "
 
     "Esc to enter normal mode, but double escape to send the esc key.
     tnoremap <Esc> <C-\><C-n>
-    tnoremap <Esc><Esc> <Esc>
+    tnoremap <C-q> <Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
