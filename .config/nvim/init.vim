@@ -178,11 +178,10 @@ lua << EOF
 
     local expected_pipe_name = "/tmp/nvim.pipe"
 
+    --TODO: check for existence of --listen or --server args. If they exist ignore the block that would launch a new vim instance below. Instead, simply launch vim with the provided args and immediately exit.
     if exists(expected_pipe_name) then
-    	os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
-        vim.cmd('quit')
+    	--os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
     else
-    	os.execute("\\nvim --listen /tmp/nvim.pipe")
-        vim.cmd('quit')
+    	--os.execute("\\nvim --listen /tmp/nvim.pipe")
     end
 EOF
