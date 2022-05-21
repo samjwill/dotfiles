@@ -164,3 +164,25 @@ augroup INIT_STATUS | autocmd!
     autocmd TermLeave * highlight StatusLine ctermfg=239 ctermbg=223 guifg='#504945' guibg='#ebdbb2'
 augroup end
 
+lua << EOF
+    function exists(file)
+       local ok, message, code = os.rename(file, file)
+       if not ok then
+          if code == 13 then
+             -- Permission denied, but it exists
+             return true
+          end
+       end
+       return ok
+    end
+
+    local expected_pipe_name = "/tmp/nvim.pipe"
+
+    if exists(expected_pipe_name) then
+    	os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
+        vim.cmd('quit')
+    else
+    	os.execute("\\nvim --listen /tmp/nvim.pipe")
+        vim.cmd('quit')
+    end
+EOF
