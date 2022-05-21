@@ -62,12 +62,7 @@ let mapleader = " "
     noremap <Leader>/ /
     noremap <Leader>? /
 
-    noremap <Leader>b :BLines<CR>
-    noremap <Leader>f :Files<CR>
-    noremap <Leader>r :Rg<CR>
-
-    "Open terminal in current window
-    noremap <Leader>t :Bufdir ter<CR>i
+    noremap <Leader>t :Telescope<CR>
 
 "Insert Mode
 
@@ -147,13 +142,14 @@ endif
 
 "TODO: Look into telescope plugin and native LSP
 call plug#begin()
-     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "The install function call ensures that the plugin bin directory is populated.
-     Plug 'junegunn/fzf.vim'
-     Plug 'tpope/vim-fugitive'
-     Plug 'romainl/vim-cool'
-     Plug 'psliwka/vim-smoothie'
-     Plug 'morhetz/gruvbox'
-     Plug 'SamuelWilliams256/vim-bufdir'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'romainl/vim-cool'
+    Plug 'psliwka/vim-smoothie'
+    Plug 'morhetz/gruvbox'
+    Plug 'SamuelWilliams256/vim-bufdir'
 call plug#end()
 
 colorscheme gruvbox
@@ -168,3 +164,4 @@ augroup INIT_STATUS | autocmd!
     autocmd TermEnter * highlight StatusLine ctermfg=108 ctermbg=237 guifg='#8ec07c' guibg='#3c3836'
     autocmd TermLeave * highlight StatusLine ctermfg=239 ctermbg=223 guifg='#504945' guibg='#ebdbb2'
 augroup end
+
