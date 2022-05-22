@@ -181,8 +181,11 @@ lua << EOF
     --TODO: check for existence of --listen or --server args. If they exist ignore the block that would launch a new vim instance below. Instead, simply launch vim with the provided args and immediately exit.
     if exists(expected_pipe_name) then
     	--TODO: Remote-send argedit
-    	os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
-    	vim.cmd("quit")
+    	args = vim.call("argv")
+        print(vim.inspect(args))
+        print(#args)
+    	--os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
+    	--vim.cmd("quit")
     else
     	vim.call("serverstart", "/tmp/nvim.pipe")
     	--Start server with serverstart() instead of below.
