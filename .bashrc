@@ -70,6 +70,9 @@ alias grep='grep --color=auto' #Highlights match in output
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias vim='nvim'
+function cd {
+    builtin cd "$@" && ls -F
+}
 
 clear() (
    if [ "$#" -ne 0 ]; then
@@ -85,10 +88,7 @@ clear() (
    fi
    command clear -x
 )
-
-bind -x '"\C-l": clear' #Need to rebind this because `set -o vi` breaks the original binding and also because this preserves text that is currently on the screen when clearing.
-#bind '"\C-m": "\C-l\C-j"' #Clear before entering new commands
-function cd {
-    builtin cd "$@" && ls -F
-}
+bind -x '"\C-l": clear' #Need to rebind this because `set -o vi` breaks the
+                        # original binding and also because this preserves text
+                        # that is currently on the screen when clearing.
 
