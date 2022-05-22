@@ -165,12 +165,12 @@ augroup INIT_STATUS | autocmd!
 augroup end
 
 lua << EOF
-    function exists(file)
-       local ok, message, code = os.rename(file, file)
+    function exists(filename)
+       local ok, message, err_code = os.rename(filename, filename)
        if not ok then
-          if code == 13 then
-             -- Permission denied, but it exists
-             return true
+          if err_code == 13 then
+			 --file inaccessible, but was found
+			 ok = true
           end
        end
        return ok
@@ -185,9 +185,12 @@ lua << EOF
     	for index, iter in pairs(args) do
     		arg_str = arg_str.." "..iter
     	end
-		print(arg_str)
 
-    	os.execute("\\nvim --server "..expected_pipe_name.." --remote-send \"<C-\\><C-N>:argedit "..arg_str.."<CR>\"")
+		if (#args > 0) then
+    		os.execute("\\nvim --server "..expected_pipe_name.." --remote-send \"<C-\\><C-N>:argedit "..arg_str.."<CR>\"")
+		else
+    		os.execute("\\nvim --server "..expected_pipe_name.." --remote-send \"<C-\\><C-N>:enew<CR>\"")
+		end
     	vim.cmd("quit")
     else
     	vim.call("serverstart", expected_pipe_name)
