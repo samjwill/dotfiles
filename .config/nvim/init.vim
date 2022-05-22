@@ -63,7 +63,7 @@ let mapleader = " "
     noremap <Leader>? /
 
     "Open terminal in current window
-    noremap <Leader>t :Bufdir ter<CR>
+    noremap <Leader>t :Bufdir ter<CR>i
 
     noremap <Leader>s :Telescope<CR>
 
