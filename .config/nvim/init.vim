@@ -182,8 +182,13 @@ lua << EOF
     if exists(expected_pipe_name) then
     	--TODO: Remote-send argedit
     	args = vim.call("argv")
-        print(vim.inspect(args))
-        print(#args)
+
+    	local str = ""
+    	for index, value in pairs(args) do
+    		str = str.." "..value
+    	end
+		print(str)
+
     	--os.execute("\\nvim --server /tmp/nvim.pipe --remote-send \"<C-\\><C-N>:tabedit<CR>\"")
     	--vim.cmd("quit")
     else
