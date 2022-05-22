@@ -140,9 +140,8 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"TODO: Look into telescope plugin and native LSP
+"TODO: Look into treesitter plugin and native LSP
 call plug#begin()
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'tpope/vim-fugitive'
@@ -150,6 +149,7 @@ call plug#begin()
     Plug 'psliwka/vim-smoothie'
     Plug 'morhetz/gruvbox'
     Plug 'SamuelWilliams256/vim-bufdir'
+    Plug 'SamuelWilliams256/nvim-outception'
 call plug#end()
 
 colorscheme gruvbox
