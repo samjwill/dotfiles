@@ -62,7 +62,10 @@ let mapleader = " "
     noremap <Leader>/ /
     noremap <Leader>? /
 
-    noremap <Leader>t :Telescope<CR>
+    "Open terminal in current window
+    noremap <Leader>t :Bufdir ter<CR>
+
+    noremap <Leader>s :Telescope<CR>
 
 "Insert Mode
 
