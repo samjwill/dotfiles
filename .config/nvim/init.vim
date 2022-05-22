@@ -148,8 +148,8 @@ call plug#begin()
     Plug 'romainl/vim-cool'
     Plug 'psliwka/vim-smoothie'
     Plug 'morhetz/gruvbox'
-    Plug 'SamuelWilliams256/vim-bufdir'
-    Plug 'SamuelWilliams256/nvim-outception'
+    Plug 'samjwill/vim-bufdir'
+    Plug 'samjwill/nvim-outception'
 call plug#end()
 
 colorscheme gruvbox
