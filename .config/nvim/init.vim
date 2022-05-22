@@ -152,7 +152,7 @@ call plug#begin()
     Plug 'psliwka/vim-smoothie'
     Plug 'morhetz/gruvbox'
     Plug 'samjwill/vim-bufdir'
-    Plug 'samjwill/nvim-outception'
+    Plug 'samjwill/nvim-unception'
 call plug#end()
 
 colorscheme gruvbox
