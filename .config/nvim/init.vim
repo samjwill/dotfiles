@@ -155,8 +155,22 @@ call plug#begin()
     Plug 'samjwill/nvim-unception'
 call plug#end()
 
-"TODO: Make telescope sorting_strategy = "ascending" and prompt_position = "top"
+" Configure telescope
+lua << EOF
+    require('telescope').setup
+    {
+        defaults =
+        {
+            sorting_strategy = 'ascending',
+            layout_config =
+            {
+                prompt_position = 'top',
+            },
+        },
+    }
+EOF
 
+"Configure Gruvbox
 "TODO only set if available
 colorscheme gruvbox
 "Gruvbox breaks this at the time of writing for Termdebug
