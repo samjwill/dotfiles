@@ -65,7 +65,8 @@ let mapleader = " "
     "Open terminal in current window
     noremap <Leader>t :Bufdir ter<CR>i
 
-    noremap <Leader>s :Telescope<CR>
+    noremap <Leader>b :Telescope current_buffer_fuzzy_find<CR>
+    noremap <Leader>f :Telescope find_files<CR>
 
 "Insert Mode
 
@@ -147,7 +148,6 @@ endif
 call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'tpope/vim-fugitive'
     Plug 'romainl/vim-cool'
     Plug 'psliwka/vim-smoothie'
     Plug 'morhetz/gruvbox'
