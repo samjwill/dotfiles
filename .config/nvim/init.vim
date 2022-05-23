@@ -155,6 +155,8 @@ call plug#begin()
     Plug 'samjwill/nvim-unception'
 call plug#end()
 
+"TODO: Make telescope sorting_strategy = "ascending" and prompt_position = "top"
+
 "TODO only set if available
 colorscheme gruvbox
 "Gruvbox breaks this at the time of writing for Termdebug
