@@ -155,6 +155,7 @@ call plug#begin()
     Plug 'samjwill/nvim-unception'
 call plug#end()
 
+"TODO only set if available
 colorscheme gruvbox
 "Gruvbox breaks this at the time of writing for Termdebug
 hi debugPC term=reverse ctermbg=66 guibg='#458588'
