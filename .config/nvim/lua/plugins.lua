@@ -26,14 +26,18 @@ return require('packer').startup(function(use)
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = "require('config.telescope')",
+		config = "require('config.telescope')"
 	}
 
     use {
         "morhetz/gruvbox",
-        config = "require('config.gruvbox')",
+        config = "require('config.gruvbox')"
     }
 
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        config = "require('config.treesitter')"
+    }
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
