@@ -1,5 +1,7 @@
-require('telescope').setup
-{
+local telescope = require("telescope")
+
+--TODO: Unsure if these parenthesis are necessary or not?
+telescope.setup({
     defaults =
     {
         sorting_strategy = 'ascending',
@@ -8,4 +10,4 @@ require('telescope').setup
             prompt_position = 'top',
         },
     }
-}
+})
