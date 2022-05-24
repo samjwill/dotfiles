@@ -17,7 +17,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 
---TODO: Look into treesitter plugin and native LSP
 return require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
@@ -25,17 +24,21 @@ return require('packer').startup(function(use)
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = "require('config.telescope')",
+		config = [[require('config.telescope')]],
 	}
+
+    use {
+        "morhetz/gruvbox",
+        config = "require('config.gruvbox')",
+    }
 
     use 'romainl/vim-cool'
     use 'psliwka/vim-smoothie'
-    use 'morhetz/gruvbox'
     use 'samjwill/vim-bufdir'
     use 'samjwill/nvim-unception'
+    --TODO: Look into treesitter plugin and native LSP
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+    -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
         require('packer').sync()
     end
