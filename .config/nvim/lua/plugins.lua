@@ -11,11 +11,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
         'https://github.com/wbthomason/packer.nvim',
         install_path
     }
-    print "Installing packer close and reopen Neovim..."
+    print "Installing Packer. Please close and reopen Neovim..."
     --TODO: Necessary? Apparently it lazy loads?
     vim.cmd [[packadd packer.nvim]]
 end
 
+-- Built-in gdb debugging tool
+vim.cmd [[packadd termdebug]]
 
 return require('packer').startup(function(use)
     -- Packer needs to manage itself
@@ -36,7 +38,7 @@ return require('packer').startup(function(use)
     use 'psliwka/vim-smoothie'
     use 'samjwill/vim-bufdir'
     use 'samjwill/nvim-unception'
-    --TODO: Look into treesitter plugin and native LSP
+    -- TODO: Look into treesitter plugin and native LSP
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then

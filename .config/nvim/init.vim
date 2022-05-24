@@ -134,11 +134,5 @@ set statusline+=\       "space
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Built-in gdb debugging tool
-packadd termdebug
-
-" Configure telescope
-lua << EOF
-    require "plugins"
-EOF
+lua require "plugins"
 
