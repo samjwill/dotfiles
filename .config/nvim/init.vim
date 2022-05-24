@@ -97,6 +97,7 @@ let mapleader = " "
         "Automatically close terminal buffer when done. This is a work-around I
         "found here:
         "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+        "TODO: This breaks the :ter command.
         autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
     augroup end
 

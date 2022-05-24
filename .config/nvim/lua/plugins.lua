@@ -22,20 +22,11 @@ return require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
 
-	use({
+	use {
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = "require('config.telescope')",
-	})
---    use
---    {
---        'nvim-telescope/telescope.nvim',
---
---        -- Plenary is a dependency for telescope
---        requires = {'nvim-lua/plenary.nvim'},
---
---        config = require("config.telescope"),
---    }
+	}
 
     use 'romainl/vim-cool'
     use 'psliwka/vim-smoothie'
