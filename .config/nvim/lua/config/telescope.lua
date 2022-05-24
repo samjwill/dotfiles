@@ -2,13 +2,11 @@ if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded 
 
 --TODO: Unsure if these parenthesis are necessary or not?
 require("telescope").setup({
-    defaults =
-    {
+    defaults = {
         sorting_strategy = 'ascending',
-        layout_config =
-        {
-            prompt_position = 'top',
-        },
+        layout_config = {
+            prompt_position = 'top'
+        }
     }
 })
 end
