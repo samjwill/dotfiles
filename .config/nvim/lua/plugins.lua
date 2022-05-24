@@ -25,11 +25,11 @@ return require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
 
-	use {
-		"nvim-telescope/telescope.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = "require('config.telescope')"
-	}
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = "require('config.telescope')"
+    }
 
     use {
         "morhetz/gruvbox",
