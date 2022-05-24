@@ -2,6 +2,9 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
+    --TODO: Does this work???
+    vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
+
     packer_bootstrap = fn.system
     {
         'git',
@@ -13,6 +16,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     }
     print "Installing Packer. Please close and reopen Neovim..."
     --TODO: Necessary? Apparently it lazy loads?
+
     vim.cmd("packadd packer.nvim")
 end
 
@@ -36,7 +40,9 @@ return require('packer').startup(function(use)
 
     use {
         "nvim-treesitter/nvim-treesitter",
-        config = "require('config.treesitter')"
+        config = "require('config.treesitter')",
+        --TODO: This is broken
+        --run = ":TSUpdate"
     }
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
