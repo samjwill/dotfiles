@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     use {
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
-        --TODO: This is broken
+        --TODO: This is broken. See config for the hacky workaround.
         --run = ":TSUpdate"
     }
     use "romainl/vim-cool"
