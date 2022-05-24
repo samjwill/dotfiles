@@ -1,10 +1,8 @@
-local status_ok telescope = pcall(require, "telescope")
-if not status_ok then
-    return
-end
+if packer_plugins["telescope"] and packer_plugins["telescope"].loaded then
+
 
 --TODO: Unsure if these parenthesis are necessary or not?
-telescope.setup({
+require("telescope").setup({
     defaults =
     {
         sorting_strategy = 'ascending',
@@ -14,3 +12,4 @@ telescope.setup({
         },
     }
 })
+end
