@@ -8,4 +8,8 @@ require("nvim-treesitter.configs").setup({
     }
     --TODO: Incremental Selection
 })
+
+-- Workaround because there appears to be an issue with :TSUpdate
+vim.cmd("autocmd VimEnter * TSUpdate")
+
 end
