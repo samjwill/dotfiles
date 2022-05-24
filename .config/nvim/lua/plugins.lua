@@ -19,6 +19,7 @@ end
 
 -- Built-in gdb debugging tool
 vim.cmd("packadd termdebug")
+vim.g.termdebug_wide = 1
 
 return require('packer').startup(function(use)
     -- Packer needs to manage itself
