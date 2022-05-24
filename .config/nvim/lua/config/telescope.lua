@@ -1,11 +1,7 @@
---TODO: This doesn't work. Try to get it to.
-local status_ok telescope = pcall(require, "telescope")
-if not status_ok then
-    return
-end
+if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded then
 
 --TODO: Unsure if these parenthesis are necessary or not?
-telescope.setup({
+require("telescope").setup({
     defaults =
     {
         sorting_strategy = 'ascending',
@@ -15,3 +11,4 @@ telescope.setup({
         },
     }
 })
+end
