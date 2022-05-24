@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
 
 	use {
 		"nvim-telescope/telescope.nvim",
-		as = "telescope", --TODO: Verify that this is necessary.
 		requires = { "nvim-lua/plenary.nvim" },
 		config = [[require('config.telescope')]],
 	}
