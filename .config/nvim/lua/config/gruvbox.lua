@@ -1,10 +1,7 @@
-if packer_plugins["gruvbox"] and packer_plugins["gruvbox"].loaded then
+if packer_plugins["gruvbox.nvim"] and packer_plugins["gruvbox.nvim"].loaded then
 vim.cmd([[
     try
         colorscheme gruvbox
-
-        "Gruvbox breaks this at the time of writing for Termdebug
-        hi debugPC term=reverse ctermbg=66 guibg='#458588'
 
         "TODO: see if you can use named colors instead of hard-coding hex codes
         augroup INIT_STATUSLINE_COLORS | autocmd!
