@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "morhetz/gruvbox",
+        "ellisonleao/gruvbox.nvim",
         config = "require('config.gruvbox')"
     }
 
