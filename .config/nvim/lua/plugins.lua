@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
         --TODO: I guess we need to lazy load this, as otherwise the command isn't recognized?
-        event = "VimEnter"
+        event = "VimEnter",
         run = ":TSUpdate"
     }
 
