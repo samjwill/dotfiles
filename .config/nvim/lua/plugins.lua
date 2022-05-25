@@ -39,14 +39,16 @@ return require('packer').startup(function(use)
     use {
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
-        --TODO: This is broken. See config for the hacky workaround.
-        --run = ":TSUpdate"
+        --TODO: I guess we need to lazy load this, as otherwise the command isn't recognized?
+        event = "VimEnter"
+        run = ":TSUpdate"
     }
+
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
     use "samjwill/nvim-unception"
-    -- TODO: Look into treesitter plugin and native LSP
+    -- TODO: Look into native LSP
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
