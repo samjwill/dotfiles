@@ -11,9 +11,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
         'https://github.com/wbthomason/packer.nvim',
         install_path
     }
-    print "Installing Packer. Please close and reopen Neovim..."
-    --TODO: Necessary? Apparently it lazy loads?
+    print "Installing Packer. Please close and reopen Neovim on install completion..."
 
+    --TODO: Not certain that this is the best way to do this, but if we don't, Packer isn't recognized. Also saw a solution which modifies the path Neovim searches, so that might be worth looking into.
     vim.cmd("packadd packer.nvim")
 end
 
