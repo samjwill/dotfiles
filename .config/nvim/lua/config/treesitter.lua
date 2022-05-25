@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup({
         enable = true
     }
     --TODO: Incremental Selection
+    --TODO: Folds
 })
 
 end
