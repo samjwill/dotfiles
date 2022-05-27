@@ -1,4 +1,3 @@
-if packer_plugins["gruvbox.nvim"] and packer_plugins["gruvbox.nvim"].loaded then
 vim.cmd([[
     try
         colorscheme gruvbox
@@ -14,4 +13,3 @@ vim.cmd([[
     catch
     endtry
 ]])
-end
