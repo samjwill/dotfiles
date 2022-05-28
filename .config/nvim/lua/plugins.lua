@@ -51,7 +51,7 @@ require('packer').startup(function(use)
     }
     use {
         "neovim/nvim-lspconfig",
-        config = "require('lspconfig').clangd.setup{}"
+        config = "require('config.lspconfig')"
     }
 
     use "romainl/vim-cool"
