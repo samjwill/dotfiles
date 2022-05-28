@@ -50,7 +50,8 @@ require('packer').startup(function(use)
         run = ":TSUpdate"
     }
     use {
-        "neovim/nvim-lspconfig"
+        "neovim/nvim-lspconfig",
+        config = "require('lspconfig').clangd.setup{}"
     }
 
     use "romainl/vim-cool"
@@ -67,3 +68,4 @@ require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
+

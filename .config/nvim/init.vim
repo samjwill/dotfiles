@@ -136,4 +136,3 @@ set statusline+=\       "space
 
 lua require "plugins"
 
-lua require('lspconfig').clangd.setup{}
