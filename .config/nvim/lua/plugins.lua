@@ -20,7 +20,7 @@ end
 vim.cmd("packadd termdebug")
 vim.g.termdebug_wide = 1
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
 
@@ -50,8 +50,7 @@ return require('packer').startup(function(use)
         run = ":TSUpdate"
     }
     use {
-        "neovim/nvim-lspconfig",
-        config = "require('config.nvim-lspconfig')"
+        "neovim/nvim-lspconfig"
     }
 
     use "romainl/vim-cool"
