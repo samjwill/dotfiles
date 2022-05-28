@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
         "ellisonleao/gruvbox.nvim",
         config = "require('config.gruvbox')"
     }
-
     use {
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
@@ -50,11 +49,15 @@ return require('packer').startup(function(use)
         event = "VimEnter",
         run = ":TSUpdate"
     }
+    use {
+        "neovim/nvim-lspconfig",
+        config = "require('config.nvim-lspconfig')"
+    }
+
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
     use "samjwill/nvim-unception"
-    -- TODO: Look into native LSP
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
