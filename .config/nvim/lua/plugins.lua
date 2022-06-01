@@ -53,7 +53,7 @@ require('packer').startup(function(use)
         "neovim/nvim-lspconfig",
         config = "require('config.lspconfig')"
     }
-    //TODO: Look into snippets and auto-completion.
+    --TODO: Look into snippets and auto-completion.
 
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
