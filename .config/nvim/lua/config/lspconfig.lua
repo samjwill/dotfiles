@@ -18,4 +18,6 @@ vim.api.nvim_set_keymap('n', lsp_leader..'ca',    '<cmd>lua vim.lsp.buf.code_act
 vim.api.nvim_set_keymap('n', lsp_leader..'gr',    '<cmd>lua vim.lsp.buf.references()<CR>',      opts)
 vim.api.nvim_set_keymap('n', lsp_leader..'f',     '<cmd>lua vim.lsp.buf.formatting()<CR>',      opts)
 
-require('lspconfig').clangd.setup{}
+require('lspconfig').clangd.setup{
+    map('n', lsp_leader..'a', ':ClangdSwitchSourceHeader<CR>')
+}
