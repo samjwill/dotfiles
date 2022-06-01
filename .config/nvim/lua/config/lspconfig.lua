@@ -1,5 +1,3 @@
--- TODO: Group these keybinds where the rest of the keybinds are defined.
-
 local lsp_leader = '<space>l'
 local opts = { noremap=true, silent=true }
 
