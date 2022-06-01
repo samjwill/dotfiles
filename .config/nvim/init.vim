@@ -62,11 +62,15 @@ let mapleader = " "
     noremap <Leader>/ /
     noremap <Leader>? /
 
+    "Bufdir Plugin
     "Open terminal in current window
-    noremap <Leader>t :Bufdir ter<CR>i
+    noremap <Leader>c :Bufdir ter<CR>i
 
-    noremap <Leader>b :Telescope current_buffer_fuzzy_find<CR>
-    noremap <Leader>f :Telescope find_files<CR>
+    "Telescope Plugin
+    noremap <Leader>tb :Telescope current_buffer_fuzzy_find<CR>
+    noremap <Leader>tf :Telescope find_files<CR>
+    noremap <Leader>tl :Telescope live_grep<CR>
+    noremap <Leader>tt :Telescope<CR>
 
 "Insert Mode
 
@@ -74,7 +78,6 @@ let mapleader = " "
     inoremap <S-Tab> <C-d>
 
 "Tab switching
-"TODO: Should I just use "noremap" here vvv?
     "Some terminals intercept these keystrokes, so if these mappings don't
     "work, check the terminal settings. For Konsole, unbind everything else in
     "Settings>Keyboard Shortcuts and then bind:
@@ -92,6 +95,8 @@ let mapleader = " "
     tnoremap <silent> <C-S-Tab> <C-\><C-N>:tabp<CR>
     vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <C-q> <Esc>
 "Autocommands
     augroup INIT_CMDS | autocmd!
         "Turn off line numbers in terminal emulator
@@ -103,9 +108,6 @@ let mapleader = " "
         "TODO: This breaks the :ter command.
         autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')
     augroup end
-
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <C-q> <Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 StatusLine                                   "
