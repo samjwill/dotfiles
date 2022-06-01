@@ -75,8 +75,11 @@ let mapleader = " "
 
 "Tab switching
 "TODO: Should I just use "noremap" here vvv?
-    "Some terminals intercept these keystrokes, so if these mappings don't work,
-    "check the terminal settings.
+    "Some terminals intercept these keystrokes, so if these mappings don't
+    "work, check the terminal settings. For Konsole, unbind everything else in
+    "Settings>Keyboard Shortcuts and then bind:
+    "    Backtab+Ctrl+Ansi -> \E[27;6;9~
+    "    Tab+Ctrl+Ansi     -> \E[27;5;9~
     cnoremap <silent> <C-Tab> <Esc>:tabn<CR>
     inoremap <silent> <C-Tab> <Esc>:tabn<CR>
     nnoremap <silent> <C-Tab> :tabn<CR>
