@@ -1,8 +1,8 @@
 -- TODO: Group these keybinds where the rest of the keybinds are defined.
 
 local lsp_leader = '<space>l'
-
 local opts = { noremap=true, silent=true }
+
 vim.api.nvim_set_keymap('n', lsp_leader..'e',     '<cmd>lua vim.diagnostic.open_float()<CR>',   opts)
 vim.api.nvim_set_keymap('n', lsp_leader..'[d',    '<cmd>lua vim.diagnostic.goto_prev()<CR>',    opts)
 vim.api.nvim_set_keymap('n', lsp_leader..']d',    '<cmd>lua vim.diagnostic.goto_next()<CR>',    opts)
@@ -19,5 +19,5 @@ vim.api.nvim_set_keymap('n', lsp_leader..'gr',    '<cmd>lua vim.lsp.buf.referenc
 vim.api.nvim_set_keymap('n', lsp_leader..'f',     '<cmd>lua vim.lsp.buf.formatting()<CR>',      opts)
 
 require('lspconfig').clangd.setup{
-    map('n', lsp_leader..'a', ':ClangdSwitchSourceHeader<CR>')
+    vim.api.nvim_set_keymap('n', lsp_leader..'a', '<cmd>ClangdSwitchSourceHeader<CR>',          opts)
 }
