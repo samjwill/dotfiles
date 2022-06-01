@@ -12,6 +12,7 @@ set nowrap
 set splitright
 set splitbelow
 set termguicolors
+set timeoutlen=3000
 
 "Formatting Marks
 set list
