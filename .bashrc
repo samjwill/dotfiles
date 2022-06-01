@@ -4,14 +4,6 @@ case $- in
       *) return;;
 esac
 
-# TODO: Make this more portable? vvv
-if [ -r "/etc/bash_completion" ]; then
-    source /etc/bash_completion
-fi
-if [ -r "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
-
 set -o vi
 
 bind 'set bell-style none'
@@ -92,3 +84,10 @@ bind -x '"\C-l": clear' #Need to rebind this because `set -o vi` breaks the
                         # original binding and also because this preserves text
                         # that is currently on the screen when clearing.
 
+
+if [ -r "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+if [ -r "/etc/bash_completion" ]; then
+    source /etc/bash_completion
+fi
