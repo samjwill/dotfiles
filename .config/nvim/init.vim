@@ -65,8 +65,12 @@ let mapleader = " "
 
     "Bufdir Plugin
     "Open terminal in current window
-    noremap <Leader>c :vsplit \| Bufdir ter<CR>i
-    noremap <Leader>C :vsplit \| ter<CR>i
+    noremap <Leader>cv :vsplit \| Bufdir ter<CR>i
+    noremap <Leader>cV :vsplit \| ter<CR>i
+    noremap <Leader>cs :split \| Bufdir ter<CR>i
+    noremap <Leader>cS :split \| ter<CR>i
+    noremap <Leader>cc :Bufdir ter<CR>i
+    noremap <Leader>cC :ter<CR>i
 
     "Telescope Plugin
     noremap <Leader>tb :Telescope current_buffer_fuzzy_find<CR>
