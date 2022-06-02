@@ -64,7 +64,7 @@ let mapleader = " "
     noremap <Leader>? /
 
     "Bufdir Plugin
-    "Open terminal in current window
+    "Open command-line
     noremap <Leader>cc :Bufdir terminal<CR>i
     noremap <Leader>cC :terminal<CR>i
     noremap <Leader>cs :split \| Bufdir terminal<CR>i
