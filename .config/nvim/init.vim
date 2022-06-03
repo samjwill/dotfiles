@@ -13,6 +13,7 @@ set splitright
 set splitbelow
 set termguicolors
 set timeoutlen=3000
+set undofile
 
 "Formatting Marks
 set list
