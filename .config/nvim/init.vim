@@ -3,6 +3,7 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set completeopt=menuone,noselect
 set confirm
 set fileformats=unix,dos,mac
 set mouse=a

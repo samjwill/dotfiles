@@ -21,4 +21,5 @@ require('lspconfig').clangd.setup{
 }
 
 --TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
---TODO: Look at vim.o.completeopt = "menuone,noselect"
+--TODO: Set omnifunc?
+
