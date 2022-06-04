@@ -19,3 +19,6 @@ vim.api.nvim_set_keymap('n', lsp_leader..'t',  '<cmd>lua vim.lsp.buf.type_defini
 require('lspconfig').clangd.setup{
     vim.api.nvim_set_keymap('n', lsp_leader..'a', '<cmd>ClangdSwitchSourceHeader<CR>',       opts)
 }
+
+--TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+--TODO: Look at vim.o.completeopt = "menuone,noselect"
