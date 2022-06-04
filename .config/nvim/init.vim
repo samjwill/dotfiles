@@ -13,6 +13,7 @@ set splitright
 set splitbelow
 set termguicolors
 set timeoutlen=3000
+set undofile
 
 "Formatting Marks
 set list
@@ -64,8 +65,13 @@ let mapleader = " "
     noremap <Leader>? /
 
     "Bufdir Plugin
-    "Open terminal in current window
-    noremap <Leader>c :Bufdir ter<CR>i
+    "Open command-line
+    noremap <Leader>cc :Bufdir terminal<CR>i
+    noremap <Leader>cC :terminal<CR>i
+    noremap <Leader>cs :split \| Bufdir terminal<CR>i
+    noremap <Leader>cS :split \| terminal<CR>i
+    noremap <Leader>cv :vsplit \| Bufdir terminal<CR>i
+    noremap <Leader>cV :vsplit \| terminal<CR>i
 
     "Telescope Plugin
     noremap <Leader>tb :Telescope current_buffer_fuzzy_find<CR>
