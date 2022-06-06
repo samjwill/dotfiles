@@ -58,7 +58,10 @@ require('packer').startup(function(use)
     use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
-    use "samjwill/nvim-unception"
+    use {
+        "samjwill/nvim-unception",
+        config = "vim.g.unception_delete_replaced_buffer = true"
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
