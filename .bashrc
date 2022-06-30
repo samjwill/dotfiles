@@ -65,7 +65,9 @@ alias vim='nvim'
 function cd {
     builtin cd "$@" && ls -F
 }
-
+cheat () (
+    curl cheat.sh/$@
+)
 clear() (
    if [ "$#" -ne 0 ]; then
       command clear "$@"
