@@ -55,6 +55,7 @@ let mapleader = " "
 "Normal, Visual, Select, Operator-pending Modes
 
     "- to edit directory of current file
+    "TODO: disallow for terminal buffers
     noremap <silent> - :e %:p:h<CR>
 
     "Don't want to :set ignorecase because * and # should be case-sensitive
