@@ -5,5 +5,8 @@ require("nvim-treesitter.configs").setup({
         enable = true
     }
     --TODO: Incremental Selection
-    --TODO: Folds
 })
+
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 9 -- Same as set by pressing `zR`
+vim.opt.foldmethod= "expr"
