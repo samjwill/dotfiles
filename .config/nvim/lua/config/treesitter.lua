@@ -9,4 +9,4 @@ require("nvim-treesitter.configs").setup({
 
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 9 -- Same as set by pressing `zR`
-vim.opt.foldmethod= "expr"
+vim.opt.foldmethod = "expr"
