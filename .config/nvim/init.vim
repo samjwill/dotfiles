@@ -79,7 +79,7 @@ let mapleader = " "
     "Telescope Plugin
     noremap <Leader>tb :Bufdir Telescope current_buffer_fuzzy_find<CR>
     noremap <Leader>tf :Bufdir Telescope find_files<CR>
-    noremap <Leader>tb :Bufdir Telescope live_grep<CR>
+    noremap <Leader>tl :Bufdir Telescope live_grep<CR>
     noremap <Leader>tt :Bufdir Telescope<CR>
     noremap <Leader>tB :Telescope current_buffer_fuzzy_find<CR>
     noremap <Leader>tF :Telescope find_files<CR>
