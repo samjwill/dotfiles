@@ -129,9 +129,11 @@ let mapleader = " "
     augroup end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 StatusLine                                   "
+"                             StatusLine and WinBar                            "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set winbar=%F           "full filepath
 
 set statusline=         "clear entire statusline
 set statusline+=%n      "buffer number
