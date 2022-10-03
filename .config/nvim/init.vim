@@ -137,7 +137,7 @@ let mapleader = " "
 
 set winbar=%F           "full filepath
 
-set laststatus=3
+set laststatus=3.       "global statusline
 
 set statusline=         "clear entire statusline
 set statusline+=%n      "buffer number
