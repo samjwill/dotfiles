@@ -136,6 +136,8 @@ let mapleader = " "
 
 set winbar=%F           "full filepath
 
+set laststatus=3
+
 set statusline=         "clear entire statusline
 set statusline+=%n      "buffer number
 set statusline+=\       "space
