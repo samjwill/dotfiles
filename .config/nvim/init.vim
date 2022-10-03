@@ -120,7 +120,7 @@ let mapleader = " "
         "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
         "TODO: This breaks the :ter command.
         autocmd TermClose * call <SID>try_delete_buffer()
-        function!
+        function! s:try_delete_buffer()
             try
                 execute('bdelete! ' . expand('<abuf>'))
             endtry
