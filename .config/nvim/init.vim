@@ -126,7 +126,7 @@ let mapleader = " "
         "found here:
         "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
         "TODO: This breaks the :ter command.
-        autocmd TermClose * if getline('$') == 'Exit 0' | close | endif
+        "autocmd TermClose * if getline('$') == 'Exit 0' | close | endif
 
     augroup end
 
