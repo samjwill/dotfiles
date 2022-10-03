@@ -3,6 +3,7 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set cmdheight=0
 set completeopt=menuone,noselect
 set confirm
 set fileformats=unix,dos,mac
