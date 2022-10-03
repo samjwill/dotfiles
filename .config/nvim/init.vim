@@ -1,6 +1,6 @@
 " TODO - list of things that don't work quite right
 " Using `:ter <cmd>` without automatically closing buffer.
-" Stophl being inserted when occasionally entering terminal buffer
+" Stophl being inserted occasionally when entering terminal buffer
 " Terminal buffer being deleted when it's still visible using inception
 " Termdebug does not always follow highlighting
 
