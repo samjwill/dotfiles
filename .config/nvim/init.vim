@@ -122,11 +122,9 @@ let mapleader = " "
         "Turn off line numbers in terminal emulator
         autocmd TermOpen * setlocal nonumber
 
-        "Automatically close terminal buffer when done. This is a work-around I
-        "found here:
-        "https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+        "Automatically close terminal buffer when done.
         "TODO: This breaks the :ter command.
-        "autocmd TermClose * if getline('$') == 'Exit 0' | close | endif
+        autocmd TermClose * if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif
 
     augroup end
 
