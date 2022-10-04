@@ -61,7 +61,7 @@ require('packer').startup(function(use)
     use "samjwill/vim-bufdir"
     use {
         "samjwill/nvim-unception",
-        config = "vim.g.unception_delete_replaced_buffer = true"
+        config = "vim.g.unception_delete_replaced_buffer = true vim.g.unception_enable_flavor_text = false"
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
