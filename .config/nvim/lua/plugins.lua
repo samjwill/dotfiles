@@ -49,6 +49,13 @@ require('packer').startup(function(use)
         commit = "3352c12c083d0ab6285a9738b7679e24e7602411",
         config = "require('config.gruvbox')"
     }
+		
+    use
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2',
+        config = "require('config.hop')"
+    }
 
     use
     {
