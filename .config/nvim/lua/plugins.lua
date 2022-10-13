@@ -28,7 +28,8 @@ require('packer').startup(function(use)
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
 
-    use {
+    use
+    {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = "require('config.telescope')"
