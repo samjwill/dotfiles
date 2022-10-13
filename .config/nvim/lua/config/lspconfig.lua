@@ -1,3 +1,4 @@
+--TODO: Look into snippets and auto-completion.
 local lsp_leader = '<space>l'
 local opts = { noremap=true, silent=true }
 
