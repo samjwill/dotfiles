@@ -24,9 +24,13 @@ require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
 
+    use "romainl/vim-cool"
+    use "psliwka/vim-smoothie"
+    use "samjwill/vim-bufdir"
+
     use {
         "nvim-telescope/telescope.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
+        requires = "nvim-lua/plenary.nvim",
         config = "require('config.telescope')"
     }
     -- TODO: Running the following two commands after Packer install completion
@@ -38,31 +42,40 @@ require('packer').startup(function(use)
     --runtime! plugin/**/*.vim
     --runtime! plugin/**/*.lua
 
-    use {
+    use
+    {
         "ellisonleao/gruvbox.nvim",
         commit = "3352c12c083d0ab6285a9738b7679e24e7602411",
         config = "require('config.gruvbox')"
     }
-    use {
+
+    use
+    {
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
         --TODO: I guess we need to lazy load this, as otherwise the command isn't recognized?
         event = "VimEnter",
         run = ":TSUpdate"
     }
-    use {
+
+    use
+    {
         "neovim/nvim-lspconfig",
         config = "require('config.lspconfig')"
     }
-    --TODO: Look into snippets and auto-completion.
 
-    use "romainl/vim-cool"
-    use "psliwka/vim-smoothie"
-    use "samjwill/vim-bufdir"
-    use {
+    use
+    {
         "samjwill/nvim-unception",
         config = "vim.g.unception_delete_replaced_buffer = true vim.g.unception_enable_flavor_text = false"
     }
+
+    use
+    {
+        'lewis6991/gitsigns.nvim',
+        config = "require('config.gitsigns')"
+    }
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
@@ -73,4 +86,3 @@ require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
-
