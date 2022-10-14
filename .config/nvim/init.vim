@@ -117,6 +117,9 @@ let mapleader = " "
         "TODO: This breaks the :ter command.
         autocmd TermClose * if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif
 
+        "Clear highlighting when pressing ctrl-l. Already happens by default
+        "apparently, but needs to be set in netrw buffers.
+        autocmd FileType netrw nnoremap <buffer> <C-l> <CMD>nohlsearch<CR><C-l>
     augroup end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
