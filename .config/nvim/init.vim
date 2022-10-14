@@ -64,10 +64,6 @@ let mapleader = " "
     "TODO: disallow for terminal buffers
     noremap <silent> - :e %:p:h<CR>
 
-    "Defaults overridden by Hop
-    noremap <Leader>/ /
-    noremap <Leader>? /
-
     "Bufdir Plugin
     "Open command-line
     noremap <Leader>cc :Bufdir terminal<CR>i
