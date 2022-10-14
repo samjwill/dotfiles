@@ -1,4 +1,4 @@
-require'hop'.setup{}
+require('hop').setup{}
 
 local opts = { noremap=true, silent=true }
 
