@@ -1,6 +1,4 @@
-require'hop'.setup {
-    keys = 'etovxqpdygfblzhckisuran'
-}
+require'hop'.setup{}
 
 local opts = { noremap=true, silent=true }
 
