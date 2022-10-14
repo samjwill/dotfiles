@@ -85,10 +85,10 @@ require('packer').startup(function(use)
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "PackerComplete",
-			callback = function() print("Installation is complete! Please restart Neovim.") end
-		})
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "PackerComplete",
+            callback = function() print("Installation is complete! Please restart Neovim.") end
+        })
         require('packer').sync()
     end
 end)
