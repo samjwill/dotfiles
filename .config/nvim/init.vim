@@ -194,13 +194,15 @@ function! s:handle_enter_pressed_in_cmdline()
    return "\<CR>"
 endfunction
 
-"See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
-autocmd! CmdlineChanged [\/\?] set hlsearch
-autocmd! CmdlineLeave [\/\?] call <SID>handle_cmdline_leave()
-autocmd! CmdwinEnter [\/\?] nnoremap <CR> <CMD>let g:enter_was_pressed = 1<CR><CR>
-autocmd! CmdwinLeave [\/\?] nunmap <CR>
-autocmd! CursorMoved * call <SID>handle_cursor_moved()
-autocmd! InsertEnter * set nohlsearch
+augroup AUTO_NOHLSEARCH_CMDS | autocmd!
+    "See :h cmdwin-char and :h file-pattern. Maps to ? and / searches.
+    autocmd! CmdlineChanged [\/\?] set hlsearch
+    autocmd! CmdlineLeave [\/\?] call <SID>handle_cmdline_leave()
+    autocmd! CmdwinEnter [\/\?] nnoremap <CR> <CMD>let g:enter_was_pressed = 1<CR><CR>
+    autocmd! CmdwinLeave [\/\?] nunmap <CR>
+    autocmd! CursorMoved * call <SID>handle_cursor_moved()
+    autocmd! InsertEnter * set nohlsearch
+augroup end
 
 cnoremap <silent><expr> <CR> <SID>handle_enter_pressed_in_cmdline()
 
