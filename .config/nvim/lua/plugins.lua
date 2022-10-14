@@ -30,6 +30,7 @@ require('packer').startup(function(use)
     {
         "lukas-reineke/indent-blankline.nvim",
         config = "require('config.indent-blankline')"
+    }
 
     use
     {
