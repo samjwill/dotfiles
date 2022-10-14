@@ -24,7 +24,6 @@ require('packer').startup(function(use)
     -- Packer needs to manage itself
     use 'wbthomason/packer.nvim'
 
-    use "romainl/vim-cool"
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
 
