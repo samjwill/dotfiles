@@ -82,6 +82,11 @@ require('packer').startup(function(use)
         config = "require('config.gitsigns')"
     }
 
+    use
+    {
+        'echasnovski/mini.nvim',
+        config = "require('config.mini')"
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
