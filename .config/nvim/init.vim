@@ -65,11 +65,6 @@ let mapleader = " "
     "TODO: disallow for terminal buffers
     noremap <silent> - :e %:p:h<CR>
 
-    "Don't want to :set ignorecase because * and # should be case-sensitive
-    "Case-insensitive search
-    noremap / /\c
-    noremap ? ?\c
-    "Case-sensitive search
     noremap <Leader>/ /
     noremap <Leader>? /
 
