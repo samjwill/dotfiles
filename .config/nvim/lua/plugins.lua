@@ -28,6 +28,11 @@ require('packer').startup(function(use)
 
     use
     {
+        "lukas-reineke/indent-blankline.nvim",
+        config = "require('config.indent-blankline')"
+
+    use
+    {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = "require('config.telescope')"
