@@ -85,7 +85,7 @@ require('packer').startup(function(use)
     use
     {
         "samjwill/nvim-unception",
-        branch = "add_visibility_check"
+        branch = "add_visibility_check",
         config = "vim.g.unception_delete_replaced_buffer = true vim.g.unception_enable_flavor_text = false"
     }
 
