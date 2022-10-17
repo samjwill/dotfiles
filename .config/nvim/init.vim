@@ -43,7 +43,7 @@ set wildmode=longest:full,full
 "Swap directory
 let g:swap_dir = stdpath('data') . "/swap"
 call mkdir(g:swap_dir, "p", 0700)
-let &directory=g:swap_dir . ',.'
+let &directory = g:swap_dir . ',.'
 
 "Settings for both netrw and neovim
 set number
