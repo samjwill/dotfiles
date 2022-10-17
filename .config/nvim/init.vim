@@ -81,10 +81,10 @@ let mapleader = " "
     noremap <Leader>cV :vsplit \| terminal<CR>i
 
     "Telescope Plugin
-    noremap <Leader>t/ Telescope current_buffer_fuzzy_find<CR>
-    noremap <Leader>tf Telescope find_files<CR>
-    noremap <Leader>tl Telescope live_grep<CR>
-    noremap <Leader>tt Telescope<CR>
+    noremap <Leader>t/ :Telescope current_buffer_fuzzy_find<CR>
+    noremap <Leader>tf :Telescope find_files<CR>
+    noremap <Leader>tl :Telescope live_grep<CR>
+    noremap <Leader>tt :Telescope<CR>
 
 "Insert Mode
 
