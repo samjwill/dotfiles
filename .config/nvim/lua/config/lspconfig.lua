@@ -21,10 +21,14 @@ local on_attach_func = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
+-- If changing these, update the values in mason-lspconfig as well.
 require('lspconfig').clangd.setup{
     vim.api.nvim_set_keymap('n', lsp_leader..'a', '<cmd>ClangdSwitchSourceHeader<CR>',       opts),
     on_attach = on_attach_func
 }
 
---TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+require('lspconfig').sumneko_lua.setup{
+    on_attach = on_attach_func
+}
 
+--TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
