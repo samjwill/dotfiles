@@ -12,6 +12,7 @@
 set cmdheight=0
 set completeopt=menuone,noselect
 set confirm
+set cursorline
 set fileformats=unix,dos,mac
 set mouse=a
 set noequalalways
