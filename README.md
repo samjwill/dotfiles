@@ -2,6 +2,8 @@
 
 #### Installation:
 
+Use git to clone it or...
+
 Ensure that `curl` and `unzip` are installed and then run the following command.
 
 ```
