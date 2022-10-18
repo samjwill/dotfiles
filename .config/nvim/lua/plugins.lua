@@ -78,12 +78,6 @@ require('packer').startup(function(use)
 
     use
     {
-        "neovim/nvim-lspconfig",
-        config = "require('config.lspconfig')"
-    }
-
-    use
-    {
         "samjwill/nvim-unception",
         config = "vim.g.unception_delete_replaced_buffer = true vim.g.unception_enable_flavor_text = false"
     }
@@ -104,6 +98,36 @@ require('packer').startup(function(use)
     {
         'echasnovski/mini.nvim',
         config = "require('config.mini')"
+    }
+
+    -- Ordered
+    use
+    {
+        "williamboman/mason.nvim",
+        config = function() require('mason').setup() end
+    }
+
+    use {
+        "williamboman/mason-lspconfig.nvim",
+        after = 'mason.nvim',
+        config = function()
+            require("mason-lspconfig").setup(
+            {
+                ensure_installed =
+                {
+                    "clangd",
+                    "sumneko_lua"
+                }
+            })
+        end
+    }
+
+    use {
+        "neovim/nvim-lspconfig",
+        after = 'mason-lspconfig.nvim',
+        config = function()
+            require('config.lspconfig')
+        end
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
