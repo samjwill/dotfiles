@@ -2,7 +2,7 @@
 
 #### Installation:
 
-Use git to clone it or...
+Use git to clone the repo or...
 
 Ensure that `curl` and `unzip` are installed and then run the following command.
 
