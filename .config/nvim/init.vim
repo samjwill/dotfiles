@@ -17,6 +17,7 @@ set fileformats=unix,dos,mac
 set mouse=a
 set noequalalways
 set nohidden
+set noshowmode
 set nowrap
 set splitright
 set splitbelow
