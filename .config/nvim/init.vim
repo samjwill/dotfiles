@@ -9,7 +9,7 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set cmdheight=0
+set cmdheight=1
 set completeopt=menuone,noselect
 set confirm
 set cursorline
