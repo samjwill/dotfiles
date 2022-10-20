@@ -55,9 +55,8 @@ require('packer').startup(function(use)
 
     use
     {
-        "ellisonleao/gruvbox.nvim",
-        commit = "3352c12c083d0ab6285a9738b7679e24e7602411",
-        config = "require('config.gruvbox')"
+        "sainnhe/gruvbox-material",
+        config = "require('config.gruvbox-material')"
     }
 
     use
@@ -120,6 +119,16 @@ require('packer').startup(function(use)
                     "clangd",
                     "sumneko_lua"
                 }
+            })
+        end
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup({
+                options = { section_separators = '', component_separators = '' }
             })
         end
     }
