@@ -131,7 +131,7 @@ let mapleader = " "
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set winbar=%F           "full filepath
+set winbar=%t           "filename
 
 set laststatus=3        "global statusline
 
