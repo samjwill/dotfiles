@@ -14,6 +14,7 @@ set completeopt=menuone,noselect
 set confirm
 set cursorline
 set fileformats=unix,dos,mac
+set laststatus=3
 set mouse=a
 set noequalalways
 set nohidden
@@ -24,6 +25,7 @@ set splitbelow
 set termguicolors
 set timeoutlen=3000
 set undofile
+set winbar=%t "filename without path
 
 "Formatting Marks
 set list
@@ -126,33 +128,6 @@ let mapleader = " "
         "apparently, but needs to be set in netrw buffers.
         autocmd FileType netrw nnoremap <buffer> <C-l> <CMD>nohlsearch<CR><C-l>
     augroup end
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             StatusLine and WinBar                            "
-"                                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set winbar=%t           "filename
-
-set laststatus=3        "global statusline
-
-set statusline=         "clear entire statusline
-set statusline+=%n      "buffer number
-set statusline+=\       "space
-set statusline+=%{&ff}  "file format where EOL is: dos = <CR><NL>, unix = <NL>, mac = <CR>
-set statusline+=\       "space
-set statusline+=%y      "file type
-set statusline+=%=      "separation point between left and right aligned items
-set statusline+=%m      "modified flag where: [+] = modified, [-] = unmodifiable
-set statusline+=\       "space
-set statusline+=L:      "L:
-set statusline+=%l      "current line
-set statusline+=/       "/
-set statusline+=%L      "total lines
-set statusline+=\       "space
-set statusline+=C:      "C:
-set statusline+=%v      "column number
-set statusline+=\       "space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Highlighting                                  "
