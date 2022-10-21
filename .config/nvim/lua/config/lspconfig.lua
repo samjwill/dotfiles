@@ -32,3 +32,12 @@ require('lspconfig').sumneko_lua.setup{
 }
 
 --TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+
+--TODO: Implement below:
+local symbols = {
+    {name = "DiagnosticSignError", text = ''}, -- xf659
+    {name = "DiagnosticSignWarn", text = ''}, -- xf529
+    {name = "DiagnosticSignInfo", text = ''}, -- xf7fc
+    {name = "DiagnosticSignHint", text = ''}, -- xf835
+}
+
