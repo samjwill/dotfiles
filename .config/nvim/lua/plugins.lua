@@ -129,8 +129,8 @@ require('packer').startup(function(use)
         config = function()
             require('lualine').setup({
                 options = {
-                    section_separators = { left = '', right = '' },
-                    component_separators = '|',
+                    section_separators = { left = '', right = '' },
+                    component_separators = '',
                 },
                 sections = {
                     lualine_c = {
