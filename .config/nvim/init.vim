@@ -9,6 +9,21 @@
 "                                                                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+
+
+
+
+
+
+
+
+" TODO: Check why there's so much space to the left of the numberline. Was it always like that?
+
+
+
+
+
 set cmdheight=1
 set completeopt=menuone,noselect
 set confirm
