@@ -57,7 +57,8 @@ let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are
 let g:netrw_banner=0
 
 " Hide . and .. directories.
-let g:netrw_list_hide='^\./$'
+let g:netrw_list_hide=''
+let g:netrw_list_hide.='^\./$'
 let g:netrw_list_hide.=','
 let g:netrw_list_hide.='^\.\./$'
 
