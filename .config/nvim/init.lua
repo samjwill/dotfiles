@@ -1,3 +1,4 @@
+vim.cmd([[
 " TODO - list of things that don't work quite right and need to be addressed.
 " Using `:ter <my_command>` without automatically closing buffer.
 " Terminal buffer being deleted when it's still visible using unception
@@ -200,3 +201,5 @@ noremap <silent> gD gD<CMD>set hlsearch<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 lua require "plugins"
+
+]])
