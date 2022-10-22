@@ -91,6 +91,24 @@ require('packer').startup(function(use)
         config = "require('config.gitsigns')"
     }
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup({
+                options = {
+                    section_separators = { left = '', right = '' },
+                    component_separators = '',
+                },
+                sections = {
+                    lualine_c = {
+                        {'filename', path = 3},
+                    },
+                }
+            })
+        end
+    }
+
     use
     {
         'numToStr/Comment.nvim',
@@ -121,24 +139,6 @@ require('packer').startup(function(use)
                     -- If changing these, update the values in lspconfig.lua as well.
                     "clangd",
                     "sumneko_lua"
-                }
-            })
-        end
-    }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            require('lualine').setup({
-                options = {
-                    section_separators = { left = '', right = '' },
-                    component_separators = '',
-                },
-                sections = {
-                    lualine_c = {
-                        {'filename', path = 3},
-                    },
                 }
             })
         end
