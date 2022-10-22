@@ -47,7 +47,7 @@ vim.opt.wildmode = "longest:full,full"
 -- Swap directory
 vim.g.swap_dir = vim.fn.stdpath("data") .. "/swap"
 vim.fn.mkdir(vim.g.swap_dir, "p")
-vim.cmd("let &directory = g:swap_dir . ',.'")  --TODO: Port this to Lua
+vim.o.directory = vim.g.swap_dir .. ',.'
 
 -- Settings for both netrw and neovim
 vim.opt.number = true
