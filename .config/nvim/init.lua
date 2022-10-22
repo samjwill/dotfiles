@@ -53,16 +53,17 @@ vim.cmd("let &directory = g:swap_dir . ',.'")  --TODO: Port this to Lua
 vim.opt.number = true
 vim.g.netrw_bufsettings = "noma nomod number nobl nowrap ro" -- All but "number" are default.
 
+-- Netrw Settings
+vim.g.netrw_banner = 0
+
+-- Hide . and .. directories.
+vim.g.netrw_list_hide = ""
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./$"
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. ","
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./$"
+
+-- TODO: Port the below to Lua
 vim.cmd([[
-"Netrw Settings
-let g:netrw_banner=0
-
-" Hide . and .. directories.
-let g:netrw_list_hide=''
-let g:netrw_list_hide.='^\./$'
-let g:netrw_list_hide.=','
-let g:netrw_list_hide.='^\.\./$'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Keybinds and Autocommands                            "
 "                                                                              "
