@@ -1,32 +1,33 @@
+-- TODO - list of things that don't work quite right and need to be addressed.
+-- Using `:ter <my_command>` without automatically closing buffer.
+-- Terminal buffer being deleted when it's still visible using unception
+-- Termdebug does not always follow highlighting
+-- Hop not working when terminal buffer has focus or when inside of commandline window
+
+--------------------------------------------------------------------------------
+--                              Neovim Settings                               --
+--                                                                            --
+--------------------------------------------------------------------------------
+
+vim.o.cmdheight = 1
+vim.o.completeopt = "menuone,noselect"
+vim.o.confirm = true
+vim.o.cursorline = true
+vim.o.fileformats = "unix,dos,mac"
+vim.o.laststatus=3
+vim.o.mouse = a
+vim.o.equalalways = false
+vim.o.hidden = false
+vim.o.showmode = false
+vim.o.wrap = false
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.termguicolors = true
+vim.o.timeoutlen = 3000
+vim.o.undofile = true
+vim.o.winbar= "%t" -- filename without path
+
 vim.cmd([[
-" TODO - list of things that don't work quite right and need to be addressed.
-" Using `:ter <my_command>` without automatically closing buffer.
-" Terminal buffer being deleted when it's still visible using unception
-" Termdebug does not always follow highlighting
-" Hop not working when terminal buffer has focus or when inside of commandline window
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              Neovim Settings                                 "
-"                                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set cmdheight=1
-set completeopt=menuone,noselect
-set confirm
-set cursorline
-set fileformats=unix,dos,mac
-set laststatus=3
-set mouse=a
-set noequalalways
-set nohidden
-set noshowmode
-set nowrap
-set splitright
-set splitbelow
-set termguicolors
-set timeoutlen=3000
-set undofile
-set winbar=%t "filename without path
 
 "Formatting Marks
 set list
