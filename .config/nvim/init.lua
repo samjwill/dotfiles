@@ -44,11 +44,10 @@ vim.opt.tabstop=4
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
 
+-- Swap directory
+vim.g.swap_dir = vim.fn.stdpath("data") .. "/swap"
+vim.fn.mkdir(vim.g.swap_dir, "p")
 vim.cmd([[
-
-"Swap directory
-let g:swap_dir = stdpath('data') . "/swap"
-call mkdir(g:swap_dir, "p", 0700)
 let &directory = g:swap_dir . ',.'
 
 "Settings for both netrw and neovim
