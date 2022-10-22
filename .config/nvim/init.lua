@@ -13,38 +13,38 @@ vim.opt.cmdheight = 1
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
-vim.opt.fileformats = "unix,dos,mac"
-vim.opt.laststatus=3
-vim.opt.mouse = a
 vim.opt.equalalways = false
+vim.opt.fileformats = "unix,dos,mac"
 vim.opt.hidden = false
+vim.opt.laststatus=3
+vim.opt.mouse = "a"
 vim.opt.showmode = false
-vim.opt.wrap = false
-vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 3000
 vim.opt.undofile = true
 vim.opt.winbar= "%t" -- filename without path
+vim.opt.wrap = false
 
 -- Formatting Marks
 vim.opt.list = true
 vim.opt.listchars = {precedes = "<", extends = ">", tab = "  ", trail = "_"}
 vim.opt.showbreak = "..."
 
+-- Tabs
+vim.opt.breakindent = true
+vim.opt.copyindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth=4
+vim.opt.softtabstop=4
+vim.opt.tabstop=4
+
+-- Wildmenu
+vim.opt.wildignorecase = true
+vim.opt.wildmode = "longest:full,full"
+
 vim.cmd([[
-
-"Tabs
-set breakindent
-set copyindent
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-"Wildmenu
-set wildignorecase
-set wildmode=longest:full,full
 
 "Swap directory
 let g:swap_dir = stdpath('data') . "/swap"
