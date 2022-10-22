@@ -62,12 +62,12 @@ vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./$"
 vim.g.netrw_list_hide = vim.g.netrw_list_hide .. ","
 vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./$"
 
+--------------------------------------------------------------------------------
+--                        Keybinds and Autocommands                           --
+--                                                                            --
+--------------------------------------------------------------------------------
 -- TODO: Port the below to Lua
 vim.cmd([[
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         Keybinds and Autocommands                            "
-"                                                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TODO: Sort these mappings more logically.
 let mapleader = " "
 
