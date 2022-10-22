@@ -29,10 +29,7 @@ vim.opt.winbar= "%t" -- filename without path
 
 -- Formatting Marks
 vim.opt.list = true
-vim.opt.listchars = {precedes = "<"}
-vim.opt.listchars:append({extends = ">"})
-vim.opt.listchars:append({tab = "  "})
-vim.opt.listchars:append({trail = "_"})
+vim.opt.listchars = {precedes = "<", extends = ">", tab = "  ", trail = "_"}
 vim.opt.showbreak = "..."
 
 vim.cmd([[
