@@ -47,13 +47,13 @@ vim.opt.wildmode = "longest:full,full"
 -- Swap directory
 vim.g.swap_dir = vim.fn.stdpath("data") .. "/swap"
 vim.fn.mkdir(vim.g.swap_dir, "p")
+vim.cmd("let &directory = g:swap_dir . ',.'")  --TODO: Port this to Lua
+
+-- Settings for both netrw and neovim
+vim.opt.number = true
+vim.g.netrw_bufsettings = "noma nomod number nobl nowrap ro" -- All but "number" are default.
+
 vim.cmd([[
-let &directory = g:swap_dir . ',.'
-
-"Settings for both netrw and neovim
-set number
-let g:netrw_bufsettings='noma nomod number nobl nowrap ro' "All but 'number' are default
-
 "Netrw Settings
 let g:netrw_banner=0
 
