@@ -85,10 +85,10 @@ vim.cmd([[
 
     "Bufdir Plugin
     "Open command-line
-    noremap <silent> <Leader>cc :Bufdir terminal<CR>i
-    noremap <silent> <Leader>cC :terminal<CR>i
-    noremap <silent> <Leader>cs :split \| Bufdir terminal<CR>i
-    noremap <silent> <Leader>cS :split \| terminal<CR>i
+    lua vim.api.nvim_set_keymap("", "<Leader>cc", ":Bufdir terminal<CR>i", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>cC", ":terminal<CR>i", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>cs", ":split | Bufdir terminal<CR>i", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>cS", ":split | terminal<CR>i", { noremap=true, silent=true })
     noremap <silent> <Leader>cv :vsplit \| Bufdir terminal<CR>i
     noremap <silent> <Leader>cV :vsplit \| terminal<CR>i
 
