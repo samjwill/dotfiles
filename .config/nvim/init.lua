@@ -81,7 +81,7 @@ vim.cmd([[
 
     "- to edit directory of current file
     "TODO: disallow for terminal buffers
-    noremap <silent> - :e %:p:h<CR>
+    lua vim.api.nvim_set_keymap("", "-", ":e %:p:h<CR>", { noremap=true, silent=true })
 
     "Bufdir Plugin
     "Open command-line
@@ -93,10 +93,10 @@ vim.cmd([[
     lua vim.api.nvim_set_keymap("", "<Leader>cV", ":vsplit | terminal<CR>i", { noremap=true, silent=true })
 
     "Telescope Plugin
-    noremap <silent> <Leader>t/ :Telescope current_buffer_fuzzy_find<CR>
-    noremap <silent> <Leader>tf :Telescope find_files<CR>
-    noremap <silent> <Leader>tl :Telescope live_grep<CR>
-    noremap <silent> <Leader>tt :Telescope<CR>
+    lua vim.api.nvim_set_keymap("", "<Leader>t/", ":Telescope current_buffer_fuzzy_find<CR>", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>tf", ":Telescope find_files<CR>", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>tl", ":Telescope live_grep<CR>", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>tt", ":Telescope<CR>", { noremap=true, silent=true })
 
 "Insert Mode
 
