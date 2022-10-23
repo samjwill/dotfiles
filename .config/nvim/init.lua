@@ -89,8 +89,8 @@ vim.cmd([[
     lua vim.api.nvim_set_keymap("", "<Leader>cC", ":terminal<CR>i", { noremap=true, silent=true })
     lua vim.api.nvim_set_keymap("", "<Leader>cs", ":split | Bufdir terminal<CR>i", { noremap=true, silent=true })
     lua vim.api.nvim_set_keymap("", "<Leader>cS", ":split | terminal<CR>i", { noremap=true, silent=true })
-    noremap <silent> <Leader>cv :vsplit \| Bufdir terminal<CR>i
-    noremap <silent> <Leader>cV :vsplit \| terminal<CR>i
+    lua vim.api.nvim_set_keymap("", "<Leader>cv", ":vsplit | Bufdir terminal<CR>i", { noremap=true, silent=true })
+    lua vim.api.nvim_set_keymap("", "<Leader>cV", ":vsplit | terminal<CR>i", { noremap=true, silent=true })
 
     "Telescope Plugin
     noremap <silent> <Leader>t/ :Telescope current_buffer_fuzzy_find<CR>
