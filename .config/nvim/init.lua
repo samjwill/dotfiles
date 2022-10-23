@@ -120,7 +120,7 @@ vim.cmd([[
     vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
     lua vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
-    tnoremap <C-q> <Esc>
+    lua vim.api.nvim_set_keymap("t", "<C-q>", "<Esc>", { noremap=true })
 "Autocommands
     augroup INIT_CMDS | autocmd!
         "Turn off line numbers in terminal emulator
