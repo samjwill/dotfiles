@@ -125,11 +125,11 @@ vim.cmd([[
 "Autocommands
     augroup INIT_CMDS | autocmd!
         "Turn off line numbers in terminal emulator
-        autocmd TermOpen * setlocal nonumber
+        lua vim.api.nvim_create_autocmd("TermOpen", {command = "setlocal nonumber"})
 
         "Automatically close terminal buffer when done.
         "TODO: This breaks the :ter command.
-        autocmd TermClose * if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif
+        lua vim.api.nvim_create_autocmd("TermClose", {command = "if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif"})
 
         "Clear highlighting when pressing ctrl-l. Already happens by default
         "apparently, but needs to be set in netrw buffers.
