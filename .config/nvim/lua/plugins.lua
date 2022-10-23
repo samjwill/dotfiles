@@ -25,7 +25,7 @@ require('packer').startup(function(use)
 
     use "psliwka/vim-smoothie"
     use "samjwill/vim-bufdir"
-    use "samjwill/vim-autonohlsearch"
+    use "samjwill/vim-auto-nohlsearch"
 
     use
     {
