@@ -120,18 +120,15 @@ vim.g.mapleader = " "
     vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
     vim.api.nvim_set_keymap("t", "<C-q>", "<Esc>", { noremap=true })
 
--- TODO: Port the below to Lua
-vim.cmd([[
-"Autocommands
-    augroup INIT_CMDS | autocmd!
-        "Turn off line numbers in terminal emulator
-        lua vim.api.nvim_create_autocmd("TermOpen", {command = "setlocal nonumber"})
+-- Autocommands
+    local init_group = vim.api.nvim_create_augroup("INIT_CMDS", {clear = true})
 
-        "Automatically close terminal buffer when done.
-        "TODO: This breaks the :ter command.
-        lua vim.api.nvim_create_autocmd("TermClose", {command = "if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif"})
-    augroup end
-]])
+    -- Turn off line numbers in terminal emulator
+    vim.api.nvim_create_autocmd("TermOpen", {group = init_group, command = "setlocal nonumber"})
+
+    -- Automatically close terminal buffer when done.
+    -- TODO: This breaks the :ter command.
+    vim.api.nvim_create_autocmd("TermClose", {group = init_group,command = "if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif"})
 
 --------------------------------------------------------------------------------
 --                               Highlighting                                 --
@@ -192,7 +189,6 @@ noremap <silent> g* g*<CMD>set hlsearch<CR>
 noremap <silent> g# g#<CMD>set hlsearch<CR>
 noremap <silent> gd gd<CMD>set hlsearch<CR>
 noremap <silent> gD gD<CMD>set hlsearch<CR>
-
 ]])
 
 --------------------------------------------------------------------------------
