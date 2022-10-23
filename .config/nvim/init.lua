@@ -58,9 +58,9 @@ vim.g.netrw_banner = 0
 
 -- Hide . and .. directories.
 vim.g.netrw_list_hide = ""
-vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./$"
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./"
 vim.g.netrw_list_hide = vim.g.netrw_list_hide .. ","
-vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./$"
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./"
 
 --------------------------------------------------------------------------------
 --                        Keybinds and Autocommands                           --
