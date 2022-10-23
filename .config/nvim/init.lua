@@ -130,10 +130,6 @@ vim.cmd([[
         "Automatically close terminal buffer when done.
         "TODO: This breaks the :ter command.
         lua vim.api.nvim_create_autocmd("TermClose", {command = "if !v:event.status | execute 'bdelete! ' . expand('<abuf>') | endif"})
-
-        "Clear highlighting when pressing ctrl-l. Already happens by default
-        "apparently, but needs to be set in netrw buffers.
-        autocmd FileType netrw nnoremap <buffer> <C-l> <CMD>nohlsearch<CR><C-l>
     augroup end
 ]])
 
