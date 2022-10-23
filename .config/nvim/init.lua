@@ -96,13 +96,11 @@ vim.g.mapleader = " "
     vim.api.nvim_set_keymap("", "<Leader>tl", ":Telescope live_grep<CR>", { noremap=true, silent=true })
     vim.api.nvim_set_keymap("", "<Leader>tt", ":Telescope<CR>", { noremap=true, silent=true })
 
+    -- shift-tab to inverse tab
+    vim.api.nvim_set_keymap("i", "<S-Tab>", "<C-d>", { noremap=true, silent=true })
+
 -- TODO: Port the below to Lua
 vim.cmd([[
-"Insert Mode
-
-    "shift-tab to inverse tab
-    inoremap <S-Tab> <C-d>
-
 "Tab switching
     "Some terminals intercept these keystrokes, so if these mappings don't
     "work, check the terminal settings. For Konsole, unbind everything else in
@@ -121,7 +119,7 @@ vim.cmd([[
     tnoremap <silent> <C-S-Tab> <C-\><C-N>:tabp<CR>
     vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
 
-    tnoremap <Esc> <C-\><C-n>
+    lua vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
     tnoremap <C-q> <Esc>
 "Autocommands
     augroup INIT_CMDS | autocmd!
