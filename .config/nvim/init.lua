@@ -85,18 +85,18 @@ vim.cmd([[
 
     "Bufdir Plugin
     "Open command-line
-    noremap <Leader>cc :Bufdir terminal<CR>i
-    noremap <Leader>cC :terminal<CR>i
-    noremap <Leader>cs :split \| Bufdir terminal<CR>i
-    noremap <Leader>cS :split \| terminal<CR>i
-    noremap <Leader>cv :vsplit \| Bufdir terminal<CR>i
-    noremap <Leader>cV :vsplit \| terminal<CR>i
+    noremap <silent> <Leader>cc :Bufdir terminal<CR>i
+    noremap <silent> <Leader>cC :terminal<CR>i
+    noremap <silent> <Leader>cs :split \| Bufdir terminal<CR>i
+    noremap <silent> <Leader>cS :split \| terminal<CR>i
+    noremap <silent> <Leader>cv :vsplit \| Bufdir terminal<CR>i
+    noremap <silent> <Leader>cV :vsplit \| terminal<CR>i
 
     "Telescope Plugin
-    noremap <Leader>t/ :Telescope current_buffer_fuzzy_find<CR>
-    noremap <Leader>tf :Telescope find_files<CR>
-    noremap <Leader>tl :Telescope live_grep<CR>
-    noremap <Leader>tt :Telescope<CR>
+    noremap <silent> <Leader>t/ :Telescope current_buffer_fuzzy_find<CR>
+    noremap <silent> <Leader>tf :Telescope find_files<CR>
+    noremap <silent> <Leader>tl :Telescope live_grep<CR>
+    noremap <silent> <Leader>tt :Telescope<CR>
 
 "Insert Mode
 
