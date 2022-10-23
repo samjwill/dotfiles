@@ -100,27 +100,28 @@ vim.g.mapleader = " "
     vim.api.nvim_set_keymap("i", "<S-Tab>", "<C-d>", { noremap=true, silent=true })
 
 -- TODO: Port the below to Lua
+-- Tab switching
+    -- Some terminals intercept these keystrokes, so if these mappings don't
+    -- work, check the terminal settings. For Konsole, unbind everything else
+    -- in Settings>Keyboard Shortcuts and then bind:
+    --     Backtab+Ctrl+Ansi -> \E[27;6;9~
+    --     Tab+Ctrl+Ansi     -> \E[27;5;9~
+    vim.api.nvim_set_keymap("n", "<C-Tab>", ":tabn<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("c", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("i", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("t", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("v", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", { noremap=true, silent=true})
+
+    vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":tabp<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("c", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("i", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("t", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", { noremap=true, silent=true})
+    vim.api.nvim_set_keymap("v", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", { noremap=true, silent=true})
+
+    vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
+    vim.api.nvim_set_keymap("t", "<C-q>", "<Esc>", { noremap=true })
+
 vim.cmd([[
-"Tab switching
-    "Some terminals intercept these keystrokes, so if these mappings don't
-    "work, check the terminal settings. For Konsole, unbind everything else in
-    "Settings>Keyboard Shortcuts and then bind:
-    "    Backtab+Ctrl+Ansi -> \E[27;6;9~
-    "    Tab+Ctrl+Ansi     -> \E[27;5;9~
-    cnoremap <silent> <C-Tab> <Esc>:tabn<CR>
-    inoremap <silent> <C-Tab> <Esc>:tabn<CR>
-    nnoremap <silent> <C-Tab> :tabn<CR>
-    tnoremap <silent> <C-Tab> <C-\><C-N>:tabn<CR>
-    vnoremap <silent> <C-Tab> <Esc>:tabn<CR>
-
-    cnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
-    inoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
-    nnoremap <silent> <C-S-Tab> :tabp<CR>
-    tnoremap <silent> <C-S-Tab> <C-\><C-N>:tabp<CR>
-    vnoremap <silent> <C-S-Tab> <Esc>:tabp<CR>
-
-    lua vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
-    lua vim.api.nvim_set_keymap("t", "<C-q>", "<Esc>", { noremap=true })
 "Autocommands
     augroup INIT_CMDS | autocmd!
         "Turn off line numbers in terminal emulator
@@ -134,13 +135,15 @@ vim.cmd([[
         "apparently, but needs to be set in netrw buffers.
         autocmd FileType netrw nnoremap <buffer> <C-l> <CMD>nohlsearch<CR><C-l>
     augroup end
+]])
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Highlighting                                  "
-"                             Auto-(no)hlsearch                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+--------------------------------------------------------------------------------
+--                               Highlighting                                 --
+--                            Auto-(no)hlsearch                               --
+--------------------------------------------------------------------------------
+
+vim.cmd([[
 "Turn off search highlighting once done searching
-
 let g:enter_was_pressed = 0
 
 function! s:handle_cursor_moved()
