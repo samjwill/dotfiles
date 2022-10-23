@@ -74,10 +74,10 @@ vim.cmd([[
 "Normal, Visual, Select, Operator-pending Modes
 
     "Don't want to :set ignorecase because * and # should be case-sensitive
-    noremap / /\c
-    noremap ? ?\c
-    noremap <Leader>/ /
-    noremap <Leader>? ?
+    lua vim.api.nvim_set_keymap("", "/", "/\\c", { noremap=true})
+    lua vim.api.nvim_set_keymap("", "?", "?\\c", { noremap=true})
+    lua vim.api.nvim_set_keymap("", "<Leader>/", "/", { noremap=true})
+    lua vim.api.nvim_set_keymap("", "<Leader>?", "?", { noremap=true})
 
     "- to edit directory of current file
     "TODO: disallow for terminal buffers
