@@ -66,11 +66,11 @@ vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./"
 --                        Keybinds and Autocommands                           --
 --                                                                            --
 --------------------------------------------------------------------------------
+-- TODO: Sort these mappings more logically.
+vim.g.mapleader = " "
+
 -- TODO: Port the below to Lua
 vim.cmd([[
-"TODO: Sort these mappings more logically.
-let mapleader = " "
-
 "Normal, Visual, Select, Operator-pending Modes
 
     "Don't want to :set ignorecase because * and # should be case-sensitive
