@@ -27,9 +27,9 @@ require('lspconfig').clangd.setup{
     on_attach = on_attach_func
 }
 
-require('lspconfig').sumneko_lua.setup{
-    on_attach = on_attach_func
-}
+--require('lspconfig').sumneko_lua.setup{
+--    on_attach = on_attach_func
+--}
 
 --TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
 

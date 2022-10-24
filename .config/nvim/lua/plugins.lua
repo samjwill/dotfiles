@@ -132,8 +132,7 @@ require('packer').startup(function(use)
                 ensure_installed =
                 {
                     -- If changing these, update the values in lspconfig.lua as well.
-                    "clangd",
-                    "sumneko_lua"
+                    "clangd"
                 }
             })
         end
