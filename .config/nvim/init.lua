@@ -49,6 +49,14 @@ vim.g.swap_dir = vim.fn.stdpath("data") .. "/swap"
 vim.fn.mkdir(vim.g.swap_dir, "p")
 vim.o.directory = vim.g.swap_dir .. ',.'
 
+-- Prefer ripgrep to grep.
+vim.cmd([[
+if executable('rg')
+    lua vim.opt.grepprg="rg --vimgrep"
+    set grepformat^=%f:%l:%c:%m
+endif
+]])
+
 -- Settings for both netrw and neovim
 vim.opt.number = true
 vim.g.netrw_bufsettings = "noma nomod number nobl nowrap ro" -- All but "number" are default.
