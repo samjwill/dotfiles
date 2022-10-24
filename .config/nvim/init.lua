@@ -50,12 +50,10 @@ vim.fn.mkdir(vim.g.swap_dir, "p")
 vim.o.directory = vim.g.swap_dir .. ',.'
 
 -- Prefer ripgrep to grep.
-vim.cmd([[
-if executable('rg')
-    lua vim.opt.grepprg="rg --vimgrep"
-    set grepformat^=%f:%l:%c:%m
-endif
-]])
+if (1 == vim.fn.executable("rg")) then
+    vim.opt.grepprg="rg --vimgrep"
+    vim.opt.grepformat:prepend{"%f:%l:%c:%m"}
+end
 
 -- Settings for both netrw and neovim
 vim.opt.number = true
