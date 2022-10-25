@@ -129,6 +129,7 @@ require('packer').startup(function(use)
         config = function()
             require("mason-lspconfig").setup(
             {
+                -- TODO: Just put these in the same config if possible.
                 ensure_installed =
                 {
                     -- If changing these, update the values in lspconfig.lua as well.
