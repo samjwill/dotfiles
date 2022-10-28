@@ -64,6 +64,11 @@ require('packer').startup(function(use)
     {
         "nvim-treesitter/nvim-treesitter",
         config = "require('config.treesitter')",
+        -- :TSUpdate fails when bootstrapping. Call update function directly.
+        -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
+        run = function()
+            require("nvim-treesitter.install").update { with_sync = true }
+        end
     }
 
     use
