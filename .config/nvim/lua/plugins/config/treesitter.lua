@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
     --TODO: Incremental Selection
 })
 
+-- Override default folding options.
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 999999
+vim.opt.foldlevel = 999999 -- Leave unfolded by default.
 vim.opt.foldmethod = "expr"

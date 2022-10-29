@@ -89,3 +89,9 @@ vim.api.nvim_set_keymap("", "<Leader>tf", ":Telescope find_files<CR>", { noremap
 vim.api.nvim_set_keymap("", "<Leader>tl", ":Telescope live_grep<CR>", { noremap=true, silent=true })
 vim.api.nvim_set_keymap("", "<Leader>tt", ":Telescope<CR>", { noremap=true, silent=true })
 
+
+
+-------------------------------------------------------------------------------
+-- Mini.Map Plugin
+-------------------------------------------------------------------------------
+vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true })

@@ -31,4 +31,3 @@ map.setup(
     }
 })
 
-vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true })

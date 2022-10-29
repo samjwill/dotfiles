@@ -6,6 +6,6 @@
 
 require("settings")
 require("keymaps")
-require("plugins.plugins")
 require("autocommands")
+require("plugins.plugins")
 
