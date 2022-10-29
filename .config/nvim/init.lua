@@ -5,7 +5,7 @@
 -- Hop not working when terminal buffer has focus or when inside of commandline window
 
 require("settings")
+require("plugins.plugins")
 require("keymaps")
 require("autocommands")
-require("plugins")
 

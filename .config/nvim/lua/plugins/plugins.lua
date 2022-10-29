@@ -34,14 +34,14 @@ packer.startup(function(use)
     use
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = "require('config.indent-blankline')"
+        config = "require('plugins.config.indent-blankline')"
     }
 
     use
     {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = "require('config.telescope')"
+        config = "require('plugins.config.telescope')"
     }
     -- TODO: Running the following two commands after Packer install completion
     -- allows for telescope and treesitter to be used immediately on first
@@ -55,20 +55,20 @@ packer.startup(function(use)
     use
     {
         "sainnhe/gruvbox-material",
-        config = "require('config.gruvbox-material')"
+        config = "require('plugins.config.gruvbox-material')"
     }
 
     use
     {
         'phaazon/hop.nvim',
         branch = 'v2',
-        config = "require('config.hop')"
+        config = "require('plugins.config.hop')"
     }
 
     use
     {
         "nvim-treesitter/nvim-treesitter",
-        config = "require('config.treesitter')",
+        config = "require('plugins.config.treesitter')",
         -- :TSUpdate fails when bootstrapping. Call update function directly.
         -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
         -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
@@ -89,7 +89,7 @@ packer.startup(function(use)
     use
     {
         'lewis6991/gitsigns.nvim',
-        config = "require('config.gitsigns')"
+        config = "require('plugins.config.gitsigns')"
     }
 
     use {
@@ -119,7 +119,7 @@ packer.startup(function(use)
     use
     {
         'echasnovski/mini.nvim',
-        config = "require('config.mini')"
+        config = "require('plugins.config.mini')"
     }
 
     -- Ordered
@@ -149,7 +149,7 @@ packer.startup(function(use)
         "neovim/nvim-lspconfig",
         after = 'mason-lspconfig.nvim',
         config = function()
-            require('config.lspconfig')
+            require('plugins.config.lspconfig')
         end
     }
 
