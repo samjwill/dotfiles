@@ -7,10 +7,15 @@ require('mini.cursorword').setup{}
 local map = require('mini.map')
 map.setup(
 {
+    symbols =
+    {
+        encode = map.gen_encode_symbols.dot('4x2'),
+        scroll_line = '┃',
+        scroll_view = '┃',
+    },
     integrations =
     {
         -- map.gen_integration.builtin_search(), -- Doesn't work well because of https://github.com/neovim/neovim/issues/18879. Autocmds that set hlsearch cannot be detected and the minimap is not refreshed.
-
         -- map.gen_integration.gitsigns(), -- TODO: Implement
         map.gen_integration.diagnostic(
         {
