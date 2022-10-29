@@ -5,7 +5,6 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         disable = { "help" }
     }
-    --TODO: Incremental Selection
 })
 
 -- Override default folding options.
