@@ -3,5 +3,3 @@ require('mini.completion').setup{
 }
 
 require('mini.cursorword').setup{}
-
-require('mini.comment').setup{}
