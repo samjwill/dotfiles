@@ -9,7 +9,7 @@ end
 
 -- If changing these, update the values in mason-lspconfig as well.
 require('lspconfig').clangd.setup{
-    clangd_keymaps,
+    clangd_keymaps, -- Defined in keymaps file.
     on_attach = on_attach_func
 }
 
@@ -20,10 +20,10 @@ require('lspconfig').clangd.setup{
 --TODO: Look into potentially using: vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
 
 --TODO: Implement below:
-local symbols = {
-    {name = "DiagnosticSignError", text = ''}, -- xf659
-    {name = "DiagnosticSignWarn", text = ''}, -- xf529
-    {name = "DiagnosticSignInfo", text = ''}, -- xf7fc
-    {name = "DiagnosticSignHint", text = ''}, -- xf835
-}
+--local symbols = {
+--    {name = "DiagnosticSignError", text = ''}, -- xf659
+--    {name = "DiagnosticSignWarn", text = ''}, -- xf529
+--    {name = "DiagnosticSignInfo", text = ''}, -- xf7fc
+--    {name = "DiagnosticSignHint", text = ''}, -- xf835
+--}
 
