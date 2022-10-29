@@ -3,3 +3,23 @@ require('mini.completion').setup{
 }
 
 require('mini.cursorword').setup{}
+
+local map = require('mini.map')
+map.setup(
+{
+    integrations =
+    {
+        -- map.gen_integration.builtin_search(), -- Doesn't work well because of https://github.com/neovim/neovim/issues/18879. Autocmds that set hlsearch cannot be detected and the minimap is not refreshed.
+
+        -- map.gen_integration.gitsigns(), -- TODO: Implement
+        map.gen_integration.diagnostic(
+        {
+            error = 'DiagnosticFloatingError',
+            warn  = 'DiagnosticFloatingWarn',
+            info  = 'DiagnosticFloatingInfo',
+            hint  = 'DiagnosticFloatingHint',
+        }),
+    },
+})
+
+vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true })
