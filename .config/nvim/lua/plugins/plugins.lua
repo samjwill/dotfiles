@@ -113,10 +113,11 @@ packer.startup(function(use)
     use
     {
         'echasnovski/mini.nvim',
-        config = "require('plugins.config.mini')"
+        config = function()
+            require('plugins.config.mini')
+        end
     }
 
-    -- Ordered
     use
     {
         "williamboman/mason.nvim",
@@ -132,7 +133,7 @@ packer.startup(function(use)
                 -- TODO: Just put these in the same config if possible.
                 ensure_installed =
                 {
-                    -- If changing these, update the values in lspconfig.lua as well.
+                    -- If changing these, update the values in lspconfig as well.
                     "clangd"
                 }
             })
@@ -143,7 +144,15 @@ packer.startup(function(use)
         "neovim/nvim-lspconfig",
         after = 'mason-lspconfig.nvim',
         config = function()
-            require('plugins.config.lspconfig')
+            local on_attach_func = function(client, bufnr)
+                vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+            end
+
+            -- If changing these, update the values in mason-lspconfig as well.
+            require('lspconfig').clangd.setup{
+                clangd_keymaps, -- Defined in keymaps file.
+                on_attach = on_attach_func
+            }
         end
     }
 
