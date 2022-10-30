@@ -19,7 +19,7 @@ end
 local packer = require("packer")
 
 -- Keep packer_compiled.lua out of the .config directory.
-packer.init {compile_path = vim.fn.stdpath('data')..'/site/pack/loader/start/packer.nvim/plugin/packer_compiled.lua'}
+packer.init({compile_path = vim.fn.stdpath('data')..'/site/pack/loader/start/packer.nvim/plugin/packer_compiled.lua'})
 
 packer.startup(function(use)
     -- Packer needs to manage itself
