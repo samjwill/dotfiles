@@ -1,7 +1,7 @@
 prefix_list = {} -- For key menu plugin.
 
 vim.g.mapleader = " "
-table.insert(prefix_list, {'n', '<Space>'})
+table.insert(prefix_list, {"n", "<Space>"})
 
 -- Don't want to :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
@@ -52,7 +52,7 @@ vim.cmd("autocmd FileType netrw nnoremap <buffer> S <CMD>HopChar2MW<CR>")
 -- LSP Plugin
 -------------------------------------------------------------------------------
 local lsp_leader = vim.g.mapleader.."l"
-table.insert(prefix_list, {'n', '<Space>l', {desc='Language Server Protocol'}})
+table.insert(prefix_list, {"n", "<Space>l", {desc="Language Server Protocol"}})
 
 vim.keymap.set('n', lsp_leader..'[', '<CMD>lua vim.diagnostic.goto_prev()<CR>',    {desc = "Previous Diagnostic"})
 vim.keymap.set('n', lsp_leader..']', '<CMD>lua vim.diagnostic.goto_next()<CR>',    {desc = "Next Diagnostic"})
@@ -76,7 +76,7 @@ clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>ClangdSwitchSourceHe
 -- Bufdir Plugin
 -------------------------------------------------------------------------------
 local command_line_leader = vim.g.mapleader.."c"
-table.insert(prefix_list, {'n', '<Space>c', {desc='Command Line'}})
+table.insert(prefix_list, {"n", "<Space>c", {desc="Command Line"}})
 
 vim.keymap.set("", command_line_leader.."c", "<CMD>Bufdir terminal<CR>i", {desc = "Open Terminal in Current Buffer's Dir"})
 vim.keymap.set("", command_line_leader.."C", "<CMD>terminal<CR>i", {desc = "Open Terminal"})
