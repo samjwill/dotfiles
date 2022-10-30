@@ -12,9 +12,7 @@ vim.api.nvim_set_keymap("", "-", ":e %:p:h<CR>", { noremap=true, silent=true })
 -- shift-tab to inverse tab
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<C-d>", { noremap=true, silent=true })
 
--------------------------------------------------------------------------------
 -- Tab switching
--------------------------------------------------------------------------------
 -- Some terminals intercept these keystrokes, so if these mappings don't
 -- work, check the terminal settings. For Konsole, unbind everything else
 -- in Settings>Keyboard Shortcuts and then bind:
@@ -25,19 +23,21 @@ vim.api.nvim_set_keymap("c", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, s
 vim.api.nvim_set_keymap("i", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("t", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("v", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
-
 vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":tabp<CR>",            {noremap=true, silent=true})
 vim.api.nvim_set_keymap("c", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("i", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("t", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("v", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
 
+-- Escape to escape a terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true })
+
+-- Ctrl-q to send escape to a terminal
 vim.api.nvim_set_keymap("t", "<C-q>", "<Esc>", { noremap=true })
 
 
 -------------------------------------------------------------------------------
--- Hop
+-- Hop Plugin
 -------------------------------------------------------------------------------
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('', 's', '<CMD>HopWordMW<CR>', opts)
@@ -47,7 +47,7 @@ vim.cmd("autocmd FileType netrw nnoremap <buffer> S <CMD>HopChar2MW<CR>")
 
 
 -------------------------------------------------------------------------------
--- LSP
+-- LSP Plugin
 -------------------------------------------------------------------------------
 local lsp_leader = vim.g.mapleader.."l"
 
