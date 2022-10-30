@@ -5,3 +5,4 @@ vim.cmd([[
     catch
     endtry
 ]])
+
