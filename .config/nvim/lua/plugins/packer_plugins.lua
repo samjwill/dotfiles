@@ -51,9 +51,6 @@ packer.startup(function(use)
         "linty-org/key-menu.nvim",
         config = function()
             local km = require("key-menu")
-            -- local blah = {'n', '<Space>l', {desc='Language Server Protocol'}}
-            -- km.set('n', '<Space>')
-            -- km.set(unpack(blah))
             for i, prefix in ipairs(prefix_list) do
                 km.set(unpack(prefix))
             end
