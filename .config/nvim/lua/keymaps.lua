@@ -13,16 +13,16 @@ vim.api.nvim_set_keymap("", "-", ":e %:p:h<CR>", { noremap=true, silent=true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<C-d>", { noremap=true, silent=true })
 
 -- Tab switching
--- Some terminals intercept these keystrokes, so if these mappings don't
--- work, check the terminal settings. For Konsole, unbind everything else
--- in Settings>Keyboard Shortcuts and then bind:
---     Backtab+Ctrl+Ansi -> \E[27;6;9~
---     Tab+Ctrl+Ansi     -> \E[27;5;9~
-vim.api.nvim_set_keymap("n", "<C-Tab>", ":tabn<CR>",            {noremap=true, silent=true})
-vim.api.nvim_set_keymap("c", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("i", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("t", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("v", "<C-Tab>", "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
+--     Some terminals intercept these keystrokes, so if these mappings don't
+--     work, check the terminal settings. For Konsole, unbind everything else
+--     in Settings>Keyboard Shortcuts and then bind:
+--         Backtab+Ctrl+Ansi -> \E[27;6;9~
+--         Tab+Ctrl+Ansi     -> \E[27;5;9~
+vim.api.nvim_set_keymap("n", "<C-Tab>",   ":tabn<CR>",            {noremap=true, silent=true})
+vim.api.nvim_set_keymap("c", "<C-Tab>",   "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("i", "<C-Tab>",   "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("t", "<C-Tab>",   "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("v", "<C-Tab>",   "<C-\\><C-N>:tabn<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":tabp<CR>",            {noremap=true, silent=true})
 vim.api.nvim_set_keymap("c", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("i", "<C-S-Tab>", "<C-\\><C-N>:tabp<CR>", {noremap=true, silent=true})
