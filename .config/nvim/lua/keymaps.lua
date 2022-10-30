@@ -50,22 +50,22 @@ vim.cmd("autocmd FileType netrw nnoremap <buffer> S <CMD>HopChar2MW<CR>")
 -------------------------------------------------------------------------------
 local lsp_leader = vim.g.mapleader.."l"
 
-vim.keymap.set('n', lsp_leader..'[', '<CMD>lua vim.diagnostic.goto_prev()<CR>',    {})
-vim.keymap.set('n', lsp_leader..']', '<CMD>lua vim.diagnostic.goto_next()<CR>',    {})
-vim.keymap.set('n', lsp_leader..'c', '<CMD>lua vim.lsp.buf.code_action()<CR>',     {})
-vim.keymap.set('n', lsp_leader..'d', '<CMD>lua vim.lsp.buf.definition()<CR>',      {})
-vim.keymap.set('n', lsp_leader..'D', '<CMD>lua vim.lsp.buf.declaration()<CR>',     {})
-vim.keymap.set('n', lsp_leader..'f', '<CMD>lua vim.lsp.buf.formatting()<CR>',      {})
-vim.keymap.set('n', lsp_leader..'i', '<CMD>lua vim.lsp.buf.implementation()<CR>',  {})
-vim.keymap.set('n', lsp_leader..'r', '<CMD>lua vim.lsp.buf.references()<CR>',      {})
-vim.keymap.set('n', lsp_leader..'e', '<CMD>lua vim.diagnostic.open_float()<CR>',   {})
-vim.keymap.set('n', lsp_leader..'k', '<CMD>lua vim.lsp.buf.hover()<CR>',           {})
-vim.keymap.set('n', lsp_leader..'K', '<CMD>lua vim.lsp.buf.signature_help()<CR>',  {})
-vim.keymap.set('n', lsp_leader..'q', '<CMD>lua vim.diagnostic.setloclist()<CR>',   {})
-vim.keymap.set('n', lsp_leader..'s', '<CMD>lua vim.lsp.buf.rename()<CR>',          {})
-vim.keymap.set('n', lsp_leader..'t', '<CMD>lua vim.lsp.buf.type_definition()<CR>', {})
+vim.keymap.set('n', lsp_leader..'[', '<CMD>lua vim.diagnostic.goto_prev()<CR>',    {desc = "Previous Diagnostic"})
+vim.keymap.set('n', lsp_leader..']', '<CMD>lua vim.diagnostic.goto_next()<CR>',    {desc = "Next Diagnostic"})
+vim.keymap.set('n', lsp_leader..'c', '<CMD>lua vim.lsp.buf.code_action()<CR>',     {desc = "Code Action"})
+vim.keymap.set('n', lsp_leader..'d', '<CMD>lua vim.lsp.buf.definition()<CR>',      {desc = "Go to Definition"})
+vim.keymap.set('n', lsp_leader..'D', '<CMD>lua vim.lsp.buf.declaration()<CR>',     {desc = "Go to Declaration"})
+vim.keymap.set('n', lsp_leader..'f', '<CMD>lua vim.lsp.buf.formatting()<CR>',      {desc = "Formatting"})
+vim.keymap.set('n', lsp_leader..'i', '<CMD>lua vim.lsp.buf.implementation()<CR>',  {desc = "Go to Implementation"})
+vim.keymap.set('n', lsp_leader..'r', '<CMD>lua vim.lsp.buf.references()<CR>',      {desc = "Show All References"})
+vim.keymap.set('n', lsp_leader..'e', '<CMD>lua vim.diagnostic.open_float()<CR>',   {desc = "Floating Diagnostic"})
+vim.keymap.set('n', lsp_leader..'k', '<CMD>lua vim.lsp.buf.hover()<CR>',           {desc = "Hover"})
+vim.keymap.set('n', lsp_leader..'K', '<CMD>lua vim.lsp.buf.signature_help()<CR>',  {desc = "Signature"})
+vim.keymap.set('n', lsp_leader..'q', '<CMD>lua vim.diagnostic.setloclist()<CR>',   {desc = "Set Location List"})
+vim.keymap.set('n', lsp_leader..'s', '<CMD>lua vim.lsp.buf.rename()<CR>',          {desc = "Rename"})
+vim.keymap.set('n', lsp_leader..'t', '<CMD>lua vim.lsp.buf.type_definition()<CR>', {desc = "Type Definition"})
 
-clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>ClangdSwitchSourceHeader<CR>', {})
+clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>ClangdSwitchSourceHeader<CR>', {desc = "Switch to Source/Header"})
 
 
 -------------------------------------------------------------------------------
