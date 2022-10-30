@@ -7,7 +7,6 @@ vim.api.nvim_set_keymap("", "<Leader>/", "/", { noremap=true})
 vim.api.nvim_set_keymap("", "<Leader>?", "?", { noremap=true})
 
 -- "-" to edit directory of current file
--- TODO: disallow for terminal buffers
 vim.api.nvim_set_keymap("", "-", ":e %:p:h<CR>", { noremap=true, silent=true })
 
 -- shift-tab to inverse tab
@@ -73,21 +72,25 @@ clangd_keymaps = vim.api.nvim_set_keymap('n', lsp_leader..'a', '<cmd>ClangdSwitc
 -------------------------------------------------------------------------------
 -- Bufdir Plugin
 -------------------------------------------------------------------------------
-vim.api.nvim_set_keymap("", "<Leader>cc", ":Bufdir terminal<CR>i", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>cC", ":terminal<CR>i", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>cs", ":split | Bufdir terminal<CR>i", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>cS", ":split | terminal<CR>i", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>cv", ":vsplit | Bufdir terminal<CR>i", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>cV", ":vsplit | terminal<CR>i", { noremap=true, silent=true })
+local command_line_leader = vim.g.mapleader.."c"
+
+vim.api.nvim_set_keymap("", command_line_leader.."c", ":Bufdir terminal<CR>i", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", command_line_leader.."C", ":terminal<CR>i", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", command_line_leader.."s", ":split | Bufdir terminal<CR>i", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", command_line_leader.."S", ":split | terminal<CR>i", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", command_line_leader.."v", ":vsplit | Bufdir terminal<CR>i", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", command_line_leader.."V", ":vsplit | terminal<CR>i", { noremap=true, silent=true })
 
 
 -------------------------------------------------------------------------------
 -- Telescope Plugin
 -------------------------------------------------------------------------------
-vim.api.nvim_set_keymap("", "<Leader>t/", ":Telescope current_buffer_fuzzy_find<CR>", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>tf", ":Telescope find_files<CR>", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>tl", ":Telescope live_grep<CR>", { noremap=true, silent=true })
-vim.api.nvim_set_keymap("", "<Leader>tt", ":Telescope<CR>", { noremap=true, silent=true })
+local telescope_leader = vim.g.mapleader.."t"
+
+vim.api.nvim_set_keymap("", telescope_leader.."/", ":Telescope current_buffer_fuzzy_find<CR>", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", telescope_leader.."f", ":Telescope find_files<CR>", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", telescope_leader.."l", ":Telescope live_grep<CR>", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("", telescope_leader.."t", ":Telescope<CR>", { noremap=true, silent=true })
 
 
 -------------------------------------------------------------------------------
