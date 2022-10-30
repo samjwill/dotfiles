@@ -36,33 +36,43 @@ packer.startup(function(use)
     use
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = "require('plugins.config.indent-blankline')"
+        config = function()
+            require('plugins.config.indent-blankline')
+        end
     }
 
     use
     {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = "require('plugins.config.telescope')"
+        config = function()
+            require('plugins.config.telescope')
+        end
     }
 
     use
     {
         "sainnhe/gruvbox-material",
-        config = "require('plugins.config.gruvbox-material')"
+        config = function()
+            require('plugins.config.gruvbox-material')
+        end
     }
 
     use
     {
         'phaazon/hop.nvim',
         branch = 'v2',
-        config = "require('plugins.config.hop')"
+        config = function()
+            require('plugins.config.hop')
+        end
     }
 
     use
     {
         "nvim-treesitter/nvim-treesitter",
-        config = "require('plugins.config.treesitter')",
+        config = function()
+            require('plugins.config.treesitter')
+        end,
         -- :TSUpdate fails when bootstrapping. Call update function directly.
         -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
         -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
@@ -83,7 +93,9 @@ packer.startup(function(use)
     use
     {
         'lewis6991/gitsigns.nvim',
-        config = "require('plugins.config.gitsigns')"
+        config = function()
+            require('plugins.config.gitsigns')
+        end
     }
 
     use {
