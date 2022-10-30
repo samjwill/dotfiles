@@ -1,3 +1,7 @@
+-- Built-in gdb debugging tool
+vim.cmd("packadd termdebug")
+vim.g.termdebug_wide = 1
+
 -- Automatically install Packer on startup.
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -15,10 +19,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     -- Neovim searches, so that might be worth looking into.
     vim.cmd("packadd packer.nvim")
 end
-
--- Built-in gdb debugging tool
-vim.cmd("packadd termdebug")
-vim.g.termdebug_wide = 1
 
 local packer = require("packer")
 
@@ -126,7 +126,9 @@ packer.startup(function(use)
     {
         'echasnovski/mini.nvim',
         config = function()
-            require('plugins.config.mini')
+            require('mini.cursorword').setup{}
+            require('plugins.config.mini_completion')
+            require('plugins.config.mini_map')
         end
     }
 

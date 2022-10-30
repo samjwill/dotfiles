@@ -1,9 +1,3 @@
-require('mini.completion').setup{
-    fallback_action = function() end -- None. Only auto-complete with LSP.
-}
-
-require('mini.cursorword').setup{}
-
 local map = require('mini.map')
 map.setup(
 {
