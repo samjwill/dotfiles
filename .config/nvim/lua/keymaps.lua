@@ -6,8 +6,8 @@ table.insert(prefix_list, {"n", "<Space>"})
 -- Don't want to :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
 vim.keymap.set("", "?", "?\\c", {})
-vim.keymap.set("", "<Leader>/", "/", {})
-vim.keymap.set("", "<Leader>?", "?", {})
+-- vim.keymap.set("", "<Leader>/", "/", {})
+-- vim.keymap.set("", "<Leader>?", "?", {})
 
 -- "-" to edit directory of current file
 vim.keymap.set("", "-", ":e %:p:h<CR>", {})
