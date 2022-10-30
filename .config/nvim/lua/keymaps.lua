@@ -96,5 +96,5 @@ vim.api.nvim_set_keymap("", telescope_leader.."t", "<CMD>Telescope<CR>", { norem
 -------------------------------------------------------------------------------
 -- Mini.Map Plugin
 -------------------------------------------------------------------------------
-vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true })
+vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true, desc="Toggle MiniMap"})
 
