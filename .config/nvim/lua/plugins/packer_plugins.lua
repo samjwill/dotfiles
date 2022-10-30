@@ -1,7 +1,3 @@
--- Built-in gdb debugging tool
-vim.cmd("packadd termdebug")
-vim.g.termdebug_wide = 1
-
 -- Automatically install Packer on startup.
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
