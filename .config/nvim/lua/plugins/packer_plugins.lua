@@ -48,6 +48,16 @@ packer.startup(function(use)
 
     use
     {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+            }
+        end
+    }
+
+
+    use
+    {
         "sainnhe/gruvbox-material",
         config = function()
             require('plugins.config.gruvbox-material')
