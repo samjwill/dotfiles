@@ -50,7 +50,7 @@ vim.cmd("autocmd FileType netrw nnoremap <buffer> S <CMD>HopChar2MW<CR>")
 -------------------------------------------------------------------------------
 -- LSP
 -------------------------------------------------------------------------------
-local lsp_leader = "<space>l"
+local lsp_leader = vim.g.mapleader.."l"
 
 vim.api.nvim_set_keymap('n', lsp_leader..'[', '<cmd>lua vim.diagnostic.goto_prev()<CR>',    opts)
 vim.api.nvim_set_keymap('n', lsp_leader..']', '<cmd>lua vim.diagnostic.goto_next()<CR>',    opts)
@@ -90,8 +90,8 @@ vim.api.nvim_set_keymap("", "<Leader>tl", ":Telescope live_grep<CR>", { noremap=
 vim.api.nvim_set_keymap("", "<Leader>tt", ":Telescope<CR>", { noremap=true, silent=true })
 
 
-
 -------------------------------------------------------------------------------
 -- Mini.Map Plugin
 -------------------------------------------------------------------------------
 vim.api.nvim_set_keymap("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { noremap=true, silent=true })
+
