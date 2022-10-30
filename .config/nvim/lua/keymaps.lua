@@ -1,4 +1,7 @@
+prefix_list = {} -- For key menu plugin.
+
 vim.g.mapleader = " "
+table.insert(prefix_list, {'n', '<Space>'})
 
 -- Don't want to :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
