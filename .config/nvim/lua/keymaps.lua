@@ -92,10 +92,10 @@ vim.keymap.set("", command_line_leader.."V", "<CMD>vsplit | terminal<CR>i", {des
 local telescope_leader = vim.g.mapleader.."t"
 table.insert(prefix_list, {"n", "<Space>t", {desc="Telescope"}})
 
-vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {})
-vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {})
-vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {})
-vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {})
+vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {desc = "Search Current Buffer"})
+vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {desc = "Find Files"})
+vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {desc = "Live Grep Files"})
+vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Options"})
 
 
 -------------------------------------------------------------------------------
