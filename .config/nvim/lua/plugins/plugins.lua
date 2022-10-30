@@ -63,7 +63,7 @@ packer.startup(function(use)
         'phaazon/hop.nvim',
         branch = 'v2',
         config = function()
-            require('plugins.config.hop')
+            require('hop').setup{}
         end
     }
 
@@ -94,7 +94,7 @@ packer.startup(function(use)
     {
         'lewis6991/gitsigns.nvim',
         config = function()
-            require('plugins.config.gitsigns')
+            require('gitsigns').setup()
         end
     }
 
