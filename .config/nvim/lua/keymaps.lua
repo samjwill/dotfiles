@@ -59,7 +59,7 @@ vim.keymap.set('n', lsp_leader..']', '<CMD>lua vim.diagnostic.goto_next()<CR>', 
 vim.keymap.set('n', lsp_leader..'c', '<CMD>lua vim.lsp.buf.code_action()<CR>',     {desc = "Code Action"})
 vim.keymap.set('n', lsp_leader..'d', '<CMD>lua vim.lsp.buf.definition()<CR>',      {desc = "Go to Definition"})
 vim.keymap.set('n', lsp_leader..'D', '<CMD>lua vim.lsp.buf.declaration()<CR>',     {desc = "Go to Declaration"})
-vim.keymap.set('n', lsp_leader..'f', '<CMD>lua vim.lsp.buf.formatting()<CR>',      {desc = "Formatting"})
+vim.keymap.set('n', lsp_leader..'f', '<CMD>lua vim.lsp.buf.formatting()<CR>',      {desc = "Format Buffer"})
 vim.keymap.set('n', lsp_leader..'i', '<CMD>lua vim.lsp.buf.implementation()<CR>',  {desc = "Go to Implementation"})
 vim.keymap.set('n', lsp_leader..'r', '<CMD>lua vim.lsp.buf.references()<CR>',      {desc = "Show All References"})
 vim.keymap.set('n', lsp_leader..'e', '<CMD>lua vim.diagnostic.open_float()<CR>',   {desc = "Floating Diagnostic"})
