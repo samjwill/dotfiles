@@ -2,4 +2,4 @@
   email = 25990267+samjwill@users.noreply.github.com
   name = samjwill
 [core]
-  editor = nvim --cmd 'let g:unception_disable=1'
+  editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
