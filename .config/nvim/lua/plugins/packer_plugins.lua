@@ -136,7 +136,7 @@ packer.startup(function(use)
     {
         'echasnovski/mini.nvim',
         config = function()
-            require('mini.cursorword').setup{}
+            -- require('mini.cursorword').setup{} -- TODO: Seems to break highlighting?
             require('plugins.config.mini_completion')
             require('plugins.config.mini_map')
         end
