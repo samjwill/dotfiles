@@ -93,7 +93,6 @@ packer.startup(function(use)
     use
     {
         "samjwill/nvim-unception",
-        branch = "git-test",
         config = function()
             vim.g.unception_delete_replaced_buffer = true
             vim.g.unception_enable_flavor_text = false
