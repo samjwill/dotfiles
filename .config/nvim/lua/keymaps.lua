@@ -42,8 +42,8 @@ vim.keymap.set("t", "<C-q>", "<Esc>", {})
 -------------------------------------------------------------------------------
 -- Hop Plugin
 -------------------------------------------------------------------------------
-vim.keymap.set('', 's', '<CMD>HopWordMW<CR>', {})
-vim.keymap.set('', 'S', '<CMD>HopChar2MW<CR>', {})
+vim.keymap.set('', 's', '<CMD>HopChar2MW<CR>', {})
+vim.keymap.set('', 'S', '<CMD>HopPatternMW<CR>', {})
 vim.cmd("autocmd FileType netrw nnoremap <buffer> s <CMD>HopWordMW<CR>")
 vim.cmd("autocmd FileType netrw nnoremap <buffer> S <CMD>HopChar2MW<CR>")
 
