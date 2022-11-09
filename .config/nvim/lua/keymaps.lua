@@ -84,7 +84,8 @@ vim.keymap.set("", command_line_leader.."s", "<CMD>split | Bufdir terminal<CR>i"
 vim.keymap.set("", command_line_leader.."S", "<CMD>split | terminal<CR>i", {desc = "Split Terminal"})
 vim.keymap.set("", command_line_leader.."v", "<CMD>vsplit | Bufdir terminal<CR>i", {desc = "VSplit Terminal in Focused Buffer's Directory"})
 vim.keymap.set("", command_line_leader.."V", "<CMD>vsplit | terminal<CR>i", {desc = "VSplit Terminal"})
-
+vim.keymap.set("", command_line_leader.."t", "<CMD>tabnew | Bufdir terminal<CR>i", {desc = "Tabnew Terminal in Focused Buffer's Directory"})
+vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i", {desc = "Tabnew Terminal"})
 
 -------------------------------------------------------------------------------
 -- Telescope Plugin
