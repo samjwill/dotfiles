@@ -1,6 +1,10 @@
 require("nvim-treesitter.configs").setup({
     ensure_installed = "all",
-    sync_install = false,
+
+    -- Only sync_install if running headless.
+    -- From: https://github.com/nvim-treesitter/nvim-treesitter/issues/3579#issuecomment-1278662119
+    sync_install = #vim.api.nvim_list_uis() == 0,
+
     highlight = {
         enable = true,
         disable = { "help" }
