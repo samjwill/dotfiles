@@ -156,7 +156,7 @@ packer.startup(function(use)
                 -- TODO: Just put these in the same config if possible.
                 ensure_installed =
                 {
-                    -- If changing these, update the values in lspconfig as well.
+                    -- If changing these, update the values in lspconfig as well as in the headless install neovim plugins script.
                     "clangd"
                 }
             })
