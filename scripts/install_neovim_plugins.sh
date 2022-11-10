@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# No idea if this is necessary?
+# No idea why this is necessary.
 # I think this allows Packer to be cloned during the bootstrapping phase? Honestly not sure.
 nvim --headless +qa
 
