@@ -171,7 +171,7 @@ packer.startup(function(use)
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
             end
 
-            -- If changing these, update the values in mason-lspconfig as well.
+            -- If changing these, update the values in mason-lspconfig as well as in the headless install neovim plugins script.
             require('lspconfig').clangd.setup{
                 clangd_keymaps, -- Defined in keymaps file.
                 on_attach = on_attach_func
