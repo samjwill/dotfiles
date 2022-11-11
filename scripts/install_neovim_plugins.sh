@@ -4,9 +4,8 @@
 # I think this allows Packer to be cloned during the bootstrapping phase? Honestly not sure.
 nvim --headless +qa
 
-# Need to PackerSync first so that subsequent command is recognized...?
+# Need to allow PackerSync to run first and then restart so that subsequent TSUpdate command is recognized...?
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c "TSUpdateSync" -c "quitall"
-nvim --headless -c "MasonInstallAll" -c "quitall" # If updating this, update the ensure_installed in Neovim init.lua
+nvim --headless -c "TSUpdateSync" -c "MasonInstallAll" -c "quitall"
 
 echo ""
