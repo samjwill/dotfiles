@@ -8,3 +8,5 @@ nvim --headless +qa
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless -c "TSUpdateSync" -c "quitall"
 nvim --headless -c "MasonInstallAll" -c "quitall" # If updating this, update the ensure_installed in Neovim init.lua
+
+echo ""
