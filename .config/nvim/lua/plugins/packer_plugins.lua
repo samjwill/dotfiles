@@ -151,15 +151,19 @@ packer.startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         after = 'mason.nvim',
         config = function()
+            -- If changing these, update the values in lspconfig as well as in the headless install neovim plugins script.
+            -- TODO: May be able to merge this with other clangd-specific tables?
+            local package_list = { "clangd" }
+
             require("mason-lspconfig").setup(
             {
-                -- TODO: Just put these in the same config if possible.
-                ensure_installed =
-                {
-                    -- If changing these, update the values in lspconfig as well as in the headless install neovim plugins script.
-                    "clangd"
-                }
+                ensure_installed = package_list
             })
+
+            -- Create an autocmd that allows for simple headless installation.
+            vim.api.nvim_create_user_command("MasonInstallAll", function ()
+                vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
+            end, {})
         end
     }
 
