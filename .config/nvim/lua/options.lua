@@ -12,6 +12,7 @@ vim.opt.fileformats = "unix,dos,mac"
 vim.opt.hidden = false
 vim.opt.laststatus=3
 vim.opt.mouse = "a"
+vim.opt.number = true
 vim.opt.showmode = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -48,17 +49,4 @@ if (1 == vim.fn.executable("rg")) then
     vim.opt.grepprg="rg --vimgrep"
     vim.opt.grepformat:prepend{"%f:%l:%c:%m"}
 end
-
--- Settings for both netrw and neovim
-vim.opt.number = true
-vim.g.netrw_bufsettings = "noma nomod number nobl nowrap ro" -- All but "number" are default.
-
--- Netrw Settings
-vim.g.netrw_banner = 0
-
--- Hide . and .. directories.
-vim.g.netrw_list_hide = ""
-vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./"
-vim.g.netrw_list_hide = vim.g.netrw_list_hide .. ","
-vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./"
 
