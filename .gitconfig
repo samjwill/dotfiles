@@ -3,3 +3,5 @@
   name = samjwill
 [core]
   editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
+[push]
+  autoSetupRemote = true
