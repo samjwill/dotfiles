@@ -1,3 +1,5 @@
+-- See: https://github.com/sainnhe/gruvbox-material/issues/152#issuecomment-1312721186
+
 -- Apply custom highlights on colorscheme change.
 -- Must be declared before executing ':colorscheme'.
 grpid = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {})
