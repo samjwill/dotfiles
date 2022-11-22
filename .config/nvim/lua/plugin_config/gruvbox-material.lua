@@ -16,4 +16,5 @@ vim.api.nvim_create_autocmd('ColorScheme', {
             [[let g:terminal_color_14 = '#b4cfaf' |]] ..
             [[let g:terminal_color_15 = '#ddc7a1'  ]]
 })
+vim.g.gruvbox_material_foreground='original'
 vim.cmd('colorscheme gruvbox-material')
