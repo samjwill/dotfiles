@@ -1,4 +1,5 @@
 -- See: https://github.com/sainnhe/gruvbox-material/issues/152#issuecomment-1312721186
+-- TODO: Look at colors here instead? Might match scheme better: https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 
 -- Apply custom highlights on colorscheme change.
 -- Must be declared before executing ':colorscheme'.
