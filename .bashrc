@@ -99,7 +99,5 @@ fi
 
 if [ -r "/etc/bash_completion" ]; then # Ubuntu
     source /etc/bash_completion
-elif [ -r "usr/share/bash-completion/bash_completion" ]; then # Arch
-    source usr/share/bash-completion/bash_completion
 fi
 
