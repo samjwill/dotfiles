@@ -91,9 +91,15 @@ bind -x '"\C-l": clear' #Need to rebind this because `set -o vi` breaks the
                         # that is currently on the screen when clearing.
 
 
-if [ -r "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then
+if [ -r "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then # Ubuntu
     source /usr/share/doc/fzf/examples/key-bindings.bash
+elif [ -r "/usr/share/fzf/key-bindings.bash" ]; then # Arch
+    source /usr/share/fzf/key-bindings.bash
 fi
-if [ -r "/etc/bash_completion" ]; then
+
+if [ -r "/etc/bash_completion" ]; then # Ubuntu
     source /etc/bash_completion
+elif [ -r "usr/share/bash-completion/bash_completion" ]; then # Arch
+    source usr/share/bash-completion/bash_completion
 fi
+
