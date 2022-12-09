@@ -10,7 +10,7 @@ vim.keymap.set("", "?", "?\\c", {})
 -- vim.keymap.set("", "<Leader>?", "?", {})
 
 -- "-" to edit directory of current file
-vim.keymap.set("", "-", ":e %:p:h<CR>", {})
+vim.keymap.set("", "-", ":e %:p:h<CR>", {silent=true})
 
 -- shift-tab to inverse tab
 vim.keymap.set("i", "<S-Tab>", "<C-d>", {})
