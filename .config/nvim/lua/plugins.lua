@@ -151,7 +151,7 @@ require("lazy").setup({
 
     {
         "neovim/nvim-lspconfig",
-        dependencies = {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"} -- See :h mason-lspconfig-quickstart
+        dependencies = {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}, -- See :h mason-lspconfig-quickstart
         config = function()
             local on_attach_func = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
