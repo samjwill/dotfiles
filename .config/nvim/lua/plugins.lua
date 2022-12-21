@@ -27,6 +27,7 @@ require("lazy").setup({
 
     {
         "prichrd/netrw.nvim",
+        dependencies = {"kyazdani42/nvim-web-devicons"},
         config = function()
             require("netrw").setup()
         end
@@ -101,7 +102,7 @@ require("lazy").setup({
 
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = {"kyazdani42/nvim-web-devicons", lazy = true},
+        dependencies = {"kyazdani42/nvim-web-devicons"},
         config = function()
             require("lualine").setup({
                 options = {
