@@ -75,9 +75,7 @@ require("lazy").setup({
         -- :TSUpdate fails when bootstrapping. Call update function directly.
         -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
         -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
-        build = function()
-            require("nvim-treesitter.install").update { with_sync = true }
-        end
+        build = ":TSUpdate"
     },
 
     {
@@ -153,7 +151,7 @@ require("lazy").setup({
 
     {
         "neovim/nvim-lspconfig",
-        dependencies = {"williamboman/mason-lspconfig.nvim"},
+        dependencies = {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"} -- See :h mason-lspconfig-quickstart
         config = function()
             local on_attach_func = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
