@@ -131,7 +131,7 @@ require("lazy").setup({
 
     {
         "williamboman/mason-lspconfig.nvim",
-        -- TODO: Not sure if I need to specify load order. Tried to do so and it seems to cause some odd behavior.
+        -- TODO: Not sure if I need to specify plugin load order. Tried to do so and it seems to cause some odd behavior.
         config = function()
             local package_list = { "clangd" }
 
