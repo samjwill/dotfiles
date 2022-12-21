@@ -26,6 +26,13 @@ require("lazy").setup({
     },
 
     {
+        "prichrd/netrw.nvim",
+        config = function()
+            require("netrw").setup()
+        end
+    },
+
+    {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("plugin_config.indent-blankline")
