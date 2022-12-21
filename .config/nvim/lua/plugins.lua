@@ -126,15 +126,19 @@ require("lazy").setup({
     },
 
     {
+        -- See :h mason-lspconfig-quickstart for ordering explanation.
         "williamboman/mason.nvim",
-        config = function() require("mason").setup() end
-    },
-
-    {
         "williamboman/mason-lspconfig.nvim",
-        dependencies = {"williamboman/mason.nvim"},
+        "neovim/nvim-lspconfig",
         config = function()
-            -- TODO: May be able to merge this with other clangd-specific tables for LSP?
+            -------------------------------------
+            -- Config for mason.nvim           --
+            -------------------------------------
+            require("mason").setup()
+
+            -------------------------------------
+            -- Config for mason-lspconfig.nvim --
+            -------------------------------------
             local package_list = { "clangd" }
 
             require("mason-lspconfig").setup(
@@ -146,18 +150,14 @@ require("lazy").setup({
             vim.api.nvim_create_user_command("MasonInstallAll", function ()
                 vim.cmd("MasonInstall "..table.concat(package_list, " "))
             end, {})
-        end
-    },
 
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}, -- See :h mason-lspconfig-quickstart
-        config = function()
+            -------------------------------------
+            -- Config for nvim-lspconfig       --
+            -------------------------------------
             local on_attach_func = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
             end
 
-            -- If changing these, update the values in mason-lspconfig as well as in the headless install neovim plugins script.
             require("lspconfig").clangd.setup{
                 clangd_keymaps, -- Defined in keymaps file.
                 on_attach = on_attach_func
