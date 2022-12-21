@@ -1,52 +1,37 @@
--- Automatically install Packer on startup.
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    packer_bootstrap = vim.fn.system
-    {
-        'git',
-        'clone',
-        '--depth',
-        '1',
-        'https://github.com/wbthomason/packer.nvim',
-        install_path
-    }
-    -- TODO: Not certain that this is the best way to do this, but if we don't,
-    -- Packer isn't recognized. Also saw a solution which modifies the path
-    -- Neovim searches, so that might be worth looking into.
-    vim.cmd("packadd packer.nvim")
+-- Automatically install Lazy on startup.
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath,
+    })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-local packer = require("packer")
+require("lazy").setup({
+    "psliwka/vim-smoothie",
+    "samjwill/vim-bufdir",
+    "samjwill/vim-auto-nohlsearch",
 
--- Keep packer_compiled.lua out of the .config directory.
-packer.init({compile_path = vim.fn.stdpath('data')..'/site/pack/loader/start/packer.nvim/plugin/packer_compiled.lua'})
-
-packer.startup(function(use)
-    -- Packer needs to manage itself
-    use 'wbthomason/packer.nvim'
-
-    use "psliwka/vim-smoothie"
-    use "samjwill/vim-bufdir"
-    use "samjwill/vim-auto-nohlsearch"
-
-    use
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require('plugin_config.indent-blankline')
         end
-    }
+    },
 
-    use
     {
         "nvim-telescope/telescope.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require('plugin_config.telescope')
         end
-    }
+    },
 
-    use
     {
         "linty-org/key-menu.nvim",
         config = function()
@@ -55,27 +40,24 @@ packer.startup(function(use)
                 km.set(unpack(prefix))
             end
         end
-    }
+    },
 
 
-    use
     {
         "sainnhe/gruvbox-material",
         config = function()
             require('plugin_config.gruvbox-material')
         end
-    }
+    },
 
-    use
     {
-        'phaazon/hop.nvim',
-        branch = 'v2',
+        "phaazon/hop.nvim",
+        branch = "v2",
         config = function()
-            require('hop').setup{}
+            require("hop").setup()
         end
-    }
+    },
 
-    use
     {
         "nvim-treesitter/nvim-treesitter",
         commit = "287ffdccc1dd7ed017d844a4fad069fd3340fa94",
@@ -85,31 +67,29 @@ packer.startup(function(use)
         -- :TSUpdate fails when bootstrapping. Call update function directly.
         -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
         -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
-        run = function()
+        build = function()
             require("nvim-treesitter.install").update { with_sync = true }
         end
-    }
+    },
 
-    use
     {
         "samjwill/nvim-unception",
         config = function()
             vim.g.unception_delete_replaced_buffer = true
             vim.g.unception_enable_flavor_text = false
         end
-    }
+    },
 
-    use
     {
         'lewis6991/gitsigns.nvim',
         config = function()
             require('gitsigns').setup()
         end
-    }
+    },
 
-    use {
+    {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
         config = function()
             require('lualine').setup({
                 options = {
@@ -123,15 +103,13 @@ packer.startup(function(use)
                 }
             })
         end
-    }
+    },
 
-    use
     {
         'numToStr/Comment.nvim',
         config = function() require('Comment').setup{} end
-    }
+    },
 
-    use
     {
         'echasnovski/mini.nvim',
         config = function()
@@ -139,17 +117,16 @@ packer.startup(function(use)
             require('plugin_config.mini_completion')
             require('plugin_config.mini_map')
         end
-    }
+    },
 
-    use
     {
         "williamboman/mason.nvim",
         config = function() require('mason').setup() end
-    }
+    },
 
-    use {
+    {
         "williamboman/mason-lspconfig.nvim",
-        after = 'mason.nvim',
+        -- after = 'mason.nvim',
         config = function()
             -- TODO: May be able to merge this with other clangd-specific tables for LSP?
             local package_list = { "clangd" }
@@ -164,11 +141,11 @@ packer.startup(function(use)
                 vim.cmd("MasonInstall "..table.concat(package_list, " "))
             end, {})
         end
-    }
+    },
 
-    use {
+    {
         "neovim/nvim-lspconfig",
-        after = 'mason-lspconfig.nvim',
+        -- after = 'mason-lspconfig.nvim',
         config = function()
             local on_attach_func = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -181,14 +158,5 @@ packer.startup(function(use)
             }
         end
     }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    if packer_bootstrap then
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "PackerComplete",
-            callback = function() print("Installation is complete! Please restart Neovim.") end
-        })
-        require('packer').sync()
-    end
-end)
+})
 
