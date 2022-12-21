@@ -65,6 +65,7 @@ require("lazy").setup({
         end
     },
 
+    --[[ TODO: This has been pretty buggy when used with netrw/terminal buffers. Remove?
     {
         "phaazon/hop.nvim",
         branch = "v2",
@@ -72,6 +73,7 @@ require("lazy").setup({
             require("hop").setup()
         end
     },
+    --]]
 
     {
         "nvim-treesitter/nvim-treesitter",
