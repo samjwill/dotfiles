@@ -128,17 +128,14 @@ require("lazy").setup({
     {
         -- See :h mason-lspconfig-quickstart for ordering explanation.
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
         config = function()
-            -------------------------------------
-            -- Config for mason.nvim           --
-            -------------------------------------
             require("mason").setup()
+        end
+    },
 
-            -------------------------------------
-            -- Config for mason-lspconfig.nvim --
-            -------------------------------------
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
             local package_list = { "clangd" }
 
             require("mason-lspconfig").setup(
@@ -150,10 +147,12 @@ require("lazy").setup({
             vim.api.nvim_create_user_command("MasonInstallAll", function ()
                 vim.cmd("MasonInstall "..table.concat(package_list, " "))
             end, {})
+        end
+    },
 
-            -------------------------------------
-            -- Config for nvim-lspconfig       --
-            -------------------------------------
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
             local on_attach_func = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
             end
