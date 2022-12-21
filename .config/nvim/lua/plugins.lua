@@ -72,9 +72,6 @@ require("lazy").setup({
         config = function()
             require("plugin_config.treesitter")
         end,
-        -- :TSUpdate fails when bootstrapping. Call update function directly.
-        -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3135
-        -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
         build = ":TSUpdate"
     },
 
@@ -126,7 +123,6 @@ require("lazy").setup({
     },
 
     {
-        -- See :h mason-lspconfig-quickstart for ordering explanation.
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
@@ -135,6 +131,7 @@ require("lazy").setup({
 
     {
         "williamboman/mason-lspconfig.nvim",
+        -- TODO: Not sure if I need to specify load order. Tried to do so and it seems to cause some odd behavior.
         config = function()
             local package_list = { "clangd" }
 
