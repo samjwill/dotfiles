@@ -6,8 +6,6 @@ table.insert(prefix_list, {"n", "<Space>"})
 -- Don't want to :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
 vim.keymap.set("", "?", "?\\c", {})
--- vim.keymap.set("", "<Leader>/", "/", {})
--- vim.keymap.set("", "<Leader>?", "?", {})
 
 -- "-" to edit directory of current file
 vim.keymap.set("", "-", ":e %:p:h<CR>", {silent=true})
@@ -95,3 +93,18 @@ vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Opt
 -------------------------------------------------------------------------------
 vim.keymap.set("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { desc="Toggle MiniMap"})
 
+-------------------------------------------------------------------------------
+-- Debug Adapter Protocol Plugin
+-------------------------------------------------------------------------------
+
+local debug_leader = vim.g.mapleader.."d"
+table.insert(prefix_list, {"n", "<Space>d", {desc="Debugger"}})
+vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue"})
+vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
+vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
+vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
+vim.keymap.set("n", debug_leader.."b", "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Add Breakpoint"})
+vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {desc = "Add Conditional Breakpoint"})
+vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", {desc = "Log Point Message"})
+vim.keymap.set("n", debug_leader.."r", "<CMD>lua require('dap').repl.open()<CR>", {desc = "Open REPL Console"})
+vim.keymap.set("n", debug_leader.."l", "<CMD>lua require('dap').run_last()<CR>", {desc = "Run Last"})
