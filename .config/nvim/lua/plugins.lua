@@ -12,7 +12,74 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+-- TODO: See if there's a way that you can define these closer to where they're used.
+
+-- Packages for Mason to install
+local mason_package_list = { "clangd", "cpptools" }
+-- Debugger params
+local default_working_dir = vim.fn.getcwd().."/"
+local default_bin_path = vim.fn.getcwd().."/"
+local default_argument_string = ""
+
 require("lazy").setup({
+
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {"rcarriga/nvim-dap-ui"},
+        config = function()
+            local dap = require('dap')
+
+            -- C++
+            dap.adapters.cppdbg = {
+                id = 'cppdbg',
+                type = 'executable',
+                -- Binary location for vscode-cpptools as installed by Mason
+                command = vim.fn.stdpath("data").."/mason/bin/OpenDebugAD7",
+            }
+
+            dap.configurations.cpp = {
+                {
+                    name = "Launch file",
+                    type = "cppdbg",
+                    request = "launch",
+                    program = function()
+                        default_bin_path = vim.fn.input('Path to executable: ', default_bin_path, 'file')
+                        return default_bin_path
+                    end,
+                    cwd = function()
+                        default_working_dir = vim.fn.input('Path to working directory: ', default_working_dir, 'file')
+                        return default_working_dir
+                    end,
+                    args = function()
+                        default_argument_string = vim.fn.input('Program arguments: ')
+                        return vim.fn.split(default_argument_string, " ", true)
+                    end,
+                    stopAtEntry = true,
+                    setupCommands = {
+                        {
+                            text = '-enable-pretty-printing',
+                            description =  'enable pretty printing',
+                            ignoreFailures = false
+                        },
+                    },
+                },
+            }
+
+            -- DAP UI
+            require("dapui").setup()
+            local dapui = require("dapui")
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+        end
+    },
+
     {
         "psliwka/vim-smoothie"
     },
@@ -66,16 +133,6 @@ require("lazy").setup({
         end
     },
 
-    --[[ TODO: This has been pretty buggy when used with netrw/terminal buffers. Remove?
-    {
-        "phaazon/hop.nvim",
-        branch = "v2",
-        config = function()
-            require("hop").setup()
-        end
-    },
-    --]]
-
     {
         "nvim-treesitter/nvim-treesitter",
         commit = "287ffdccc1dd7ed017d844a4fad069fd3340fa94",
@@ -126,7 +183,6 @@ require("lazy").setup({
     {
         "echasnovski/mini.nvim",
         config = function()
-            -- require("mini.cursorword").setup{} -- TODO: Seems to break highlighting?
             require("plugin_config.mini_completion")
             require("plugin_config.mini_map")
         end
@@ -134,25 +190,19 @@ require("lazy").setup({
 
     {
         "williamboman/mason.nvim",
+        build = function()
+            -- TODO: This causes some odd issues if Neovim is currently being
+            -- bootstrapped. Leaving in place because at least this installs
+            -- packages automatically on launch if they haven't been installed
+            -- already.
+            vim.cmd("MasonInstall "..table.concat(mason_package_list, " "))
+        end,
         config = function()
             require("mason").setup()
-        end
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        -- TODO: Not sure if I need to specify plugin load order. Tried to do so and it seems to cause some odd behavior.
-        config = function()
-            local package_list = { "clangd" }
-
-            require("mason-lspconfig").setup(
-            {
-                ensure_installed = package_list
-            })
 
             -- Create an autocmd that allows for simple headless installation.
             vim.api.nvim_create_user_command("MasonInstallAll", function ()
-                vim.cmd("MasonInstall "..table.concat(package_list, " "))
+                vim.cmd("MasonInstall "..table.concat(mason_package_list, " "))
             end, {})
         end
     },
