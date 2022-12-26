@@ -62,7 +62,7 @@ return {
                     -- Update the default value so that the next time the
                     -- prompt is done, it's pre-populated with the last entered
                     -- value.
-                    default_argument_string = vim.fn.input('Program arguments: ')
+                    default_argument_string = vim.fn.input('Program arguments: ', default_argument_string)
                     args_set = true
                     return vim.fn.split(default_argument_string, " ", true)
                 end,
