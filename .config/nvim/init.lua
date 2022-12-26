@@ -1,5 +1,5 @@
 require("options")
 require("keymaps")
 require("autocommands")
-require("plugin-init")
+require("plugin")
 
