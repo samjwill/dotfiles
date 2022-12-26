@@ -1,3 +1,6 @@
+-------------------------------------------------------------------------------
+-- Regular Neovim Options
+-------------------------------------------------------------------------------
 vim.opt.cmdheight = 1
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.confirm = true
@@ -44,4 +47,15 @@ if (1 == vim.fn.executable("rg")) then
     vim.opt.grepprg="rg --vimgrep"
     vim.opt.grepformat:prepend{"%f:%l:%c:%m"}
 end
+
+-------------------------------------------------------------------------------
+-- Netrw Options
+-------------------------------------------------------------------------------
+vim.g.netrw_banner = 0
+
+-- Hide . and .. directories.
+vim.g.netrw_list_hide = ""
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\./"
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. ","
+vim.g.netrw_list_hide = vim.g.netrw_list_hide .. "^\\.\\./"
 
