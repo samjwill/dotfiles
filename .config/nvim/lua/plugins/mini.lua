@@ -1,11 +1,16 @@
 return {
     "echasnovski/mini.nvim",
-    -- TODO: Split these into separate configs.
     config = function()
+        ------------------------------------------------------------------------
+        -- Mini Completion
+        ------------------------------------------------------------------------
         require('mini.completion').setup{
             fallback_action = function() end -- None. Only auto-complete with LSP.
         }
 
+        ------------------------------------------------------------------------
+        -- Mini Map
+        ------------------------------------------------------------------------
         local map = require('mini.map')
         map.setup(
         {
