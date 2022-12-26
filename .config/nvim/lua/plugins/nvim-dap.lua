@@ -20,10 +20,11 @@ return {
         local default_argument_string = ""
 
         -- This is pretty messy. Lua doesn't have classes so I'm not sure how
-        -- much cleaner I can make it with just a table. The idea is, only
-        -- prompt the user to specify these fields if it is initial run.
-        -- Otherwise, the user will be prompted every time debugging is
-        -- restarted, even by click the restart button on the ui.
+        -- much cleaner I can make it with just a table. The idea is to only
+        -- prompt the user to specify these fields if it is the initial run,
+        -- and assume their previous values otherwise. If this is not done, the
+        -- user will be prompted every time debugging is restarted, even by
+        -- clicking the restart button on the DAP UI.
         local work_dir_set = false
         local bin_path_set = false
         local args_set = false
