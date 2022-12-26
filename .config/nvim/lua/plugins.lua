@@ -56,7 +56,7 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
+        dependencies = {"nvim-lua/plenary.nvim"},
         config = function()
             require("plugin_config.telescope")
         end
@@ -66,7 +66,7 @@ require("lazy").setup({
         "linty-org/key-menu.nvim",
         config = function()
             local km = require("key-menu")
-            for i, prefix in ipairs(prefix_list) do
+            for _, prefix in ipairs(prefix_list) do
                 km.set(unpack(prefix))
             end
         end
@@ -91,7 +91,7 @@ require("lazy").setup({
 
     {
         "samjwill/nvim-unception",
-        config = function()
+        init = function()
             vim.g.unception_delete_replaced_buffer = true
             vim.g.unception_enable_flavor_text = false
         end
