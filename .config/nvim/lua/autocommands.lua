@@ -8,3 +8,4 @@ vim.api.nvim_create_autocmd("TermOpen", {group = init_group, command = "setlocal
 -- TODO: This autocmd causes the error below...
 -- Error detected while processing TermClose Autocommands for "*":
 -- E516: No buffers were deleted: bdelete! 7
+

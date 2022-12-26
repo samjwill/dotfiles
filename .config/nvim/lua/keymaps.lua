@@ -108,3 +108,4 @@ vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(v
 vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", {desc = "Log Point Message"})
 vim.keymap.set("n", debug_leader.."r", "<CMD>lua require('dap').repl.open()<CR>", {desc = "Open REPL Console"})
 vim.keymap.set("n", debug_leader.."l", "<CMD>lua require('dap').run_last()<CR>", {desc = "Run Last"})
+
