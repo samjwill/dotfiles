@@ -1,2 +1,4 @@
-return {"psliwka/vim-smoothie"}
+return {
+    "psliwka/vim-smoothie"
+}
 
