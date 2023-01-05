@@ -95,8 +95,8 @@ return {
             args_set = false
         end
 
-        dap.listeners.after.event_initialized["dapui_config"] = handle_open_debugger()
-        dap.listeners.before.event_terminated["dapui_config"] = handle_close_debugger()
-        dap.listeners.before.event_exited["dapui_config"] = handle_close_debugger()
+        dap.listeners.after.event_initialized["dapui_config"] = function() handle_open_debugger() end
+        dap.listeners.before.event_terminated["dapui_config"] = function() handle_close_debugger() end
+        dap.listeners.before.event_exited["dapui_config"] = function() handle_close_debugger() end
     end
 }
