@@ -83,10 +83,10 @@ return {
         ------------------------------------------------------------------------
         require("dapui").setup()
         local dapui = require("dapui")
-        dap.listeners.after.event_initialized["dapui_config"] = function()
+        local function handle_open_debugger()
             dapui.open()
         end
-        dap.listeners.before.event_terminated["dapui_config"] = function()
+        local function handle_close_debugger()
             dapui.close()
 
             -- We now want the user to be prompted.
@@ -94,14 +94,9 @@ return {
             bin_path_set = false
             args_set = false
         end
-        dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close()
 
-            -- We now want the user to be prompted.
-            work_dir_set = false
-            bin_path_set = false
-            args_set = false
-        end
+        dap.listeners.after.event_initialized["dapui_config"] = handle_open_debugger()
+        dap.listeners.before.event_terminated["dapui_config"] = handle_close_debugger()
+        dap.listeners.before.event_exited["dapui_config"] = handle_close_debugger()
     end
 }
-
