@@ -25,9 +25,9 @@ return {
         -- and assume their previous values otherwise. If this is not done, the
         -- user will be prompted every time debugging is restarted, even by
         -- clicking the restart button on the DAP UI.
-        local work_dir_set = false
-        local bin_path_set = false
-        local args_set = false
+        -- local work_dir_set = false
+        -- local bin_path_set = false
+        -- local args_set = false
 
         dap.configurations.cpp = {
             {
@@ -35,9 +35,9 @@ return {
                 type = "cppdbg",
                 request = "launch",
                 program = function()
-                    if (work_dir_set and bin_path_set and args_set) then
-                        return default_bin_path
-                    end
+                    -- if (work_dir_set and bin_path_set and args_set) then
+                    --     return default_bin_path
+                    -- end
                     -- Update the default value so that the next time the
                     -- prompt is done, it's pre-populated with the last entered
                     -- value.
@@ -46,9 +46,9 @@ return {
                     return default_bin_path
                 end,
                 cwd = function()
-                    if (work_dir_set and bin_path_set and args_set) then
-                        return default_working_dir
-                    end
+                    -- if (work_dir_set and bin_path_set and args_set) then
+                    --     return default_working_dir
+                    -- end
                     -- Update the default value so that the next time the
                     -- prompt is done, it's pre-populated with the last entered
                     -- value.
@@ -57,9 +57,9 @@ return {
                     return default_working_dir
                 end,
                 args = function()
-                    if (work_dir_set and bin_path_set and args_set) then
-                        return default_argument_string
-                    end
+                    -- if (work_dir_set and bin_path_set and args_set) then
+                    --     return default_argument_string
+                    -- end
                     -- Update the default value so that the next time the
                     -- prompt is done, it's pre-populated with the last entered
                     -- value.
@@ -90,9 +90,9 @@ return {
             dapui.close()
 
             -- We now want the user to be prompted.
-            work_dir_set = false
-            bin_path_set = false
-            args_set = false
+            -- work_dir_set = false
+            -- bin_path_set = false
+            -- args_set = false
         end
 
         dap.listeners.after.event_initialized["dapui_config"] = function() handle_open_debugger() end
