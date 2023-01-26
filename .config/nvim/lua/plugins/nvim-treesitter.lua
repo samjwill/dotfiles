@@ -11,6 +11,7 @@ return {
 
             highlight = {
                 enable = true,
+                -- Treesitter help page highlighting has broken before. The default highlighting's fine.
                 disable = { "help" }
             }
         })
