@@ -38,9 +38,9 @@ vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
 
 -- Swap directory
-vim.g.swap_dir = vim.fn.stdpath("data") .. "/swap"
+vim.g.swap_dir = vim.fn.stdpath("data").."/swap"
 vim.fn.mkdir(vim.g.swap_dir, "p")
-vim.o.directory = vim.g.swap_dir .. ',.'
+vim.o.directory = vim.g.swap_dir..',.'
 
 -- Prefer ripgrep to grep.
 if (1 == vim.fn.executable("rg")) then
