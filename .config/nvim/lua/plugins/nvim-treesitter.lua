@@ -2,8 +2,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     commit = "287ffdccc1dd7ed017d844a4fad069fd3340fa94",
     config = function()
+        -- See: https://github.com/tree-sitter/tree-sitter-css/issues/35
+        local ignore_list = {"help", "css"}
         require("nvim-treesitter.configs").setup({
             ensure_installed = "all",
+            ignore_install = ignore_list,
 
             -- Only sync_install if running headless.
             -- From: https://github.com/nvim-treesitter/nvim-treesitter/issues/3579#issuecomment-1278662119
@@ -12,7 +15,7 @@ return {
             highlight = {
                 enable = true,
                 -- Treesitter help page highlighting has broken before. The default highlighting's fine.
-                disable = { "help" }
+                disable = ignore_list,
             }
         })
 
