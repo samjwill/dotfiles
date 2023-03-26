@@ -96,7 +96,6 @@ vim.keymap.set("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { desc="Toggle
 -------------------------------------------------------------------------------
 -- Debug Adapter Protocol Plugin
 -------------------------------------------------------------------------------
-
 local debug_leader = vim.g.mapleader.."d"
 table.insert(prefix_list, {"n", "<Space>d", {desc="Debugger"}})
 vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue"})
