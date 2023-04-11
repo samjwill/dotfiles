@@ -110,8 +110,6 @@ if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1); then
             pushd "$project_root" >/dev/null
             bash -c "git diff $@ --name-only | fzf -m --ansi --preview $preview"
             popd >/dev/null
-        else
-            bash -c "git diff $@ --name-only | fzf -m --ansi --preview $preview"
         fi
     }
 fi
