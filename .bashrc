@@ -101,3 +101,17 @@ if [ -r "/etc/bash_completion" ]; then # Ubuntu (Arch auto-sources bash_completi
     source /etc/bash_completion
 fi
 
+# Define custom command to read diffs with FZF
+if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1); then
+    difftool() {
+        project_root=$(git rev-parse --show-toplevel)
+        preview="\"git diff $@ --color=always -- {-1}\""
+        if [ -n "$project_root" ]; then
+            pushd "$project_root" >/dev/null
+            bash -c "git diff $@ --name-only | fzf -m --ansi --preview $preview"
+            popd >/dev/null
+        else
+            bash -c "git diff $@ --name-only | fzf -m --ansi --preview $preview"
+        fi
+    }
+fi
