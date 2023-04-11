@@ -106,7 +106,7 @@ export FZF_DEFAULT_OPTS="--bind \"ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:p
 
 # Define custom command to read diffs with delta and FZF
 if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1) && (command -v delta >/dev/null 2>&1); then
-    difftool() {
+    fzfdiff() {
         project_root=$(git rev-parse --show-toplevel)
         if [ -n "$project_root" ]; then
             preview="\"git diff $@ --color=always -- {-1} | delta -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}\""
