@@ -3,5 +3,9 @@
   name = samjwill
 [core]
   editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
+  pager = delta --diff-so-fancy
+[delta]
+  side-by-side = true
+  navigate = true
 [push]
   autoSetupRemote = true
