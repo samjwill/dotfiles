@@ -109,8 +109,8 @@ if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1) && (comm
     fzfdiff() {
         project_root=$(git rev-parse --show-toplevel)
         if [ -n "$project_root" ]; then
-            preview="\"git diff $@ --color=always -- {-1} | delta -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}\""
             pushd "$project_root" >/dev/null
+            preview="\"git diff $@ --color=always -- {-1} | delta -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}\""
             bash -c "git diff $@ --name-only | fzf -m --ansi --preview-window=top:80% --preview $preview"
             popd >/dev/null
         fi
