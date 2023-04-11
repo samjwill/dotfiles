@@ -101,6 +101,9 @@ if [ -r "/etc/bash_completion" ]; then # Ubuntu (Arch auto-sources bash_completi
     source /etc/bash_completion
 fi
 
+# Override FZF bindings for scrolling previews for consistency.
+export FZF_DEFAULT_OPTS="--bind \"ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,shift-up:preview-top,shift-down:preview-bottom\""
+
 # Define custom command to read diffs with delta and FZF
 if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1) && (command -v delta >/dev/null 2>&1); then
     difftool() {
