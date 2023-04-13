@@ -76,6 +76,7 @@ vim.keymap.set("", command_line_leader.."V", "<CMD>vsplit | terminal<CR>i", {des
 vim.keymap.set("", command_line_leader.."t", "<CMD>tab split | Bufdir terminal<CR>i", {desc = "Tabnew Terminal in Focused Buffer's Directory"})
 vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i", {desc = "Tabnew Terminal"})
 
+
 -------------------------------------------------------------------------------
 -- Telescope Plugin
 -------------------------------------------------------------------------------
@@ -84,14 +85,16 @@ table.insert(prefix_list, {"n", "<Space>t", {desc="Telescope"}})
 
 vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {desc = "Search Current Buffer"})
 vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {desc = "Find Files"})
+vim.keymap.set("", telescope_leader.."g", "<CMD>Telescope git_files<CR>", {desc = "Find Tracked Git Files"})
 vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {desc = "Live Grep Files"})
-vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Options"})
+vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Telescope Options"})
 
 
 -------------------------------------------------------------------------------
 -- Mini.Map Plugin
 -------------------------------------------------------------------------------
 vim.keymap.set("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { desc="Toggle MiniMap"})
+
 
 -------------------------------------------------------------------------------
 -- Debug Adapter Protocol Plugin
