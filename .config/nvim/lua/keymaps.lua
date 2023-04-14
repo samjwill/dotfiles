@@ -84,6 +84,7 @@ local telescope_leader = vim.g.mapleader.."t"
 table.insert(prefix_list, {"n", "<Space>t", {desc="Telescope"}})
 
 vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {desc = "Search Current Buffer"})
+vim.keymap.set("", telescope_leader.."\"", "<CMD>Telescope registers<CR>", {desc = "Registers"})
 vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {desc = "Find Files"})
 vim.keymap.set("", telescope_leader.."g", "<CMD>Telescope git_files<CR>", {desc = "Find Tracked Git Files"})
 vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {desc = "Live Grep Files"})
