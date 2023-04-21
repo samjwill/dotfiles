@@ -22,7 +22,7 @@ fi
 # Install nerd font to fonts directory in home folder.
 curl -fLo /tmp/Hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip && \
     mkdir -p ~/.local/share/fonts/ && \
-    unzip /tmp/Hack.zip -d ~/.local/share/fonts/ && \
+    unzip -o /tmp/Hack.zip -d ~/.local/share/fonts/ && \
     rm /tmp/Hack.zip && \
     echo "Success!"
 
