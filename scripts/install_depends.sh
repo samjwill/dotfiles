@@ -2,8 +2,8 @@
 
 # Check if package manager is pacman
 if [ "$(command -v pacman)" ]; then
-  sudo pacman -Syu
-  sudo pacman -S bash-completion curl fd fzf gcc git git-delta gzip ripgrep unzip tar wget
+  sudo pacman -Syu --noconfirm
+  sudo pacman -S --noconfirm bash-completion curl fd fzf gcc git git-delta gzip ripgrep unzip tar wget
 # Check if package manager is apt
 elif [ "$(command -v apt)" ]; then
   sudo apt update
