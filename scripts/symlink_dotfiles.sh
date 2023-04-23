@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Project root directory.
+GIT_ROOT=..
+
 # In the format of "DESTINATION_FILEPATH:SOURCE_FILEPATH"
 FILEPATHS=( \
-    "$HOME/.gitconfig:../.gitconfig" \
-    "$HOME/.bashrc:../.bashrc" \
-    "$HOME/.config/nvim:../.config/nvim" \
+    "$HOME/.gitconfig:${GIT_ROOT}/.gitconfig" \
+    "$HOME/.bashrc:${GIT_ROOT}/.bashrc" \
+    "$HOME/.config/nvim:${GIT_ROOT}/.config/nvim" \
 )
 
 for filepath in "${FILEPATHS[@]}"
