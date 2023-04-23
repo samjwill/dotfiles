@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # In the format of "DESTINATION_FILEPATH:SOURCE_FILEPATH"
-FILEPATHS=( "$HOME/.gitconfig:../.gitconfig" "$HOME/.bashrc:../.bashrc" "$HOME/.config/nvim:../.config/nvim" )
+FILEPATHS=( \
+    "$HOME/.gitconfig:../.gitconfig" \
+    "$HOME/.bashrc:../.bashrc" \
+    "$HOME/.config/nvim:../.config/nvim" \
+)
 
 for filepath in "${FILEPATHS[@]}"
 do
