@@ -1,15 +1,19 @@
 #!/bin/bash
 
-FILEPATHS=(~/.gitconfig ~/.bashrc ~/.config/nvim)
+FILEPATHS=( "$HOME/.gitconfig:../.gitconfig" "$HOME/.bashrc:../.bashrc" "$HOME/.config/nvim:../.config/nvim" )
 
-for destination_filepath in "${FILEPATHS[@]}"
+for filepath in "${FILEPATHS[@]}"
 do
-    filename=${destination_filepath##*/}
-    filepath_in_repo=$(realpath "../${filename}")
-    read -p "Replace $destination_filepath with a symlink pointing to $filepath_in_repo? [y/N] " -n 1 -r
+    source_filepath=$(echo "$filepath" | cut -d':' -f2)
+    source_filepath=$(realpath "$source_filepath")
+
+    destination_filepath=$(echo "$filepath" | cut -d':' -f1)
+
+    read -p "Replace $destination_filepath with a symlink pointing to $source_filepath ? [y/N] " -n 1 -r
     echo
+
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        rm -rf "${destination_filepath}" && ln -s "${filepath_in_repo}" "${destination_filepath}"
+        rm -rf "${destination_filepath}" && ln -s "${source_filepath}" "${destination_filepath}"
     fi
 done
