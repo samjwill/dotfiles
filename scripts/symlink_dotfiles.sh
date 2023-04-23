@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Symlinks the user's dotfiles to the files as they appear in this repository.
+
 # Project root directory.
 GIT_ROOT=..
 
