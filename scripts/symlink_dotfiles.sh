@@ -3,7 +3,7 @@
 # Symlinks the user's dotfiles to the files as they appear in this repository.
 
 # Project root directory.
-GIT_ROOT=..
+GIT_ROOT=$(git rev-parse --show-toplevel)
 
 # In the format of "DESTINATION_FILEPATH:SOURCE_FILEPATH"
 FILEPATHS=( \
@@ -20,7 +20,6 @@ do
     destination_filepath=$(echo "$filepath" | cut -d':' -f1)
 
     read -p "Replace \"$destination_filepath\" with a symlink pointing to \"$source_filepath\"? [y/n]: " REPLY
-    echo
 
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
