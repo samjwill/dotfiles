@@ -3,10 +3,12 @@
 # Check if package manager is pacman
 if [ "$(command -v pacman)" ]; then
     sudo pacman -Syu --noconfirm
+    # Package names as they appear on Arch's default repositories.
     sudo pacman -S --noconfirm bash-completion curl fd fzf gcc git git-delta gzip neovim ripgrep unzip tar wget
 # Check if package manager is apt
 elif [ "$(command -v apt)" ]; then
     sudo apt update
+    # Package names as they appear on Ubuntu's default repositories.
     sudo apt install -y bash-completion curl g++ gcc fd-find fzf git gzip neovim ripgrep unzip tar wget
     # TODO: git-delta
 else
