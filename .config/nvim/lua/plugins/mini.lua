@@ -16,7 +16,6 @@ return {
         {
             symbols =
             {
-                encode = map.gen_encode_symbols.dot('4x2'),
                 scroll_line = '┃', -- Box Drawings Heavy Vertical
                 scroll_view = '┃', -- Box Drawings Heavy Vertical
             },
