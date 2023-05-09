@@ -1,6 +1,5 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    commit = "287ffdccc1dd7ed017d844a4fad069fd3340fa94",
     config = function()
         -- See: https://github.com/tree-sitter/tree-sitter-css/issues/35
         local ignore_list = {"help", "css"}
@@ -26,4 +25,3 @@ return {
     end,
     build = ":TSUpdate"
 }
-
