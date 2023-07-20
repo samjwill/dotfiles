@@ -1,4 +1,4 @@
-local mason_package_list = { "clangd", "cpptools" }
+local mason_package_list = { "clangd", "cpptools", "python-lsp-server", "rust-analyzer" }
 
 return {
     "williamboman/mason.nvim",
