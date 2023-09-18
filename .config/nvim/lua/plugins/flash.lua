@@ -1,58 +1,26 @@
 return {
     "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-        modes = {
-            char = {
-                keys = {
-                    -- TODO: Re-enable F/f/T/t when you figure out how to disable clever-f style repeat motions when pressing "f" a second time.
-                    -- TODO: Find a way to remove highlighting when a jump is made via F/f/T/t
-                },
-            },
-        },
-    },
-    -- TODO: I set these in the keymaps file instead. May be worth considering migrating to an approach where keymaps are set in plugins files?
-    keys = {
-    --     {
-    --         "s",
-    --         mode = {"n", "o", "x"},
-    --         function()
-    --             local initial_ignorecase = vim.opt.ignorecase
-    --             local initial_smartcase = vim.opt.smartcase
-    --             vim.opt.ignorecase = true
-    --             vim.opt.smartcase = true
-    --             require("flash").jump()
-    --             vim.opt.ignorecase = initial_ignorecase
-    --             vim.opt.smartcase = initial_smartcase
-    --         end,
-    --         desc = "Flash"
-    --     },
-    --
-    --     {
-    --         "S",
-    --         mode = {"n", "o", "x"},
-    --         function()
-    --             local initial_ignorecase = vim.opt.ignorecase
-    --             local initial_smartcase = vim.opt.smartcase
-    --             vim.opt.ignorecase = true
-    --             vim.opt.smartcase = true
-    --             require("flash").treesitter()
-    --             vim.opt.ignorecase = initial_ignorecase
-    --             vim.opt.smartcase = initial_smartcase
-    --         end,
-    --         desc = "Flash Treesitter"
-    --     },
-    --
-    --     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    --     { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    --     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    },
     config = function()
-        -- Makes this look better with gruvbox-material "original"
-        -- Otherwise, colors are too similar for the label and the search
+        -- Makes the flash .jump() search look better with gruvbox-material "original"
+        -- Otherwise, colors are too similar for the label and the highlighted search text
         vim.cmd("highlight clear FlashLabel")
         vim.cmd("highlight link FlashLabel ErrorMsg")
         vim.cmd("highlight clear FlashCurrent")
         vim.cmd("highlight link FlashCurrent Substitute")
+
+        require("flash").setup {
+            label = {
+                rainbow = {
+                    enabled = true,
+                },
+            },
+            modes = {
+                char = {
+                   -- TODO: Re-enable F/f/T/t when you figure out how to disable clever-f style repeat motions when pressing "f" a second time.
+                   -- TODO: Find a way to remove highlighting when a jump is made via F/f/T/t
+                    enabled = false,
+                },
+            },
+        }
     end
 }
