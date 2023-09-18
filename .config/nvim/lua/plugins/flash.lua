@@ -14,12 +14,13 @@ return {
     keys = {
         {
             "s",
-            -- TODO: Why doesn't this work in terminal-normal mode? Adding "t" here also forces it to be used in terminal-insert mode.
-            -- Even bringing this out doesn't have the desired effect because it breaks when you try to leave flash mode.
+            -- TODO: Why doesn't this work in terminal-normal mode? Adding "t" here also forces it to be used in terminal-insert mode. Even
+            -- bringing the below keymap out and sticking it in the config doesn't have the desired effect because it breaks when you try
+            -- to leave "flash" mode.
             -- config = function()
             --     vim.keymap.set("t", "s", function() require("flash").jump() end, {desc = "Flash"})
             -- end
-            mode = { "n", "o", "x"},
+            mode = {"n", "o", "x"},
             function()
                 local initial_ignorecase = vim.opt.ignorecase
                 local initial_smartcase = vim.opt.smartcase
@@ -34,7 +35,7 @@ return {
 
         {
             "S",
-            mode = { "n", "o", "x"},
+            mode = {"n", "o", "x"},
             function()
                 local initial_ignorecase = vim.opt.ignorecase
                 local initial_smartcase = vim.opt.smartcase
