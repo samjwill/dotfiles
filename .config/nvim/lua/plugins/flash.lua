@@ -12,7 +12,7 @@ return {
         },
     },
     -- TODO: I set these in the keymaps file instead. May be worth considering migrating to an approach where keymaps are set in plugins files?
-    -- keys = {
+    keys = {
     --     {
     --         "s",
     --         mode = {"n", "o", "x"},
@@ -46,7 +46,7 @@ return {
     --     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     --     { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
     --     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    -- },
+    },
     config = function()
         -- Makes this look better with gruvbox-material "original"
         -- Otherwise, colors are too similar for the label and the search
