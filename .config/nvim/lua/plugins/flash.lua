@@ -9,12 +9,10 @@ return {
         vim.cmd("highlight link FlashCurrent Substitute")
 
         require("flash").setup {
-            label = {
-                rainbow = {
-                    enabled = true,
-                },
-            },
             modes = {
+                search = {
+                    enabled = false,
+                },
                 char = {
                    -- TODO: Re-enable F/f/T/t when you figure out how to disable clever-f style repeat motions when pressing "f" a second time.
                    -- TODO: Find a way to remove highlighting when a jump is made via F/f/T/t
