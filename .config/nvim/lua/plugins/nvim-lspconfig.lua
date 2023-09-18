@@ -9,7 +9,7 @@ return {
             clangd_keymaps, -- Defined in keymaps file.
             on_attach = on_attach_func
         }
-        
+
         require("lspconfig").pylsp.setup{
             on_attach = on_attach_func
         }

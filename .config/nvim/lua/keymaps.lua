@@ -112,3 +112,16 @@ vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(n
 vim.keymap.set("n", debug_leader.."r", "<CMD>lua require('dap').repl.open()<CR>", {desc = "Open REPL Console"})
 vim.keymap.set("n", debug_leader.."l", "<CMD>lua require('dap').run_last()<CR>", {desc = "Run Last"})
 
+
+-------------------------------------------------------------------------------
+-- Flash Plugin
+-------------------------------------------------------------------------------
+
+vim.keymap.set("n", "s", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").jump(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash"})
+vim.keymap.set("o", "s", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").jump(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash"})
+vim.keymap.set("x", "s", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").jump(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash"})
+
+vim.keymap.set("n", "S", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").treesitter(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash Treesitter"})
+vim.keymap.set("o", "S", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").treesitter(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash Treesitter"})
+vim.keymap.set("x", "S", function() local initial_ignorecase = vim.opt.ignorecase; local initial_smartcase = vim.opt.smartcase; vim.opt.ignorecase = true; vim.opt.smartcase = true; require("flash").treesitter(); vim.opt.ignorecase = initial_ignorecase; vim.opt.smartcase = initial_smartcase; end, {desc = "Flash Treesitter"})
+
