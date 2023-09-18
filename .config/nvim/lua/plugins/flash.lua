@@ -21,9 +21,13 @@ return {
             -- end
             mode = { "n", "o", "x"},
             function()
+                local initial_ignorecase = vim.opt.ignorecase
+                local initial_smartcase = vim.opt.smartcase
                 vim.opt.ignorecase = true
+                vim.opt.smartcase = true
                 require("flash").jump()
-                vim.opt.ignorecase = false
+                vim.opt.ignorecase = initial_ignorecase
+                vim.opt.smartcase = initial_smartcase
             end,
             desc = "Flash"
         },
@@ -32,9 +36,13 @@ return {
             "S",
             mode = { "n", "o", "x"},
             function()
+                local initial_ignorecase = vim.opt.ignorecase
+                local initial_smartcase = vim.opt.smartcase
                 vim.opt.ignorecase = true
+                vim.opt.smartcase = true
                 require("flash").treesitter()
-                vim.opt.ignorecase = false
+                vim.opt.ignorecase = initial_ignorecase
+                vim.opt.smartcase = initial_smartcase
             end,
             desc = "Flash Treesitter"
         },
@@ -51,5 +59,5 @@ return {
         -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
-
 }
+
