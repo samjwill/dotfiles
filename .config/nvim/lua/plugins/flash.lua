@@ -59,5 +59,12 @@ return {
         -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
+    config = function()
+        -- Make this look better with gruvbox-material "original"
+        -- Otherwise, colors are too close for the label and the search
+        vim.cmd("highlight clear FlashLabel")
+        vim.cmd("highlight link FlashLabel ErrorMsg")
+        vim.cmd("highlight clear FlashCurrent")
+        vim.cmd("highlight link FlashCurrent Substitute")
+    end
 }
-
