@@ -21,7 +21,9 @@ return {
             -- end
             mode = { "n", "o", "x"},
             function()
+                vim.opt.ignorecase = true
                 require("flash").jump()
+                vim.opt.ignorecase = false
             end,
             desc = "Flash"
         },
@@ -30,7 +32,9 @@ return {
             "S",
             mode = { "n", "o", "x"},
             function()
+                vim.opt.ignorecase = true
                 require("flash").treesitter()
+                vim.opt.ignorecase = false
             end,
             desc = "Flash Treesitter"
         },
@@ -49,4 +53,3 @@ return {
     },
 
 }
-
