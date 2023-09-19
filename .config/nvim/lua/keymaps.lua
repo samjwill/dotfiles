@@ -138,7 +138,7 @@ vim.keymap.set("x", "S", function() invoke_with_smartcase(require("flash").trees
 vim.api.nvim_create_autocmd('filetype', {
   pattern = 'netrw',
   callback = function()
-    vim.keymap.set("n", "s", function() invoke_with_smartcase(require("flash").jump) end, {remap = true, buffer = true})
+    vim.keymap.set("n", "s", function() invoke_with_smartcase(require("flash").jump) end, {remap = true, buffer = true, desc = "Flash"})
     -- Treesitter map won't work with netrw. Just disable it.
     vim.keymap.set("n", "S", nil, {remap = true, buffer = true})
   end
