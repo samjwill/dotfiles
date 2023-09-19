@@ -140,6 +140,6 @@ vim.api.nvim_create_autocmd('filetype', {
   callback = function()
     vim.keymap.set("n", "s", function() invoke_with_smartcase(require("flash").jump) end, {remap = true, buffer = true, desc = "Flash"})
     -- Treesitter map won't work with netrw. Just disable it.
-    vim.keymap.set("n", "S", nil, {remap = true, buffer = true})
+    vim.keymap.set("n", "S", function() vim.notify("Flash's treesitter is disabled for netrw buffers!") end, {remap = true, buffer = true})
   end
 })
