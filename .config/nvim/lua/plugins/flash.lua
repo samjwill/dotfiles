@@ -6,7 +6,7 @@ return {
         -- Makes the flash .jump() search look better with gruvbox-material "original"
         -- Otherwise, colors are too similar for the label and the highlighted search text
         vim.cmd("highlight clear FlashLabel")
-        vim.cmd("highlight link FlashLabel ErrorMsg")
+        vim.cmd("highlight link FlashLabel Error")
         vim.cmd("highlight clear FlashCurrent")
         vim.cmd("highlight link FlashCurrent Substitute")
 
