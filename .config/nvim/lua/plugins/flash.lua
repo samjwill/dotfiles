@@ -1,6 +1,6 @@
 return {
     "folke/flash.nvim",
-    dependencies = {"chrisbra/improvedft"}, -- Using this for the F/f/T/t motions instead of flash until either https://github.com/folke/flash.nvim/issues/245 or https://github.com/folke/flash.nvim/issues/231 are resolved.
+    -- dependencies = {"chrisbra/improvedft"}, -- Using this for the F/f/T/t motions instead of flash until either https://github.com/folke/flash.nvim/issues/245 or https://github.com/folke/flash.nvim/issues/231 are resolved.
     event = "VeryLazy", -- TODO: Not certain why this needs to be here, but if it's not, the settings in the config aren't taken consistently. Race condition, or maybe intentionally designed like this?
     config = function()
         -- Makes the flash .jump() search look better with gruvbox-material "original"
