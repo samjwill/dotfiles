@@ -1,5 +1,6 @@
 return {
     "folke/flash.nvim",
+    dependencies = {"rebelot/kanagawa.nvim"},
     event = "VeryLazy", -- TODO: Not certain why this needs to be here, but if it's not, the settings in the config aren't taken consistently. Race condition, or maybe intentionally designed like this?
     config = function()
 
@@ -13,6 +14,15 @@ return {
             local ctermbg = vim.fn.synIDattr(hl_id, "bg", "cterm")
             return guifg, guibg, ctermfg, ctermbg
         end
+
+        local function make_termcursor_independent()
+            vim.cmd(string.format("highlight clear TermCursor"))
+            vim.cmd(string.format("highlight clear TermCursorNC"))
+            vim.cmd(string.format("highlight TermCursor cterm=reverse gui=reverse"))
+            vim.cmd(string.format("highlight TermCursorNC cterm=reverse gui=reverse"))
+        end
+        make_termcursor_independent() -- Termcursor is linked to this, which makes it invisible in terminal buffers otherwise.
+
         local function set_cursor_highlight_to_incsearch()
             local incsearch_guifg, incsearch_guibg, incsearch_ctermfg, incsearch_ctermbg = get_highlight_attributes("IncSearch")
             vim.cmd(string.format("highlight Cursor guifg=%s guibg=%s ctermfg=%s ctermbg=%s", incsearch_guifg, incsearch_guibg, incsearch_ctermfg, incsearch_ctermbg))
@@ -45,8 +55,6 @@ return {
                         backdrop = false,
                         -- Highlight the search matches
                         matches = true,
-                        -- extmark priority
-                        priority = 5000,
                         groups = {
                             match = "IncSearch",
                             current = "IncSearch",
