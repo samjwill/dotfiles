@@ -20,7 +20,7 @@ return {
         -- every time the colorscheme changes
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
             vim.api.nvim_set_hl(0, "Color1", { fg = get_foreground_color_hex("Identifier") })
-            vim.api.nvim_set_hl(0, "Color2", { fg = get_foreground_color_hex("Macro") })
+            vim.api.nvim_set_hl(0, "Color2", { fg = get_foreground_color_hex("Constant") })
             vim.api.nvim_set_hl(0, "Color3", { fg = get_foreground_color_hex("Type") })
             vim.api.nvim_set_hl(0, "Color4", { fg = get_foreground_color_hex("Label") })
             vim.api.nvim_set_hl(0, "Color5", { fg = get_foreground_color_hex("Error") })
