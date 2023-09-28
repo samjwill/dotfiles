@@ -1,3 +1,4 @@
+-- NOTE! If you're considering refactoring/removing this, be sure to update all of the changes in flash.lua specifically related to this colorscheme.
 return {
     "sainnhe/gruvbox-material",
     config = function()
@@ -25,4 +26,3 @@ return {
         vim.cmd('colorscheme gruvbox-material')
     end
 }
-
