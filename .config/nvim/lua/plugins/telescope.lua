@@ -7,9 +7,13 @@ return {
                 sorting_strategy = 'ascending',
                 layout_config = {
                     prompt_position = 'top'
+                },
+                mappings = {
+                    i = {
+                        ["<esc>"] = require("telescope.actions").close
+                    },
                 }
             }
         })
     end
 }
-
