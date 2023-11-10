@@ -15,7 +15,6 @@ vim.opt.showmode = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
-vim.opt.timeoutlen = 300 -- Would want this to be higher w/o keymenu plugin
 vim.opt.undofile = true
 vim.opt.winbar= "%t" -- filename without path
 vim.opt.wrap = false
