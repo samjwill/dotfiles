@@ -1,7 +1,4 @@
-prefix_list = {} -- For key menu plugin.
-
 vim.g.mapleader = " "
-table.insert(prefix_list, {"n", "<Space>"})
 
 -- Don't want to :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
@@ -41,7 +38,6 @@ vim.keymap.set("t", "<C-q>", "<Esc>", {})
 -- LSP Plugin
 -------------------------------------------------------------------------------
 local lsp_leader = vim.g.mapleader.."l"
-table.insert(prefix_list, {"n", "<Space>l", {desc="Language Server Protocol"}})
 
 vim.keymap.set('n', lsp_leader..'[', function() vim.diagnostic.goto_prev()                          end, {desc = "Previous Diagnostic"})
 vim.keymap.set('n', lsp_leader..']', function() vim.diagnostic.goto_next()                          end, {desc = "Next Diagnostic"})
@@ -65,7 +61,6 @@ clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>ClangdSwitchSourceHe
 -- Bufdir Plugin
 -------------------------------------------------------------------------------
 local command_line_leader = vim.g.mapleader.."c"
-table.insert(prefix_list, {"n", "<Space>c", {desc="Command Line"}})
 
 vim.keymap.set("", command_line_leader.."c", "<CMD>Bufdir terminal<CR>i", {desc = "Open Terminal in Focused Buffer's Directory"})
 vim.keymap.set("", command_line_leader.."C", "<CMD>terminal<CR>i", {desc = "Open Terminal"})
@@ -81,7 +76,6 @@ vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i", {des
 -- Telescope Plugin
 -------------------------------------------------------------------------------
 local telescope_leader = vim.g.mapleader.."t"
-table.insert(prefix_list, {"n", "<Space>t", {desc="Telescope"}})
 
 vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {desc = "Search Current Buffer"})
 vim.keymap.set("", telescope_leader.."\"", "<CMD>Telescope registers<CR>", {desc = "Registers"})
@@ -101,7 +95,7 @@ vim.keymap.set("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { desc="Toggle
 -- Debug Adapter Protocol Plugin
 -------------------------------------------------------------------------------
 local debug_leader = vim.g.mapleader.."d"
-table.insert(prefix_list, {"n", "<Space>d", {desc="Debugger"}})
+
 vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue"})
 vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
 vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
