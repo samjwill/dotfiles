@@ -1,6 +1,6 @@
 return {
     "folke/flash.nvim",
-    event = "VeryLazy", -- TODO: Not certain why this needs to be here, but if it's not, the settings in the config aren't taken consistently. Race condition, or maybe intentionally designed like this?
+    event = "VeryLazy", -- TODO: Not certain why this needs to be here, but if it's not, the settings in the config aren't taken consistently.
     config = function()
 
         -- -- Cursor is basically impossible to see when using F/f/T/t motions with gruvbox colorscheme if you don't tweak the cursor highlight colors.
