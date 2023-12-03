@@ -13,7 +13,8 @@ vim.keymap.set("i", "<S-Tab>", "<C-d>", {})
 -- Tab switching
 --     Some terminals intercept these keystrokes, so if these mappings don't
 --     work, check the terminal settings. For Konsole, unbind everything else
---     in Settings>Keyboard Shortcuts and then bind:
+--     associated with these keybindings in Settings>Keyboard Shortcuts and
+--     then bind:
 --         Backtab+Ctrl+Ansi -> \E[27;6;9~
 --         Tab+Ctrl+Ansi     -> \E[27;5;9~
 vim.keymap.set("n", "<C-Tab>",   "<CMD>tabn<CR>",            {})
@@ -27,11 +28,11 @@ vim.keymap.set("i", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
 vim.keymap.set("t", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
 vim.keymap.set("v", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
 
--- Escape to escape a terminal
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
-
--- Ctrl-q to send escape to a terminal
+-- Ctrl-q to send escape key to a terminal buffer
 vim.keymap.set("t", "<C-q>", "<Esc>", {})
+
+-- Escape key to actually escape a terminal buffer
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 
 
 -------------------------------------------------------------------------------
