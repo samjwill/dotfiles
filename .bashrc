@@ -120,7 +120,7 @@ fi
 if (command -v nvim >/dev/null 2>&1); then
     # Use an alias to a function call so that you can specify position of the arguments.
     open_manpage_in_nvim() {
-        echo "Executing custom alias to open manpage in neovim. To avoid this, use \"\\man\""
+        echo "Executing custom alias to open manpage in neovim. To avoid this, use \"\\man\"".
         # if $NVIM environment variable is not populated, we're not nested.
         if [[ -z $NVIM ]]; then
             # Set the manpager to neovim and execute man as normal.
