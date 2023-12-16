@@ -116,3 +116,19 @@ if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1) && (comm
         fi
     }
 fi
+
+# Use an alias to a function call so that you can specify position of the arguments.
+open_manpage_in_nvim() {
+    echo "Executing custom alias to open manpage in neovim. To avoid this, use \"\\man\""
+    # if $NVIM environment variable is not populated, we're not nested.
+    if [[ -z $NVIM ]]; then
+        # Set the manpager to neovim and execute man as normal.
+        MANPAGER='nvim +Man!' man $@
+    elif [[ -z $@ ]] ; then
+        echo "What manual page do you want?"
+    else
+        # Open Neovim, do an RPC call to make the host execute the :Man command, then immediately exit.
+        nvim --cmd "let g:unception_disable=1" --cmd "lua vim.fn.rpcnotify(vim.fn.sockconnect('pipe', os.getenv('NVIM'), {rpc = true}), 'nvim_exec_lua', 'vim.cmd(\'Man ${@}\')', {})" -c "quitall!"
+    fi
+}
+alias man="open_manpage_in_nvim"
