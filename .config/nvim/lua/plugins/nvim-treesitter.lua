@@ -2,7 +2,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
         -- See: https://github.com/tree-sitter/tree-sitter-css/issues/35
-        local ignore_list = {"help", "css"}
+        local ignore_list = {
+            "css",
+            "help",
+        }
         require("nvim-treesitter.configs").setup({
             ensure_installed = "all",
             ignore_install = ignore_list,
