@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- Don't want to :set ignorecase because * and # should be case-sensitive
+-- Do this instead of :set ignorecase because * and # should be case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
 vim.keymap.set("", "?", "?\\c", {})
 
