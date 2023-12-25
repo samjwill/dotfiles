@@ -96,6 +96,9 @@ if [ -r "/usr/share/doc/fzf/examples/key-bindings.bash" ]; then # Ubuntu
 elif [ -r "/usr/share/fzf/key-bindings.bash" ]; then # Arch
     source /usr/share/fzf/key-bindings.bash
 fi
+if [ -r "/usr/share/fzf/completion.bash" ]; then # Arch
+    source /usr/share/fzf/completion.bash
+fi
 
 if [ -r "/etc/bash_completion" ]; then # Ubuntu (Arch auto-sources bash_completion apparently?)
     source /etc/bash_completion
