@@ -122,6 +122,7 @@ fi
 
 if (command -v nvim >/dev/null 2>&1); then
     # Use an alias to a function call so that you can specify position of the arguments.
+    # TODO: open in subshell to limit function usage outside of this file?
     open_manpage_in_nvim() {
         echo "Executing custom alias to open manpage in neovim. To avoid this, use \"\\man\"".
         # if $NVIM environment variable is not populated, we're not nested.
