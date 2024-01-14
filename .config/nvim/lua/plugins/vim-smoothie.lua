@@ -1,4 +1,3 @@
 return {
     "psliwka/vim-smoothie"
 }
-
