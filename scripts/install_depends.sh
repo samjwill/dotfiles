@@ -5,7 +5,6 @@ if [ "$(command -v pacman)" ]; then
     sudo pacman -Syu --noconfirm
     # Package names as they appear on Arch's default repositories.
     sudo pacman -S --noconfirm bash-completion curl fd fzf gcc git git-delta neovim ripgrep unzip
-# Check if package manager is apt
 else
     echo "Unknown package manager"
     exit 1
