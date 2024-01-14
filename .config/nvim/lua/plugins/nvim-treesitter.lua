@@ -5,6 +5,7 @@ return {
         local ignore_list = {
             "css",
             "help",
+            "smali",
         }
         require("nvim-treesitter.configs").setup({
             ensure_installed = "all",
