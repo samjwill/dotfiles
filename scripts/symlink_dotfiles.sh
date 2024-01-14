@@ -7,8 +7,9 @@ GIT_ROOT=$(git rev-parse --show-toplevel)
 
 # In the format of "DESTINATION_FILEPATH:SOURCE_FILEPATH"
 FILEPATHS=( \
-    "${HOME}/.config/git/config:${GIT_ROOT}/.config/git/config" \
     "${HOME}/.bashrc:${GIT_ROOT}/.bashrc" \
+    "${HOME}/.config/git/config:${GIT_ROOT}/.config/git/config" \
+    "${HOME}/.config/mpv:${GIT_ROOT}/.config/mpv" \
     "${HOME}/.config/nvim:${GIT_ROOT}/.config/nvim" \
 )
 
@@ -24,7 +25,7 @@ do
 
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        rm -rf "${destination_filepath}" && ln -s "${source_filepath}" "${destination_filepath}"
+        rm -r "${destination_filepath}" && ln -s "${source_filepath}" "${destination_filepath}"
         echo "Done!"
     else
         echo "Skipping..."
