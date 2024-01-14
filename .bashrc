@@ -53,6 +53,7 @@ git_branch() {
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(git_branch)'${NC}\\$\ 
 #export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}\\$\ 
 export EDITOR=nvim
+export PATH="$HOME/bin:$PATH"
 #TODO: Is this even necessary?
 if [ "$TERM" == "xterm" ]; then
    export TERM=xterm-256color
