@@ -51,9 +51,12 @@ git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(git_branch)'${NC}\\$\ 
-#export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}\\$\ 
 export EDITOR=nvim
-export PATH="$HOME/bin:$PATH"
+HOME_BIN="$HOME/bin"
+mkdir -p $HOME_BIN
+# TODO: Not sure if I need to do this - appears to occasionally be handled already?
+export PATH="$HOME_BIN:$PATH"
+
 #TODO: Is this even necessary?
 if [ "$TERM" == "xterm" ]; then
    export TERM=xterm-256color
