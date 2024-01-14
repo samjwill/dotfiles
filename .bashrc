@@ -53,7 +53,7 @@ git_branch() {
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(git_branch)'${NC}\\$\ 
 export EDITOR=nvim
 HOME_BIN="$HOME/bin"
-mkdir -p $HOME_BIN
+mkdir -p "$HOME_BIN"
 # TODO: Not sure if I need to do this - appears to occasionally be handled already?
 export PATH="$HOME_BIN:$PATH"
 
