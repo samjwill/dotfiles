@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # A script to install the programs that my dotfiles expect to be present on the system.
 
 # Exit on error.
