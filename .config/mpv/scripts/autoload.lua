@@ -331,6 +331,8 @@ end
 mp.register_event("start-file", find_and_add_entries)
 
 --[[
+Licensing information pertaining to this file:
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
 
