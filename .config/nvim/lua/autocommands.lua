@@ -7,13 +7,13 @@ vim.api.nvim_create_autocmd("TermClose",
     {
         group = init_group,
         callback = function()
-            -- Check if we just closed the last open window.
-            local should_exit = false
+            -- Check if we just closed the last open window. We'll use this info later.
+            local closed_last_open_window = false
             local num_tabs_open = vim.fn.tabpagenr('$')
             if (num_tabs_open == 1) then
                 local num_windows_open = #vim.fn.tabpagebuflist()
                 if (num_windows_open == 1) then
-                    should_exit = true
+                    closed_last_open_window = true
                 end
             end
 
@@ -35,8 +35,30 @@ vim.api.nvim_create_autocmd("TermClose",
             local escape_key = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
             vim.api.nvim_feedkeys(escape_key, 'n', false)
 
-            if (should_exit) then
-                vim.cmd("quit")
+            if (closed_last_open_window) then
+                -- This check is necessary because if we replace a terminal
+                -- buffer with another buffer and then call bdelete on that
+                -- terminal buffer (e.g. like we do with unception), we don't
+                -- want to close, *even* if we haven't modified the current
+                -- buffer.
+                --
+                -- The fact that this works kind of seems like deep magic.
+                -- There appears to be a very brief moment where a terminal
+                -- buffer's "changed" state is set to true if a bdelete is what
+                -- triggers this autocommand. Thankfully, that means that a
+                -- bdelete call will cause this check to indicate that we have
+                -- modified buffers, which means that it can't functionally
+                -- cause the quit command to be triggered.
+                local no_modified_buffers_exist = true
+                for _, buffer in ipairs(vim.fn.getbufinfo()) do
+                    if buffer.changed == 1 then
+                        no_modified_buffers_exist = false
+                        break
+                    end
+                end
+                if (no_modified_buffers_exist) then
+                    vim.cmd("quit")
+                end
             end
         end
     }
