@@ -36,16 +36,14 @@ vim.api.nvim_create_autocmd("TermClose",
             if (num_tabs_open == 1) then
                 local num_windows_open = #vim.fn.tabpagebuflist()
                 if (num_windows_open == 1) then
-                    -- This is deep magic and doesn't work the way that you would
-                    -- expect it to. "no_modified_buffers_exist" is only set to true if
-                    -- the last open buffer is a terminal, that terminal buffer is not
-                    -- open in another window in the same tab, AND the terminal buffer
-                    -- is exited normally (e.g. via entering the "exit" command).
+                    -- "no_modified_buffers_exist" only set to true if the
+                    -- terminal buffer is exited normally (e.g. via entering
+                    -- the "exit" command).
                     --
                     -- Using :bdelete! <terminal_buffer#> will not cause it to be true,
-                    -- which is actually desireable, as if we had another unmodified
-                    -- buffer open in another tab or window (or if the terminal buffer
-                    -- was hidden), and then called bdelete! on the terminal buffer we
+                    -- which is actually desireable, as if we had another
+                    -- unmodified buffer open, the terminal buffer was hidden,
+                    -- and then we called bdelete! on the terminal buffer we
                     -- wouldn't want to :quit.
                     local no_modified_buffers_exist = true
                     for _, buffer in ipairs(vim.fn.getbufinfo()) do
