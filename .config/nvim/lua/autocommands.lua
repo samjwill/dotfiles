@@ -13,23 +13,24 @@ vim.api.nvim_create_autocmd("TermClose",
             -- Plugins like unception can delete a terminal buffer when opening
             -- a new file. This is expected, but that means that without
             -- filtering this callback, it can trigger when not desired, and we
-            -- don't appear to have the ability to try to get the buftype to
-            -- filter it due to the issue linked above.
+            -- don't appear to have the ability to get the buftype to filter
+            -- out the undesired occasions wherein this function is invoked due
+            -- to the issue linked above.
             --
-            -- As a result, we need to just make sure that the keys fed not do
-            -- anything. Feeding "jk" won't work, because if j is pressed, it
-            -- may or may not close the terminal buffer, and then "k" will be
-            -- feed on the following buffer iff j dismisses the finished
-            -- terminal buffer. Trying to execute feedkeys "\\<Esc>" appears to
-            -- confuse flash.nvim. This is what I came up with...
+            -- As a result, we need to just make sure that the keys that are
+            -- fed not do anything. Feeding "jk" won't work, because if "j" is
+            -- pressed, it may or may not close the terminal buffer, and then
+            -- "k" would be fed on the following buffer iff "j" dismisses the
+            -- completed terminal buffer. Trying to execute feedkeys "\\<Esc>"
+            -- appears to confuse flash.nvim. This is what I came up with...
             local escape_key = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
             vim.api.nvim_feedkeys(escape_key, 'n', false)
 
-            -- This is deep magic and doesn't work the way you expect it to.
-            -- "no_modified_buffers_exist" is only set to true if the last open
-            -- buffer is a terminal, that terminal buffer is not split, AND the
-            -- terminal buffer is exited normally (e.g. via entering the "exit"
-            -- command).
+            -- This is deep magic and doesn't work the way that you would
+            -- expect it to. "no_modified_buffers_exist" is only set to true if
+            -- the last open buffer is a terminal, that terminal buffer is not
+            -- open in another window in the same tab, AND the terminal buffer
+            -- is exited normally (e.g. via entering the "exit" command).
             --
             -- Using :bdelete! <terminal_buffer#> will not cause it to be true,
             -- which is actually desireable, as if we had another unmodified
