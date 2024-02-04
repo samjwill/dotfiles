@@ -27,8 +27,9 @@ vim.api.nvim_create_autocmd("TermClose",
 
             -- This is deep magic and doesn't work the way you expect it to.
             -- "no_modified_buffers_exist" is only set to true if the last open
-            -- buffer is a terminal and the terminal buffer is exited normally
-            -- (e.g. via entering the "exit" command).
+            -- buffer is a terminal, that terminal buffer is not split, AND the
+            -- terminal buffer is exited normally (e.g. via entering the "exit"
+            -- command).
             --
             -- Using :bdelete! <terminal_buffer#> will not cause it to be true,
             -- which is actually desireable, as if we had another unmodified
