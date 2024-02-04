@@ -48,7 +48,9 @@ NC='\[\033[00m\]'
 #TODO: Warn if return code of last command was non-zero
 #PS1
 git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    if command -v git >/dev/null 2>&1; then
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    fi
 }
 export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(git_branch)'${NC}\\$\ 
 export EDITOR=nvim
