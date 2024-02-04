@@ -51,9 +51,6 @@ vim.api.nvim_create_autocmd("TermClose",
                             no_modified_buffers_exist = false
                             break
                         end
-                        if vim.api.nvim_buf_get_option(buffer.bufnr, 'buftype') == 'terminal' then
-                            print("Buffer ID " .. buffer.bufnr .. " is a terminal and changed?:".. buffer.changed)
-                        end
                     end
                     if (no_modified_buffers_exist) then
                         vim.cmd("quit")
