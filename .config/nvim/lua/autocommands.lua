@@ -7,16 +7,6 @@ vim.api.nvim_create_autocmd("TermClose",
     {
         group = init_group,
         callback = function()
-            -- Check if we just closed the last open window. We'll use this info later.
-            local closed_last_open_window = false
-            local num_tabs_open = vim.fn.tabpagenr('$')
-            if (num_tabs_open == 1) then
-                local num_windows_open = #vim.fn.tabpagebuflist()
-                if (num_windows_open == 1) then
-                    closed_last_open_window = true
-                end
-            end
-
             -- Automatically press some key to dismiss "[Process exited 0]"
             -- Need to use feedkeys because of https://github.com/neovim/neovim/issues/4895
             --
@@ -35,30 +25,25 @@ vim.api.nvim_create_autocmd("TermClose",
             local escape_key = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
             vim.api.nvim_feedkeys(escape_key, 'n', false)
 
-            if (closed_last_open_window) then
-                -- This check is necessary because if we replace a terminal
-                -- buffer with another buffer and then call bdelete on that
-                -- terminal buffer (e.g. like we do with unception), we don't
-                -- want to close, *even* if we haven't modified the current
-                -- buffer.
-                --
-                -- The fact that this works kind of seems like deep magic.
-                -- There appears to be a very brief moment where a terminal
-                -- buffer's "changed" state is set to true if a bdelete is what
-                -- triggers this autocommand. Thankfully, that means that a
-                -- bdelete call will cause this check to indicate that we have
-                -- modified buffers, which means that it can't functionally
-                -- cause the quit command to be triggered.
-                local no_modified_buffers_exist = true
-                for _, buffer in ipairs(vim.fn.getbufinfo()) do
-                    if buffer.changed == 1 then
-                        no_modified_buffers_exist = false
-                        break
-                    end
+            -- This is deep magic and doesn't work the way you expect it to.
+            -- "no_modified_buffers_exist" is only set to true if the last open
+            -- buffer is a terminal and the terminal buffer is exited normally
+            -- (e.g. via entering the "exit" command).
+            --
+            -- Using :bdelete! <terminal_buffer#> will not cause it to be true,
+            -- which is actually desireable, as if we had another unmodified
+            -- buffer open in another tab or window (or if the terminal buffer
+            -- was hidden), and then called bdelete! on the terminal buffer we
+            -- wouldn't want to :quit.
+            local no_modified_buffers_exist = true
+            for _, buffer in ipairs(vim.fn.getbufinfo()) do
+                if buffer.changed == 1 then
+                    no_modified_buffers_exist = false
+                    break
                 end
-                if (no_modified_buffers_exist) then
-                    vim.cmd("quit")
-                end
+            end
+            if (no_modified_buffers_exist) then
+                vim.cmd("quit")
             end
         end
     }
