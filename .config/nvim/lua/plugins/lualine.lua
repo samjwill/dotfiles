@@ -8,8 +8,17 @@ return {
                 component_separators = "",
             },
             sections = {
+                lualine_a = {
+                    {
+                        "mode",
+                        icon = ""
+                    },
+                },
                 lualine_c = {
-                    {"filename", path = 3},
+                    {
+                        "filename",
+                        path = 3
+                    },
                 },
             }
         })
