@@ -129,8 +129,16 @@ fi
 if (command -v nvim >/dev/null 2>&1 && command -v man >/dev/null 2>&1); then
     # Use an alias to a function call so that you can specify position of the arguments.
     # TODO: open in subshell to limit function usage outside of this file?
+    alias man="open_manpage_in_nvim"
     open_manpage_in_nvim() {
         echo "Executing custom alias to open manpage in neovim. To avoid this, use \"\\man\"".
+
+        # if $NVIM environment variable is not populated, we're not nested.
+        if [[ -z $NVIM ]]; then
+            # Set the manpager to neovim and execute man as normal.
+            MANPAGER='nvim +Man!' man $@
+            return $?
+        fi
 
         # First ensure that the man command will succeed.
         man "$@" > /dev/null 2>&1
@@ -138,19 +146,12 @@ if (command -v nvim >/dev/null 2>&1 && command -v man >/dev/null 2>&1); then
         if [ $return_code -ne 0 ]; then
             # Issue with man command. Run it directly so that the user sees the error message.
             man "$@"
-            return $return_code
+            return $?
         fi
 
-        # if $NVIM environment variable is not populated, we're not nested.
-        if [[ -z $NVIM ]]; then
-            # Set the manpager to neovim and execute man as normal.
-            MANPAGER='nvim +Man!' man $@
-        else
-            # Open Neovim, do an RPC call to make the host execute the :Man command, then immediately exit.
-            nvim --cmd "let g:unception_disable=1" --cmd "lua vim.fn.rpcnotify(vim.fn.sockconnect('pipe', os.getenv('NVIM'), {rpc = true}), 'nvim_exec_lua', 'vim.cmd(\'Man ${@}\')', {})" -c "quitall!"
-        fi
+        # Open Neovim, do an RPC call to make the host execute the :Man command, and then immediately exit.
+        nvim --cmd "let g:unception_disable=1" --cmd "lua vim.fn.rpcnotify(vim.fn.sockconnect('pipe', os.getenv('NVIM'), {rpc = true}), 'nvim_exec_lua', 'vim.cmd(\'Man ${@}\')', {})" -c "quitall!"
     }
-    alias man="open_manpage_in_nvim"
 fi
 
 # Experimenting with making the Neovim terminal emulator open automatically.
