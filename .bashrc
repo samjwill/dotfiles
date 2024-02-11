@@ -126,7 +126,7 @@ if (command -v fzf >/dev/null 2>&1) && (command -v git >/dev/null 2>&1) && (comm
     }
 fi
 
-if (command -v nvim >/dev/null 2>&1 && command -v man >/dev/null 2>&1); then
+if (command -v nvim >/dev/null 2>&1) && (command -v man >/dev/null 2>&1); then
     # Use an alias to a function call so that you can specify position of the arguments.
     # TODO: open in subshell to limit function usage outside of this file?
     alias man="open_manpage_in_nvim"
