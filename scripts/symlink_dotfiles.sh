@@ -25,7 +25,7 @@ do
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         mkdir -p $(dirname ${destination_filepath})
-        rm -r "${destination_filepath}"; ln -s "${source_filepath}" "${destination_filepath}"
+        rm -ri "${destination_filepath}"; ln -s "${source_filepath}" "${destination_filepath}"
         echo "Done!"
     else
         echo "Skipping..."
