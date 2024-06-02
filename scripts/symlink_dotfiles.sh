@@ -25,6 +25,7 @@ do
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         mkdir -p $(dirname ${destination_filepath})
+        echo "Please confirm deletion of already existing file using [y/n]."
         rm -ri "${destination_filepath}"; ln -s "${source_filepath}" "${destination_filepath}"
         echo "Done!"
     else
