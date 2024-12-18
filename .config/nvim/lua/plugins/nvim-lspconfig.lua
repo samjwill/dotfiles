@@ -11,7 +11,16 @@ return {
         }
 
         require("lspconfig").pylsp.setup{
-            on_attach = on_attach_func
+            on_attach = on_attach_func,
+            settings = {
+                pylsp = {
+                    plugins = {
+                        pycodestyle = {
+                            ignore = { "E501" }, -- Ignore "line too long" warnings
+                        },
+                    },
+                },
+            },
         }
 
         require("lspconfig").rust_analyzer.setup{
