@@ -19,13 +19,14 @@ do
     source_filepath=$(realpath "$source_filepath")
 
     destination_filepath=$(echo "$filepath" | cut -d':' -f1)
-    mkdir -p $(dirname ${destination_filepath})
 
     read -p "Replace \"$destination_filepath\" with a symlink pointing to \"$source_filepath\"? [y/n]: " REPLY
 
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        rm -r "${destination_filepath}"; ln -s "${source_filepath}" "${destination_filepath}"
+        mkdir -p $(dirname ${destination_filepath})
+        echo "Please confirm deletion of already existing file using [y/n]."
+        rm -ri "${destination_filepath}"; ln -s "${source_filepath}" "${destination_filepath}"
         echo "Done!"
     else
         echo "Skipping..."
