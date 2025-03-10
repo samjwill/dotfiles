@@ -45,7 +45,6 @@ GREEN='\[\033[01;32m\]'
 LIGHTBLUE='\[\033[01;34m\]'
 NC='\[\033[00m\]'
 
-#TODO: Warn if return code of last command was non-zero
 #PS1
 git_branch() {
     if command -v git >/dev/null 2>&1; then
