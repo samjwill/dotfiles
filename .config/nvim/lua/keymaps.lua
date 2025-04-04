@@ -83,6 +83,7 @@ vim.keymap.set("", telescope_leader.."\"", "<CMD>Telescope registers<CR>", {desc
 vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {desc = "Find Files"})
 vim.keymap.set("", telescope_leader.."g", "<CMD>Telescope git_files<CR>", {desc = "Find Tracked Git Files"})
 vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {desc = "Live Grep Files"})
+vim.keymap.set("", telescope_leader.."q", "<CMD>Telescope quickfix<CR>", {desc = "Quickfix"})
 vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Telescope Options"})
 
 
