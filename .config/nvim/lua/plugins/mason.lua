@@ -1,4 +1,6 @@
-local mason_package_list = { "clangd", "cpptools", "python-lsp-server", "rust-analyzer" }
+-- clangd for LSP
+-- cpptools for dap
+local mason_package_list = { "clangd", "cpptools" }
 
 -- At the time of writing, mason expects the following packages to be installed.
 -- See https://github.com/williamboman/mason.nvim for a list of up-to-date dependencies.
