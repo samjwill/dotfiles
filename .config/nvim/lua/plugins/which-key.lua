@@ -6,25 +6,15 @@ return {
         vim.o.timeoutlen = 300
 
         -- TODO: May be worth investigating moving keymaps themselves to this file.
-        require("which-key").register({
-            l = {
-                name = "Language Server Protocol",
-            },
-            c = {
-                name = "Command Line",
-            },
-            t = {
-                name = "Telescope",
-            },
-            d = {
-                name = "Debugger",
-            }
-        }, { prefix = "<leader>" })
+        require("which-key").add({
+            { "<leader>l", group = "Language Server Protocol" },
+            { "<leader>c", group = "Command Line" },
+            { "<leader>t", group = "Telescope" },
+            { "<leader>d", group = "Debugger" },
+        })
     end,
 
     opts = {
-        window = {
-            border = "single", -- none, single, double, shadow
-        },
+        preset = "helix",
     }
 }
