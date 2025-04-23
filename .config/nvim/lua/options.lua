@@ -47,6 +47,9 @@ if (1 == vim.fn.executable("rg")) then
     vim.opt.grepformat:prepend{"%f:%l:%c:%m"}
 end
 
+-- Enable inline warnings and error messages
+vim.diagnostic.config { virtual_lines = { current_line = true } }
+
 -------------------------------------------------------------------------------
 -- Netrw Options
 -------------------------------------------------------------------------------

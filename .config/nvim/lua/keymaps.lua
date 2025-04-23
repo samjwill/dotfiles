@@ -40,8 +40,8 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 -------------------------------------------------------------------------------
 local lsp_leader = vim.g.mapleader.."l"
 
-vim.keymap.set('n', lsp_leader..'[', function() vim.diagnostic.goto_prev()                          end, {desc = "Previous Diagnostic"})
-vim.keymap.set('n', lsp_leader..']', function() vim.diagnostic.goto_next()                          end, {desc = "Next Diagnostic"})
+vim.keymap.set('n', lsp_leader..'[', function() vim.diagnostic.jump({ wrap = false, count = -1 })   end, {desc = "Previous Diagnostic"})
+vim.keymap.set('n', lsp_leader..']', function() vim.diagnostic.jump({ wrap = false, count = 1 })    end, {desc = "Next Diagnostic"})
 vim.keymap.set('n', lsp_leader..'c', function() vim.lsp.buf.code_action()                           end, {desc = "Code Action"})
 vim.keymap.set('n', lsp_leader..'d', function() vim.lsp.buf.definition()                            end, {desc = "Go to Definition"})
 vim.keymap.set('n', lsp_leader..'D', function() vim.lsp.buf.declaration()                           end, {desc = "Go to Declaration"})
