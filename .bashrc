@@ -45,13 +45,8 @@ GREEN='\[\033[01;32m\]'
 LIGHTBLUE='\[\033[01;34m\]'
 NC='\[\033[00m\]'
 
-#PS1
-git_branch() {
-    if command -v git >/dev/null 2>&1; then
-        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-    fi
-}
-export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(git_branch)'${NC}\\$\ 
+#PS1                                                         vvv git branch
+export PS1=${GREEN}\\u@\\h${NC}:${LIGHTBLUE}\\w${NC}${GREEN}'$(if command -v git >/dev/null 2>&1; then git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"; fi)'${NC}\\$\ 
 export EDITOR=nvim
 HOME_BIN="$HOME/bin"
 mkdir -p "$HOME_BIN"
