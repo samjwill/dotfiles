@@ -7,7 +7,7 @@ return {
 
         -- TODO: May be worth investigating moving keymaps themselves to this file.
         require("which-key").add({
-            { "<leader>l", group = "Language Server Protocol" },
+            { "<leader>l", group = "Language Server" },
             { "<leader>c", group = "Command Line" },
             { "<leader>t", group = "Telescope" },
             { "<leader>d", group = "Debugger" },
