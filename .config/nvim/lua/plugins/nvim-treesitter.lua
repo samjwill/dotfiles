@@ -12,7 +12,6 @@ return {
                 "css",
                 "csv",
                 "diff",
-                "dockerfile",
                 "doxygen",
                 "git_config",
                 "git_rebase",
