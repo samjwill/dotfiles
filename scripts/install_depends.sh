@@ -24,7 +24,7 @@ if [ "$(command -v pacman)" ]; then
         ripgrep \
         unzip
 else
-    echo "Unknown package manager"
+    echo "Unsupported package manager"
     exit 1
 fi
 
