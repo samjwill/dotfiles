@@ -9,5 +9,9 @@ return {
             clangd_keymaps, -- Defined in keymaps file.
             on_attach = on_attach_func
         }
+
+        require("lspconfig").bashls.setup{
+            on_attach = on_attach_func
+        }
     end
 }
