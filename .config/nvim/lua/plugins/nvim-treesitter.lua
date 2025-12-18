@@ -1,7 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    config = function()
-        require("nvim-treesitter.configs").setup({
+    opts = {
             ensure_installed = {
                 "bash",
                 "c",
@@ -50,13 +49,13 @@ return {
 
             highlight = {
                 enable = true,
-            }
-        })
-
+            },
+    },
+    build = ":TSUpdate",
+    init = function()
         -- Override default folding options.
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
         vim.opt.foldlevel = 999999 -- Leave unfolded by default.
         vim.opt.foldmethod = "expr"
     end,
-    build = ":TSUpdate"
 }
