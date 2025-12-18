@@ -5,13 +5,10 @@ return {
             vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
         end
 
-        require("lspconfig").clangd.setup{
+        vim.lsp.config("clangd", {
             clangd_keymaps, -- Defined in keymaps file.
             on_attach = on_attach_func
-        }
-
-        require("lspconfig").bashls.setup{
-            on_attach = on_attach_func
-        }
+        })
+        vim.lsp.enable("clangd")
     end
 }
