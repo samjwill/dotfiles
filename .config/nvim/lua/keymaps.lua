@@ -37,7 +37,7 @@ vim.keymap.set('n', lsp_leader..'q', function() vim.diagnostic.setloclist()     
 vim.keymap.set('n', lsp_leader..'s', function() vim.lsp.buf.rename()                                end, {desc = "Rename"})
 vim.keymap.set('n', lsp_leader..'t', function() require("telescope.builtin").lsp_type_definitions() end, {desc = "Type Definition"})
 
-clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>ClangdSwitchSourceHeader<CR>', {desc = "Switch to Source/Header"})
+clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>LspClangdSwitchSourceHeader<CR>', {desc = "Switch to Source/Header"})
 
 
 -------------------------------------------------------------------------------
@@ -69,12 +69,6 @@ vim.keymap.set("", telescope_leader.."q", "<CMD>Telescope quickfix<CR>", {desc =
 vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Telescope Options"})
 
 
--------------------------------------------------------------------------------
--- Mini.Map Plugin
--------------------------------------------------------------------------------
-vim.keymap.set("n", "<Leader>m", "<CMD>lua MiniMap.toggle()<CR>", { desc="Toggle MiniMap"})
-
-
 -------------------------------------------------------------------------------pcall
 -- Debug Adapter Protocol Plugin
 -------------------------------------------------------------------------------
@@ -95,29 +89,33 @@ vim.keymap.set("n", debug_leader.."l", "<CMD>lua require('dap').run_last()<CR>",
 -- Flash Plugin
 -------------------------------------------------------------------------------
 
-local function invoke_with_smartcase(function_to_invoke)
-    local initial_ignorecase = vim.opt.ignorecase
-    local initial_smartcase = vim.opt.smartcase
-    vim.opt.ignorecase = true
-    vim.opt.smartcase = true
-    function_to_invoke()
-    vim.opt.ignorecase = initial_ignorecase
-    vim.opt.smartcase = initial_smartcase
+local function flash_jump_smartcase()
+    local ignorecase = vim.o.ignorecase
+    local smartcase = vim.o.smartcase
+
+    vim.o.ignorecase = true
+    vim.o.smartcase = true
+
+    local ok, err = pcall(require("flash").jump)
+
+    vim.o.ignorecase = ignorecase
+    vim.o.smartcase = smartcase
+
+    if not ok then
+        vim.notify(err, vim.log.levels.ERROR)
+    end
 end
 
-vim.keymap.set("n", "s", function() invoke_with_smartcase(require("flash").jump) end, {desc = "Flash"})
-vim.keymap.set("o", "s", function() invoke_with_smartcase(require("flash").jump) end, {desc = "Flash"})
-vim.keymap.set("x", "s", function() invoke_with_smartcase(require("flash").jump) end, {desc = "Flash"})
+vim.keymap.set("n", "s", flash_jump_smartcase, {desc = "Flash"})
+vim.keymap.set("o", "s", flash_jump_smartcase, {desc = "Flash"})
+vim.keymap.set("x", "s", flash_jump_smartcase, {desc = "Flash"})
 
-vim.keymap.set("n", "S", function() invoke_with_smartcase(require("flash").treesitter) end, {desc = "Flash Treesitter"})
-vim.keymap.set("o", "S", function() invoke_with_smartcase(require("flash").treesitter) end, {desc = "Flash Treesitter"})
-vim.keymap.set("x", "S", function() invoke_with_smartcase(require("flash").treesitter) end, {desc = "Flash Treesitter"})
-
-vim.api.nvim_create_autocmd('filetype', {
-  pattern = 'netrw',
-  callback = function()
-    vim.keymap.set("n", "s", function() invoke_with_smartcase(require("flash").jump) end, {remap = true, buffer = true, desc = "Flash"})
-    -- Treesitter map won't work with netrw. Just disable it.
-    vim.keymap.set("n", "S", function() vim.notify("Flash's treesitter is disabled for netrw buffers!") end, {remap = true, buffer = true})
-  end
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function(args)
+        vim.keymap.set("n", "s", flash_jump_smartcase, {
+            buffer = args.buf,
+            desc = "Flash",
+        })
+    end,
 })
