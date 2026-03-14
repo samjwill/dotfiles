@@ -1,32 +1,14 @@
 vim.g.mapleader = " "
 
--- Do this instead of :set ignorecase because * and # should be case-sensitive
+-- Do this instead of :set ignorecase because * and # should remain case-sensitive
 vim.keymap.set("", "/", "/\\c", {})
 vim.keymap.set("", "?", "?\\c", {})
 
 -- "-" to edit directory of current file
-vim.keymap.set("", "-", ":e %:p:h<CR>", {silent=true})
+vim.keymap.set("n", "-", ":e %:p:h<CR>", {silent=true})
 
 -- shift-tab to inverse tab
 vim.keymap.set("i", "<S-Tab>", "<C-d>", {})
-
--- Tab switching
---     Some terminals intercept these keystrokes, so if these mappings don't
---     work, check the terminal settings. For Konsole, unbind everything else
---     associated with these keybindings in Settings>Keyboard Shortcuts and
---     then bind:
---         Backtab+Ctrl+Ansi -> \E[27;6;9~
---         Tab+Ctrl+Ansi     -> \E[27;5;9~
-vim.keymap.set("n", "<C-Tab>",   "<CMD>tabn<CR>",            {})
-vim.keymap.set("c", "<C-Tab>",   "<C-\\><C-N><CMD>tabn<CR>", {})
-vim.keymap.set("i", "<C-Tab>",   "<C-\\><C-N><CMD>tabn<CR>", {})
-vim.keymap.set("t", "<C-Tab>",   "<C-\\><C-N><CMD>tabn<CR>", {})
-vim.keymap.set("v", "<C-Tab>",   "<C-\\><C-N><CMD>tabn<CR>", {})
-vim.keymap.set("n", "<C-S-Tab>", "<CMD>tabp<CR>",            {})
-vim.keymap.set("c", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
-vim.keymap.set("i", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
-vim.keymap.set("t", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
-vim.keymap.set("v", "<C-S-Tab>", "<C-\\><C-N><CMD>tabp<CR>", {})
 
 -- Ctrl-q to send escape key to a terminal buffer
 vim.keymap.set("t", "<C-q>", "<Esc>", {})
