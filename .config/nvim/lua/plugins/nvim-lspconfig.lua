@@ -1,14 +1,13 @@
 return {
     "neovim/nvim-lspconfig",
     config = function()
-        local on_attach_func = function(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-        end
-
-        vim.lsp.config("clangd", {
-            clangd_keymaps, -- Defined in keymaps file.
-            on_attach = on_attach_func
+        vim.api.nvim_create_autocmd("LspAttach", { callback =
+            function(args)
+                vim.api.nvim_set_option_value( "omnifunc", "v:lua.vim.lsp.omnifunc", { buf = args.buf })
+            end,
         })
+
+        vim.lsp.config("clangd", {})
         vim.lsp.enable("clangd")
-    end
+    end,
 }
