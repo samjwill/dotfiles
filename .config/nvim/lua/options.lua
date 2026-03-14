@@ -37,7 +37,7 @@ vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
 
 -- Swap directory
-vim.g.swap_dir = vim.fn.stdpath("data").."/swap"
+vim.g.swap_dir = vim.fn.stdpath("state").."/swap"
 vim.fn.mkdir(vim.g.swap_dir, "p")
 vim.o.directory = vim.g.swap_dir..',.'
 
@@ -73,7 +73,7 @@ vim.g.netrw_banner = 0
 -- Hide . and .. directories.
 vim.g.netrw_list_hide = ""
 vim.g.netrw_list_hide = vim.g.netrw_list_hide.."^\\./"
-vim.g.netrw_list_hide = vim.g.netrw_list_hide..","
+vim.g.netrw_list_hide = vim.g.netrw_list_hide.."," -- Append another
 vim.g.netrw_list_hide = vim.g.netrw_list_hide.."^\\.\\./"
 
 -------------------------------------------------------------------------------
