@@ -1,102 +1,60 @@
 return {
     "mfussenegger/nvim-dap",
-    dependencies = {"rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio"},
     config = function()
         local dap = require("dap")
 
         ------------------------------------------------------------------------
-        -- C++
+        -- Shared DAP params
+        ------------------------------------------------------------------------
+        local bin_path = vim.fn.getcwd() .. "/"
+        local work_dir = vim.fn.getcwd() .. "/"
+        local args = {}
+
+        -- Creates a command that allows for setting DAP parameters
+        vim.api.nvim_create_user_command("DapConfig", function()
+            bin_path = vim.fn.input("Path to executable: ", bin_path, "file")
+            work_dir = vim.fn.input("Path to working directory: ", work_dir, "file")
+            local arg_str = vim.fn.input("Program arguments: ", table.concat(args, " "))
+            args = vim.fn.split(arg_str, " ", true)
+        end, { desc = "Configure DAP launch params" })
+
+        ------------------------------------------------------------------------
+        -- C and C++
         ------------------------------------------------------------------------
         dap.adapters.cppdbg = {
-            id = 'cppdbg',
-            type = 'executable',
+            id = "cppdbg",
+            type = "executable",
             -- Binary location for vscode-cpptools as installed by Mason
-            command = vim.fn.stdpath("data").."/mason/bin/OpenDebugAD7",
+            command = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7",
         }
 
-        -- Debugger params
-        local default_working_dir = vim.fn.getcwd().."/"
-        local default_bin_path = vim.fn.getcwd().."/"
-        local default_argument_string = ""
-
-        -- This is pretty messy. Lua doesn't have classes so I'm not sure how
-        -- much cleaner I can make it with just a table. The idea is to only
-        -- prompt the user to specify these fields if it is the initial run,
-        -- and assume their previous values otherwise. If this is not done, the
-        -- user will be prompted every time debugging is restarted, even by
-        -- clicking the restart button on the DAP UI.
-        -- local work_dir_set = false
-        -- local bin_path_set = false
-        -- local args_set = false
-
-        dap.configurations.cpp = {
+        local cpp_config = {
             {
                 name = "Launch file",
                 type = "cppdbg",
                 request = "launch",
                 program = function()
-                    -- if (work_dir_set and bin_path_set and args_set) then
-                    --     return default_bin_path
-                    -- end
-                    -- Update the default value so that the next time the
-                    -- prompt is done, it's pre-populated with the last entered
-                    -- value.
-                    default_bin_path = vim.fn.input('Path to executable: ', default_bin_path, 'file')
-                    bin_path_set = true
-                    return default_bin_path
+                    return bin_path
                 end,
                 cwd = function()
-                    -- if (work_dir_set and bin_path_set and args_set) then
-                    --     return default_working_dir
-                    -- end
-                    -- Update the default value so that the next time the
-                    -- prompt is done, it's pre-populated with the last entered
-                    -- value.
-                    default_working_dir = vim.fn.input('Path to working directory: ', default_working_dir, 'file')
-                    work_dir_set = true
-                    return default_working_dir
+                    return work_dir
                 end,
                 args = function()
-                    -- if (work_dir_set and bin_path_set and args_set) then
-                    --     return default_argument_string
-                    -- end
-                    -- Update the default value so that the next time the
-                    -- prompt is done, it's pre-populated with the last entered
-                    -- value.
-                    default_argument_string = vim.fn.input('Program arguments: ', default_argument_string)
-                    args_set = true
-                    return vim.fn.split(default_argument_string, " ", true)
+                    return args
                 end,
-                stopAtEntry = true,
+                stopAtEntry = false,
+                -- TODO: Check that the setup commands below work as intended.
                 setupCommands = {
                     {
-                        text = '-enable-pretty-printing',
-                        description =  'enable pretty printing',
-                        ignoreFailures = false
+                        text = "-enable-pretty-printing",
+                        description = "enable pretty printing",
+                        ignoreFailures = false,
                     },
                 },
             },
         }
 
-        ------------------------------------------------------------------------
-        -- DAP UI
-        ------------------------------------------------------------------------
-        require("dapui").setup()
-        local dapui = require("dapui")
-        local function handle_open_debugger()
-            dapui.open()
-        end
-        local function handle_close_debugger()
-            dapui.close()
-
-            -- We now want the user to be prompted.
-            -- work_dir_set = false
-            -- bin_path_set = false
-            -- args_set = false
-        end
-
-        dap.listeners.after.event_initialized["dapui_config"] = function() handle_open_debugger() end
-        dap.listeners.before.event_terminated["dapui_config"] = function() handle_close_debugger() end
-        dap.listeners.before.event_exited["dapui_config"] = function() handle_close_debugger() end
-    end
+        dap.configurations.c = cpp_config
+        dap.configurations.cpp = cpp_config
+    end,
 }
