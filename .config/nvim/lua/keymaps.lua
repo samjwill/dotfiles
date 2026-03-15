@@ -74,15 +74,24 @@ vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Tel
 -------------------------------------------------------------------------------
 local debug_leader = vim.g.mapleader.."d"
 
-vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue"})
-vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
-vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
-vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
 vim.keymap.set("n", debug_leader.."b", "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Add Breakpoint"})
 vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {desc = "Add Conditional Breakpoint"})
 vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", {desc = "Log Point Message"})
-vim.keymap.set("n", debug_leader.."r", "<CMD>lua require('dap').repl.open()<CR>", {desc = "Open REPL Console"})
-vim.keymap.set("n", debug_leader.."l", "<CMD>lua require('dap').run_last()<CR>", {desc = "Run Last"})
+vim.keymap.set("n", debug_leader.."u", "<CMD>lua require('dap').run_to_cursor()<CR>", {desc = "Run to Cursor"})
+vim.keymap.set("n", debug_leader.."w", "<CMD>DapViewWatch<CR>", {desc = "Watch Variable"})
+
+-- This is a custom command defined in the nvim-dap.lua plugin file.
+vim.keymap.set("n", debug_leader.."c", function() vim.cmd.DapConfig() end, { desc = "Configure Debugger Launch Settings" })
+
+vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue/Run"})
+vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
+vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
+vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
+-- Added the below so whichkey shows what the keybinds are too.
+vim.keymap.set("n", debug_leader.."<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue/Run"})
+vim.keymap.set("n", debug_leader.."<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
+vim.keymap.set("n", debug_leader.."<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
+vim.keymap.set("n", debug_leader.."<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
 
 
 -------------------------------------------------------------------------------

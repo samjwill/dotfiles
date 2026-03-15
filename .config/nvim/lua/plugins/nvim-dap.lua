@@ -1,5 +1,13 @@
 return {
     "mfussenegger/nvim-dap",
+    dependencies = {
+        {
+            "igorlfs/nvim-dap-view",
+            opts = {
+                auto_toggle = true,
+            },
+        },
+    },
     config = function()
         local dap = require("dap")
 
