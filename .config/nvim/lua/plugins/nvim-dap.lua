@@ -18,7 +18,6 @@ return {
         local work_dir = vim.fn.getcwd() .. "/"
         local args = {}
 
-        -- Creates a command that allows for setting DAP parameters
         vim.api.nvim_create_user_command("DapConfig", function()
             bin_path = vim.fn.input("Path to executable: ", bin_path, "file")
             work_dir = vim.fn.input("Path to working directory: ", work_dir, "file")
@@ -50,19 +49,37 @@ return {
                 args = function()
                     return args
                 end,
-                stopAtEntry = false,
-                -- TODO: Check that the setup commands below work as intended.
-                setupCommands = {
-                    {
-                        text = "-enable-pretty-printing",
-                        description = "enable pretty printing",
-                        ignoreFailures = false,
-                    },
-                },
             },
         }
 
         dap.configurations.c = cpp_config
         dap.configurations.cpp = cpp_config
+
+        ------------------------------------------------------------------------
+        -- Python (debugpy)
+        ------------------------------------------------------------------------
+        dap.adapters.python = {
+            type = "executable",
+            command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
+            args = { "-m", "debugpy.adapter" },
+        }
+
+        dap.configurations.python = {
+            {
+                name = "Launch file",
+                type = "python",
+                request = "launch",
+                program = function()
+                    return bin_path
+                end,
+                cwd = function()
+                    return work_dir
+                end,
+                args = function()
+                    return args
+                end,
+            },
+        }
     end,
 }
+
