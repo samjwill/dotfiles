@@ -2,10 +2,11 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
         {
-            "igorlfs/nvim-dap-view",
-            opts = {
-                auto_toggle = true,
-            },
+            "rcarriga/nvim-dap-ui",
+            dependencies = { "nvim-neotest/nvim-nio" },
+            config = function()
+                require("dapui").setup()
+            end,
         },
     },
     config = function()

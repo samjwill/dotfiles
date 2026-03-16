@@ -78,10 +78,12 @@ vim.keymap.set("n", debug_leader.."b", "<CMD>lua require('dap').toggle_breakpoin
 vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {desc = "Add Conditional Breakpoint"})
 vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", {desc = "Log Point Message"})
 vim.keymap.set("n", debug_leader.."u", "<CMD>lua require('dap').run_to_cursor()<CR>", {desc = "Run to Cursor"})
-vim.keymap.set("n", debug_leader.."w", "<CMD>DapViewWatch<CR>", {desc = "Watch Variable"})
 
 -- This is a custom command defined in the nvim-dap.lua plugin file.
 vim.keymap.set("n", debug_leader.."c", function() vim.cmd.DapConfig() end, { desc = "Configure Debugger Launch Settings" })
+
+vim.keymap.set("n", debug_leader.."t", "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle DAP UI"})
+vim.keymap.set("n", debug_leader.."w", function() local expr = vim.fn.expand("<cword>") require("dapui").elements.watches.add(expr) end, { desc = "Add watch for <cword>" })
 
 vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue/Run"})
 vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
