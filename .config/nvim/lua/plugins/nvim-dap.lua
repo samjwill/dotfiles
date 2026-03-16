@@ -56,7 +56,7 @@ return {
         dap.configurations.cpp = cpp_config
 
         ------------------------------------------------------------------------
-        -- Python (debugpy)
+        -- Python
         ------------------------------------------------------------------------
         dap.adapters.python = {
             type = "executable",

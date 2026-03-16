@@ -9,7 +9,7 @@
 -- Define a list of packages to install
 -- clangd for LSP
 -- cpptools for dap
-local mason_package_list = { "clangd", "cpptools", "basedpyright", "debugpy"}
+local mason_package_list = {"lua-language-server", "clangd", "cpptools", "basedpyright", "debugpy"}
 
 return {
     "williamboman/mason.nvim",
