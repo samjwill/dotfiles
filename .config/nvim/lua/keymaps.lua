@@ -85,7 +85,7 @@ vim.keymap.set("n", debug_leader.."c", function() vim.cmd.DapConfig() end, { des
 vim.keymap.set("n", debug_leader.."t", "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle DAP UI"})
 vim.keymap.set("n", debug_leader.."w", function() local expr = vim.fn.expand("<cword>") require("dapui").elements.watches.add(expr) end, { desc = "Add watch for <cword>" })
 
-vim.keymap.set("n", "<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue/Run"})
+vim.keymap.set("n", "<F1>", function() require("dapui").open(); require("dap").continue() end, {desc = "Continue/Run"})
 vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
 vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
 vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
