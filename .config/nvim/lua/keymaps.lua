@@ -107,13 +107,13 @@ local function flash_jump_smartcase()
     vim.o.ignorecase = true
     vim.o.smartcase = true
 
-    local ok, err = pcall(require("flash").jump)
+    local ok, result = pcall(require("flash").jump)
 
     vim.o.ignorecase = ignorecase
     vim.o.smartcase = smartcase
 
     if not ok then
-        vim.notify(err, vim.log.levels.ERROR)
+        vim.notify(tostring(result), vim.log.levels.ERROR)
     end
 end
 
@@ -130,3 +130,10 @@ vim.api.nvim_create_autocmd("FileType", {
         })
     end,
 })
+
+-------------------------------------------------------------------------------
+-- Built-in undotree plugin
+-------------------------------------------------------------------------------
+
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open, {desc = "Undotree"})
