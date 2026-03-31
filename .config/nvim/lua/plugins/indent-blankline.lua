@@ -1,41 +1,7 @@
-return {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-        -- -- Uncomment below and add to setup function to use colorful indents.
-        --
-        -- local function get_foreground_color_hex(group_name)
-        --     return vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(group_name)), "fg#")
-        -- end
-        --
-        -- local highlight = {
-        --     "Color1",
-        --     "Color2",
-        --     "Color3",
-        --     "Color4",
-        --     "Color5",
-        --     "Color6",
-        -- }
-        --
-        -- local hooks = require "ibl.hooks"
-        -- -- create the highlight groups in the highlight setup hook, so they are reset
-        -- -- every time the colorscheme changes
-        -- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        --     vim.api.nvim_set_hl(0, "Color1", { fg = get_foreground_color_hex("Identifier") })
-        --     vim.api.nvim_set_hl(0, "Color2", { fg = get_foreground_color_hex("Constant") })
-        --     vim.api.nvim_set_hl(0, "Color3", { fg = get_foreground_color_hex("Type") })
-        --     vim.api.nvim_set_hl(0, "Color4", { fg = get_foreground_color_hex("Label") })
-        --     vim.api.nvim_set_hl(0, "Color5", { fg = get_foreground_color_hex("Error") })
-        --     vim.api.nvim_set_hl(0, "Color6", { fg = get_foreground_color_hex("Number") })
-        -- end)
+vim.pack.add({"https://github.com/lukas-reineke/indent-blankline.nvim"})
 
-        require("ibl").setup({
-            scope = {
-                enabled = false,
-            },
-            indent = {
-                -- -- Uncomment below to use colorful indents defined above.
-                -- highlight = highlight
-            },
-        })
-    end
-}
+require("ibl").setup({
+    scope = {
+        enabled = false,
+    },
+})

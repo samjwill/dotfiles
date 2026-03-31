@@ -1,20 +1,19 @@
--- Automatically install Lazy on startup.
-local lazypath = vim.fn.stdpath("data").."/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "--single-branch",
-        "https://github.com/folke/lazy.nvim.git",
-        lazypath,
-    })
-end
-vim.opt.runtimepath:prepend(lazypath)
+-- Install mason first, since it grabs stuff used by other plugins.
+require("plugins.mason")
 
--- Automatically source all configs in plugins directory.
-require("lazy").setup("plugins", {
-    change_detection = {
-        enabled = false,  -- completely disable the watcher
-    },
-})
+require("plugins.flash")
+require("plugins.gitsigns")
+require("plugins.gruvbox-material")
+require("plugins.indent-blankline")
+require("plugins.lualine")
+require("plugins.mini-completion")
+require("plugins.netrw")
+require("plugins.nvim-dap")
+require("plugins.nvim-lspconfig")
+require("plugins.nvim-treesitter")
+require("plugins.nvim-unception")
+require("plugins.telescope")
+require("plugins.vim-auto-nohlsearch")
+require("plugins.vim-bufdir")
+require("plugins.vim-smoothie")
+require("plugins.which-key")

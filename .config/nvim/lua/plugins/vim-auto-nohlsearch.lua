@@ -1,3 +1,1 @@
-return {
-    "samjwill/vim-auto-nohlsearch"
-}
+vim.pack.add({"https://github.com/samjwill/vim-auto-nohlsearch"})

@@ -1,20 +1,16 @@
-return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
-        -- TODO: May be worth investigating moving keymaps themselves to this file.
-        require("which-key").add({
-            { "<leader>l", group = "Language Server" },
-            { "<leader>c", group = "Command Line" },
-            { "<leader>t", group = "Telescope" },
-            { "<leader>d", group = "Debugger" },
-        })
-    end,
+vim.pack.add({"https://github.com/folke/which-key.nvim"})
 
-    opts = {
-        preset = "helix",
-    }
-}
+require("which-key").setup({
+    preset = "helix",
+})
+
+-- TODO: May be worth investigating moving keymaps themselves to this file.
+require("which-key").add({
+    { "<leader>l", group = "Language Server" },
+    { "<leader>c", group = "Command Line" },
+    { "<leader>t", group = "Telescope" },
+    { "<leader>d", group = "Debugger" },
+})

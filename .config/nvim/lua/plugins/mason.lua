@@ -6,26 +6,22 @@
 -- * tar or gtar
 -- * gzip
 
--- Define a list of packages to install
--- clangd for LSP
--- cpptools for dap
-local mason_package_list = {"lua-language-server", "clangd", "cpptools", "basedpyright", "debugpy"}
+vim.pack.add(
+    {
+        "https://github.com/mason-org/mason.nvim",
+        "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+    {
+        load = true,
+    }
+)
 
-return {
-    "williamboman/mason.nvim",
+require("mason").setup()
+require("mason-tool-installer").setup({
+    ensure_installed = {"lua-language-server", "clangd", "cpptools", "basedpyright", "debugpy", "tree-sitter-cli"},
+    run_on_start = false,
+})
 
-    -- "build" is executed when a plugin is installed or updated.
-    build = function()
-        vim.g.mason_run_install_post_build = true
-    end,
-
-    -- "config" is executed when the plugin loads.
-    config = function()
-        require("mason").setup()
-        if vim.g.mason_run_install_post_build then
-            vim.schedule(function()
-                vim.cmd("MasonInstall " .. table.concat(mason_package_list, " "))
-            end)
-        end
-    end
-}
+-- TODO: This is not great since it blocks the GUI temporarily.
+-- Install synchronously
+vim.cmd("MasonToolsInstallSync")

@@ -1,3 +1,1 @@
-return {
-    "psliwka/vim-smoothie"
-}
+vim.pack.add({"https://github.com/psliwka/vim-smoothie"})
