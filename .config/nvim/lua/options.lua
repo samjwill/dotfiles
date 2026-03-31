@@ -7,6 +7,7 @@ vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.equalalways = false
 vim.opt.fileformats = "unix,dos,mac"
+vim.opt.foldenable = false
 vim.opt.hidden = false
 vim.opt.laststatus=3
 vim.opt.mouse = "a"

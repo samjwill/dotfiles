@@ -137,3 +137,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.cmd("packadd nvim.undotree")
 vim.keymap.set("n", "<leader>u", require("undotree").open, {desc = "Undotree"})
+-- TODO: Figure out why this plugin always folds regardless of setting.
