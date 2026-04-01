@@ -148,7 +148,3 @@ if (command -v nvim >/dev/null 2>&1) && (command -v man >/dev/null 2>&1); then
     }
 fi
 
-# # Experimenting with making the Neovim terminal emulator open automatically.
-# if ((command -v nvim >/dev/null 2>&1) && [[ -z $NVIM ]]); then
-#     nvim -c ":terminal" -c ":startinsert"
-# fi
