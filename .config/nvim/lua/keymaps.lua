@@ -99,7 +99,6 @@ vim.keymap.set("n", debug_leader.."<F4>", "<CMD>lua require('dap').step_out()<CR
 -------------------------------------------------------------------------------
 -- Flash Plugin
 -------------------------------------------------------------------------------
-
 local function flash_jump_smartcase()
     local ignorecase = vim.o.ignorecase
     local smartcase = vim.o.smartcase
@@ -134,7 +133,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -------------------------------------------------------------------------------
 -- Built-in Undotree Plugin
 -------------------------------------------------------------------------------
-
 vim.cmd("packadd nvim.undotree")
 local function open_undotree()
     require("undotree").open()
