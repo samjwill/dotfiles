@@ -132,9 +132,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -------------------------------------------------------------------------------
--- Built-in undotree plugin
+-- Built-in Undotree Plugin
 -------------------------------------------------------------------------------
 
 vim.cmd("packadd nvim.undotree")
-vim.keymap.set("n", "<leader>u", require("undotree").open, {desc = "Undotree"})
--- TODO: Figure out why this plugin always folds regardless of setting.
+local function open_undotree()
+    require("undotree").open()
+    vim.opt_local.foldenable = false -- If not set, folds by default
+end
+vim.keymap.set("n", "<leader>u", open_undotree, {desc = "Undotree"})
