@@ -10,7 +10,7 @@ if vim.fn.executable("tree-sitter") == 0 then
     vim.notify("Missing external dependency for treesitter: tree-sitter-cli", vim.log.levels.ERROR)
 end
 
-if not vim.env.CC or vim.env.CC == "" then
+if vim.fn.executable("cc") == 0 then
     vim.notify("Missing external dependency for treesitter: $CC is not set", vim.log.levels.ERROR)
 end
 
