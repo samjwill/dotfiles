@@ -48,22 +48,10 @@ if (1 == vim.fn.executable("rg")) then
     vim.opt.grepformat:prepend{"%f:%l:%c:%m"}
 end
 
--- Diagnostic configuration
 vim.diagnostic.config
 {
     -- Enable inline warnings and error messages
     virtual_lines = { current_line = true },
-    -- Match lualine
-    -- https://github.com/nvim-lualine/lualine.nvim/blob/2e2284db88f6e282b96c9c65e66897093ab4f705/lua/lualine/components/diagnostics/config.lua#L7-L12
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚',
-            [vim.diagnostic.severity.WARN] = '󰀪',
-            [vim.diagnostic.severity.INFO] = '󰋽',
-            [vim.diagnostic.severity.HINT] = '󰌶',
-        }
-    }
-
 }
 
 -------------------------------------------------------------------------------
