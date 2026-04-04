@@ -18,7 +18,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 999999 -- Leave unfolded by default.
 vim.opt.foldmethod = "expr"
 
-vim.pack.add({"nvim-treesitter/nvim-treesitter"})
+vim.pack.add({"https://github.com/nvim-treesitter/nvim-treesitter"})
 
 require("nvim-treesitter").install({
     "bash",
