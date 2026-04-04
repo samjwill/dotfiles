@@ -32,6 +32,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.clue": {
+      "rev": "f8a11789cf34a7bae396dc0f828d06cdb5066793",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
     "mini.completion": {
       "rev": "4f94cafdeef02bf3ef9997cd6862658801caa22c",
       "src": "https://github.com/echasnovski/mini.completion"

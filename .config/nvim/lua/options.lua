@@ -16,6 +16,7 @@ vim.opt.showmode = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
+vim.opt.timeout = false
 vim.opt.undofile = true
 vim.opt.winbar= "%t" -- filename without path
 vim.opt.wrap = false

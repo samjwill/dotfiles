@@ -37,8 +37,6 @@ vim.keymap.set('n', lsp_leader..'q', function() vim.diagnostic.setloclist()     
 vim.keymap.set('n', lsp_leader..'s', function() vim.lsp.buf.rename()                                end, {desc = "Rename"})
 vim.keymap.set('n', lsp_leader..'t', function() require("telescope.builtin").lsp_type_definitions() end, {desc = "Type Definition"})
 
-clangd_keymaps = vim.keymap.set('n', lsp_leader..'a', '<CMD>LspClangdSwitchSourceHeader<CR>', {desc = "Switch to Source/Header"})
-
 
 -------------------------------------------------------------------------------
 -- Bufdir Plugin
