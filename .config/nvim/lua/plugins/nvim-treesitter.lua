@@ -22,7 +22,6 @@ vim.pack.add({"nvim-treesitter/nvim-treesitter"})
 
 require("nvim-treesitter").install({
     "bash",
-    "c",
     "c_sharp",
     "cmake",
     "comment",
@@ -43,10 +42,7 @@ require("nvim-treesitter").install({
     "javascript",
     "json",
     "julia",
-    "lua",
     "make",
-    "markdown",
-    "markdown_inline",
     "ninja",
     "perl",
     "python",
@@ -57,7 +53,6 @@ require("nvim-treesitter").install({
     "toml",
     "typescript",
     "typst",
-    "vim",
     "xml",
     "yaml",
 })
