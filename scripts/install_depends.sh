@@ -27,11 +27,3 @@ else
     echo "Unsupported package manager"
     exit 1
 fi
-
-# Install nerd font to fonts directory in home folder.
-curl -fLo /tmp/Hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip && \
-    mkdir -p ~/.local/share/fonts/ && \
-    unzip -o /tmp/Hack.zip -d ~/.local/share/fonts/ && \
-    rm /tmp/Hack.zip && \
-    echo "Success!"
-
