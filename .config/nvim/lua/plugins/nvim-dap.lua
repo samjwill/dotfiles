@@ -4,7 +4,28 @@ vim.pack.add({
     "https://github.com/rcarriga/nvim-dap-ui",
 })
 
-require("dapui").setup()
+---@diagnostic disable: missing-fields
+require("dapui").setup({
+    controls = {
+        icons = {
+            disconnect = "DC",
+            pause = "Pause",
+            play = "Play",
+            run_last = "Run-Last",
+            step_back = "Step-Back",
+            step_into = "Step-Into",
+            step_out = "Step-Out",
+            step_over = "Step-Over",
+            terminate = "Kill"
+        }
+    },
+    icons = {
+        collapsed = "Collapsed",
+        current_frame = "Current-Frame",
+        expanded = "Expanded"
+    },
+})
+---@diagnostic enable: missing-fields
 local dap = require("dap")
 
 ------------------------------------------------------------------------
