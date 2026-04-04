@@ -16,3 +16,4 @@ require("plugins.telescope")
 require("plugins.vim-auto-nohlsearch")
 require("plugins.vim-bufdir")
 require("plugins.vim-smoothie")
+

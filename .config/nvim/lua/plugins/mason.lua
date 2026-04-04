@@ -38,3 +38,4 @@ require("mason-tool-installer").setup({
 -- TODO: This is not great since it blocks the GUI temporarily.
 -- Install synchronously
 vim.cmd("MasonToolsInstallSync")
+

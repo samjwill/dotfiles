@@ -45,3 +45,4 @@ miniclue.setup({
         miniclue.gen_clues.z(),
     },
 })
+

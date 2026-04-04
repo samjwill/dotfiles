@@ -137,3 +137,4 @@ local function open_undotree()
     vim.opt_local.foldenable = false -- If not set, folds by default
 end
 vim.keymap.set("n", "<leader>u", open_undotree, {desc = "Undotree"})
+

@@ -7,7 +7,7 @@ vim.pack.add({"https://github.com/sainnhe/gruvbox-material"})
 
 -- Apply custom highlights on colorscheme change.
 -- Must be declared before executing ':colorscheme'.
-grpid = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {})
+local grpid = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {})
 vim.api.nvim_create_autocmd('ColorScheme', {
     group = grpid,
     pattern = 'gruvbox-material',
@@ -23,3 +23,4 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 })
 vim.g.gruvbox_material_foreground='original'
 vim.cmd('colorscheme gruvbox-material')
+

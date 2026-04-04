@@ -65,3 +65,4 @@ vim.g.netrw_list_hide = ""
 vim.g.netrw_list_hide = vim.g.netrw_list_hide.."^\\./"
 vim.g.netrw_list_hide = vim.g.netrw_list_hide.."," -- Append another
 vim.g.netrw_list_hide = vim.g.netrw_list_hide.."^\\.\\./"
+
