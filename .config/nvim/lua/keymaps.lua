@@ -101,16 +101,16 @@ vim.keymap.set("n", debug_leader.."<F4>", "<CMD>lua require('dap').step_out()<CR
 -- Flash Plugin
 -------------------------------------------------------------------------------
 local function flash_jump_smartcase()
-    local ignorecase = vim.o.ignorecase
-    local smartcase = vim.o.smartcase
+    local ignorecase = vim.opt.ignorecase
+    local smartcase = vim.opt.smartcase
 
-    vim.o.ignorecase = true
-    vim.o.smartcase = true
+    vim.opt.ignorecase = true
+    vim.opt.smartcase = true
 
     local ok, result = pcall(require("flash").jump)
 
-    vim.o.ignorecase = ignorecase
-    vim.o.smartcase = smartcase
+    vim.opt.ignorecase = ignorecase
+    vim.opt.smartcase = smartcase
 
     if not ok then
         vim.notify(tostring(result), vim.log.levels.ERROR)
