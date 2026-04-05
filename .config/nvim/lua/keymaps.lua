@@ -17,6 +17,9 @@ vim.keymap.set("t", "<C-q>", "<Esc>", {})
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 
 
+-- TODO: Consider adding incremental selection keymap.
+-- https://pawelgrzybek.com/nvim-incremental-selection/#update-20260309
+
 -------------------------------------------------------------------------------
 -- LSP Plugin
 -------------------------------------------------------------------------------
