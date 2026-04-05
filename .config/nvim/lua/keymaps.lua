@@ -43,14 +43,14 @@ vim.keymap.set('n', lsp_leader..'t', function() require("telescope.builtin").lsp
 -------------------------------------------------------------------------------
 local command_line_leader = vim.g.mapleader.."c"
 
-vim.keymap.set("", command_line_leader.."c", "<CMD>Bufdir terminal<CR>i", {desc = "Open Terminal in Focused Buffer's Directory"})
-vim.keymap.set("", command_line_leader.."C", "<CMD>terminal<CR>i", {desc = "Open Terminal"})
-vim.keymap.set("", command_line_leader.."s", "<CMD>split | Bufdir terminal<CR>i", {desc = "Split Terminal in Focused Buffer's Directory"})
-vim.keymap.set("", command_line_leader.."S", "<CMD>split | terminal<CR>i", {desc = "Split Terminal"})
-vim.keymap.set("", command_line_leader.."v", "<CMD>vsplit | Bufdir terminal<CR>i", {desc = "VSplit Terminal in Focused Buffer's Directory"})
-vim.keymap.set("", command_line_leader.."V", "<CMD>vsplit | terminal<CR>i", {desc = "VSplit Terminal"})
+vim.keymap.set("", command_line_leader.."c", "<CMD>Bufdir terminal<CR>i",             {desc = "Open Terminal in Focused Buffer's Directory"})
+vim.keymap.set("", command_line_leader.."C", "<CMD>terminal<CR>i",                    {desc = "Open Terminal"})
+vim.keymap.set("", command_line_leader.."s", "<CMD>split | Bufdir terminal<CR>i",     {desc = "Split Terminal in Focused Buffer's Directory"})
+vim.keymap.set("", command_line_leader.."S", "<CMD>split | terminal<CR>i",            {desc = "Split Terminal"})
+vim.keymap.set("", command_line_leader.."v", "<CMD>vsplit | Bufdir terminal<CR>i",    {desc = "VSplit Terminal in Focused Buffer's Directory"})
+vim.keymap.set("", command_line_leader.."V", "<CMD>vsplit | terminal<CR>i",           {desc = "VSplit Terminal"})
 vim.keymap.set("", command_line_leader.."t", "<CMD>tab split | Bufdir terminal<CR>i", {desc = "Tabnew Terminal in Focused Buffer's Directory"})
-vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i", {desc = "Tabnew Terminal"})
+vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i",           {desc = "Tabnew Terminal"})
 
 
 -------------------------------------------------------------------------------
@@ -59,12 +59,12 @@ vim.keymap.set("", command_line_leader.."T", "<CMD>tabnew | terminal<CR>i", {des
 local telescope_leader = vim.g.mapleader.."t"
 
 vim.keymap.set("", telescope_leader.."/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", {desc = "Search Current Buffer"})
-vim.keymap.set("", telescope_leader.."\"", "<CMD>Telescope registers<CR>", {desc = "Registers"})
-vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>", {desc = "Find Files"})
-vim.keymap.set("", telescope_leader.."g", "<CMD>Telescope git_files<CR>", {desc = "Find Tracked Git Files"})
-vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>", {desc = "Live Grep Files"})
-vim.keymap.set("", telescope_leader.."q", "<CMD>Telescope quickfix<CR>", {desc = "Quickfix"})
-vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Telescope Options"})
+vim.keymap.set("", telescope_leader.."\"", "<CMD>Telescope registers<CR>",                {desc = "Registers"})
+vim.keymap.set("", telescope_leader.."f", "<CMD>Telescope find_files<CR>",                {desc = "Find Files"})
+vim.keymap.set("", telescope_leader.."g", "<CMD>Telescope git_files<CR>",                 {desc = "Find Tracked Git Files"})
+vim.keymap.set("", telescope_leader.."l", "<CMD>Telescope live_grep<CR>",                 {desc = "Live Grep Files"})
+vim.keymap.set("", telescope_leader.."q", "<CMD>Telescope quickfix<CR>",                  {desc = "Quickfix"})
+vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>",                           {desc = "All Telescope Options"})
 
 
 -------------------------------------------------------------------------------pcall
@@ -72,26 +72,26 @@ vim.keymap.set("", telescope_leader.."t", "<CMD>Telescope<CR>", {desc = "All Tel
 -------------------------------------------------------------------------------
 local debug_leader = vim.g.mapleader.."d"
 
-vim.keymap.set("n", debug_leader.."b", "<CMD>lua require('dap').toggle_breakpoint()<CR>", {desc = "Add Breakpoint"})
-vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {desc = "Add Conditional Breakpoint"})
+vim.keymap.set("n", debug_leader.."b", "<CMD>lua require('dap').toggle_breakpoint()<CR>",                                           {desc = "Add Breakpoint"})
+vim.keymap.set("n", debug_leader.."B", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",        {desc = "Add Conditional Breakpoint"})
 vim.keymap.set("n", debug_leader.."p", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", {desc = "Log Point Message"})
-vim.keymap.set("n", debug_leader.."u", "<CMD>lua require('dap').run_to_cursor()<CR>", {desc = "Run to Cursor"})
+vim.keymap.set("n", debug_leader.."u", "<CMD>lua require('dap').run_to_cursor()<CR>",                                               {desc = "Run to Cursor"})
 
 -- This is a custom command defined in the nvim-dap.lua plugin file.
-vim.keymap.set("n", debug_leader.."c", function() vim.cmd.DapConfig() end, { desc = "Configure Debugger Launch Settings" })
+vim.keymap.set("n", debug_leader.."c", function() vim.cmd.DapConfig() end, {desc = "Configure Debugger Launch Settings" })
 
-vim.keymap.set("n", debug_leader.."t", "<CMD>lua require('dapui').toggle()<CR>", {desc = "Toggle DAP UI"})
-vim.keymap.set("n", debug_leader.."w", function() local expr = vim.fn.expand("<cword>") require("dapui").elements.watches.add(expr) end, { desc = "Add watch for <cword>" })
+vim.keymap.set("n", debug_leader.."t", "<CMD>lua require('dapui').toggle()<CR>",                                                         {desc = "Toggle DAP UI"})
+vim.keymap.set("n", debug_leader.."w", function() local expr = vim.fn.expand("<cword>") require("dapui").elements.watches.add(expr) end, {desc = "Add watch for <cword>" })
 
 vim.keymap.set("n", "<F1>", function() require("dapui").open(); require("dap").continue() end, {desc = "Continue/Run"})
-vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
-vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
-vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
+vim.keymap.set("n", "<F2>", "<CMD>lua require('dap').step_into()<CR>",                         {desc = "Step Into"})
+vim.keymap.set("n", "<F3>", "<CMD>lua require('dap').step_over()<CR>",                         {desc = "Step Over"})
+vim.keymap.set("n", "<F4>", "<CMD>lua require('dap').step_out()<CR>",                          {desc = "Step Out"})
 -- Added the below so whichkey shows what the keybinds are too.
-vim.keymap.set("n", debug_leader.."<F1>", "<CMD>lua require('dap').continue()<CR>", {desc = "Continue/Run"})
+vim.keymap.set("n", debug_leader.."<F1>", "<CMD>lua require('dap').continue()<CR>",  {desc = "Continue/Run"})
 vim.keymap.set("n", debug_leader.."<F2>", "<CMD>lua require('dap').step_into()<CR>", {desc = "Step Into"})
 vim.keymap.set("n", debug_leader.."<F3>", "<CMD>lua require('dap').step_over()<CR>", {desc = "Step Over"})
-vim.keymap.set("n", debug_leader.."<F4>", "<CMD>lua require('dap').step_out()<CR>", {desc = "Step Out"})
+vim.keymap.set("n", debug_leader.."<F4>", "<CMD>lua require('dap').step_out()<CR>",  {desc = "Step Out"})
 
 
 -------------------------------------------------------------------------------

@@ -10,6 +10,9 @@ require("flash").setup{
             label = "Error",
         },
     },
+    prompt = {
+        prefix = { { ">", "FlashPromptIcon" } },
+    },
     modes = {
         search = {
             enabled = false,
