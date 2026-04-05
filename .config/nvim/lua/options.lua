@@ -21,6 +21,11 @@ vim.opt.undofile = true
 vim.opt.winbar= "%t" -- filename without path
 vim.opt.wrap = false
 
+-- Autocomplete
+vim.opt.autocomplete = true
+vim.opt.complete = "o"
+vim.opt.completeopt = "menuone,noselect,popup"
+
 -- Formatting Marks
 vim.opt.list = true
 vim.opt.listchars = {precedes = "<", extends = ">", tab = "  ", trail = "_"}
