@@ -22,9 +22,15 @@ vim.opt.winbar= "%t" -- filename without path
 vim.opt.wrap = false
 
 -- Autocomplete
-vim.opt.autocomplete = true
-vim.opt.complete = "o"
-vim.opt.completeopt = "menuone,noselect,popup"
+-- vim.opt.autocomplete = true
+-- vim.opt.complete = "o"
+-- vim.opt.completeopt = "menuone,noselect,popup"
+
+-- TODO: Replace with above?
+vim.pack.add({"https://github.com/echasnovski/mini.completion"})
+require('mini.completion').setup{
+    fallback_action = function() end -- None. Only auto-complete with LSP.
+}
 
 -- Formatting Marks
 vim.opt.list = true
