@@ -11,7 +11,7 @@ require("flash").setup{
         },
     },
     prompt = {
-        prefix = { { ">", "FlashPromptIcon" } },
+        prefix = { { "", "FlashPromptIcon" } },
     },
     modes = {
         search = {
